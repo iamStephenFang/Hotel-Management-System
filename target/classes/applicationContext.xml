@@ -9,17 +9,6 @@
 <!--    <context:property-placeholder location="classpath:database.properties"/>-->
     <context:property-placeholder location="classpath:mariadb.properties"/>
     <!--配置数据源-->
-    <!--Mysql数据库配置-->
-<!--    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">-->
-<!--        <property name="driverClass" value="${c3p0.driverClass}"/>-->
-<!--        <property name="jdbcUrl" value="${c3p0.jdbcUrl}"/>-->
-<!--        <property name="user" value="${c3p0.user}"/>-->
-<!--        <property name="password" value="${c3p0.password}"/>-->
-<!--        <property name="maxPoolSize" value="${c3p0.maxPoolSize}"/>-->
-<!--        <property name="minPoolSize" value="${c3p0.minPoolSize}"/>-->
-<!--        <property name="maxIdleTime" value="${c3p0.maxIdleTime}"/>-->
-<!--    </bean>-->
-
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="${c3p0.driverClass}"/>
         <property name="jdbcUrl" value="${c3p0.jdbcUrl}"/>

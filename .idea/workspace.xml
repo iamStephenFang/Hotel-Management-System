@@ -7,445 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36f80cf6-b481-4871-ad2e-072c95c6c982" name="Default Changelist" comment="Commit first version">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zjut/action/WaiterAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zjut/dao/WaiterMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zjut/dao/WaiterMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zjut/po/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zjut/po/CheckCustomer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zjut/po/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zjut/po/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zjut/po/Register.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zjut/po/Room.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zjut/po/RoomOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zjut/po/RoomOrderPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zjut/po/RoomType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zjut/po/Waiter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zjut/service/IWaiterService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/zjut/service/WaiterService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/struts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/api/clear.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/api/init.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/api/menus.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/api/table.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/api/tableSelect.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/api/upload.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/layuimini.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/public.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/captcha.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/donate_qrcode.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/lay-config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/lay-module/echarts/echarts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/lay-module/echarts/echartsTheme.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/lay-module/iconPicker/iconPickerFa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/lay-module/layuimini/layuimini.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/lay-module/step-lay/step.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/lay-module/step-lay/step.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/lay-module/tableSelect/tableSelect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/lay-module/treetable-lay/treetable.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/lay-module/treetable-lay/treetable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/lay-module/wangEditor/fonts/w-e-icon.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/lay-module/wangEditor/wangEditor.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/lay-module/wangEditor/wangEditor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/lay-module/wangEditor/wangEditor.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/lay-module/wangEditor/wangEditor.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/lay-module/wangEditor/wangEditor.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/HELP-US-OUT.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/css/font-awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/less/animated.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/less/bordered-pulled.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/less/core.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/less/fixed-width.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/less/font-awesome.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/less/icons.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/less/larger.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/less/list.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/less/mixins.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/less/path.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/less/rotated-flipped.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/less/screen-reader.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/less/stacked.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/less/variables.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/scss/_animated.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/scss/_bordered-pulled.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/scss/_core.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/scss/_fixed-width.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/scss/_icons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/scss/_larger.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/scss/_list.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/scss/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/scss/_path.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/scss/_rotated-flipped.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/scss/_screen-reader.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/scss/_stacked.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/scss/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/font-awesome-4.7.0/scss/font-awesome.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jq-module/jquery.particleground.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jq-module/paigusu.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jq-module/zyupload/zyupload-1.0.0.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jq-module/zyupload/zyupload-1.0.0.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/jquery-3.4.1/jquery-3.4.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/css/layui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/css/layui.mobile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/css/modules/code.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/css/modules/laydate/default/laydate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/css/modules/layer/default/icon-ext.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/css/modules/layer/default/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/css/modules/layer/default/layer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/css/modules/layer/default/loading-0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/css/modules/layer/default/loading-1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/css/modules/layer/default/loading-2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/font/iconfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/font/iconfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/font/iconfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/font/iconfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/font/iconfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/10.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/11.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/12.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/13.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/14.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/15.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/16.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/17.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/18.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/19.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/20.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/21.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/22.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/23.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/24.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/25.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/26.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/27.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/28.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/29.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/3.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/30.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/31.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/33.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/34.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/35.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/36.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/37.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/38.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/39.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/4.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/40.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/41.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/42.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/43.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/44.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/45.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/46.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/47.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/48.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/49.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/5.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/50.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/51.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/52.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/53.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/54.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/55.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/56.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/57.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/58.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/59.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/6.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/60.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/61.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/62.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/63.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/64.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/65.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/66.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/67.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/68.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/69.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/7.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/70.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/71.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/8.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/images/face/9.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/carousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/code.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/colorpicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/element.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/flow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/laydate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/layedit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/layer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/laypage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/laytpl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/mobile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/rate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/slider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/table.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/transfer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/tree.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/upload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/lay/modules/util.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/layui.all.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/lib/layui-v2.5.4/layui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/button.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/color-select.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/editor.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/form-step.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/icon-picker.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/icon.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/layer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/login-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/login-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/menu.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/setting.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/table-select.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/table.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/upload.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/user-password.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/user-setting.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/welcome-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/page/welcome-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/edu/zjut/dao/WaiterMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/database.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mariadb.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/struts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/WEB-INF/classes/META-INF/hotel-management.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/WEB-INF/classes/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/WEB-INF/classes/cn/edu/zjut/dao/WaiterMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/WEB-INF/classes/database.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/WEB-INF/classes/mariadb.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/WEB-INF/classes/struts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/api/clear.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/api/init.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/api/menus.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/api/table.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/api/tableSelect.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/api/upload.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/css/layuimini.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/css/public.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/images/bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/images/captcha.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/images/donate_qrcode.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/images/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/images/home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/js/lay-config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/js/lay-module/echarts/echarts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/js/lay-module/echarts/echartsTheme.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/js/lay-module/iconPicker/iconPickerFa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/js/lay-module/layuimini/layuimini.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/js/lay-module/step-lay/step.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/js/lay-module/step-lay/step.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/js/lay-module/tableSelect/tableSelect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/js/lay-module/treetable-lay/treetable.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/js/lay-module/treetable-lay/treetable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/js/lay-module/wangEditor/fonts/w-e-icon.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/js/lay-module/wangEditor/wangEditor.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/js/lay-module/wangEditor/wangEditor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/js/lay-module/wangEditor/wangEditor.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/js/lay-module/wangEditor/wangEditor.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/js/lay-module/wangEditor/wangEditor.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/HELP-US-OUT.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/css/font-awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/less/animated.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/less/bordered-pulled.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/less/core.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/less/fixed-width.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/less/font-awesome.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/less/icons.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/less/larger.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/less/list.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/less/mixins.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/less/path.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/less/rotated-flipped.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/less/screen-reader.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/less/stacked.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/less/variables.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/scss/_animated.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/scss/_bordered-pulled.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/scss/_core.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/scss/_fixed-width.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/scss/_icons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/scss/_larger.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/scss/_list.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/scss/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/scss/_path.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/scss/_rotated-flipped.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/scss/_screen-reader.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/scss/_stacked.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/scss/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/font-awesome-4.7.0/scss/font-awesome.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/jq-module/jquery.particleground.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/jq-module/paigusu.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/jq-module/zyupload/zyupload-1.0.0.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/jq-module/zyupload/zyupload-1.0.0.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/jquery-3.4.1/jquery-3.4.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/css/layui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/css/layui.mobile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/css/modules/code.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/css/modules/laydate/default/laydate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/css/modules/layer/default/icon-ext.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/css/modules/layer/default/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/css/modules/layer/default/layer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/css/modules/layer/default/loading-0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/css/modules/layer/default/loading-1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/css/modules/layer/default/loading-2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/font/iconfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/font/iconfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/font/iconfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/font/iconfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/font/iconfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/10.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/11.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/12.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/13.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/14.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/15.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/16.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/17.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/18.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/19.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/20.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/21.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/22.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/23.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/24.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/25.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/26.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/27.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/28.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/29.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/3.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/30.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/31.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/33.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/34.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/35.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/36.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/37.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/38.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/39.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/4.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/40.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/41.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/42.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/43.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/44.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/45.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/46.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/47.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/48.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/49.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/5.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/50.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/51.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/52.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/53.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/54.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/55.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/56.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/57.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/58.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/59.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/6.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/60.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/61.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/62.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/63.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/64.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/65.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/66.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/67.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/68.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/69.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/7.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/70.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/71.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/8.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/images/face/9.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/carousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/code.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/colorpicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/element.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/flow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/laydate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/layedit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/layer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/laypage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/laytpl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/mobile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/rate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/slider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/table.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/transfer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/tree.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/upload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/lay/modules/util.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/layui.all.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/lib/layui-v2.5.4/layui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/button.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/color-select.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/editor.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/form-step.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/icon-picker.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/icon.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/layer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/login-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/login-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/menu.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/setting.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/table-select.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/table.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/upload.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/user-password.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/user-setting.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/welcome-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/hotel-management/page/welcome-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/applicationContext.xml" afterDir="false" />
+    </list>
+    <list id="214ddb2e-92dd-4855-96af-4f88299e3708" name="Revert &quot;Initial commit&quot;" comment="Revert &quot;Initial commit&quot;&#10;&#10;This reverts commit b47b4c7c">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -545,7 +113,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
+    <property name="settings.editor.selected.configurable" value="vcs.Perforce" />
   </component>
   <component name="RunManager">
     <configuration name="Tomcat " type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat " ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
@@ -668,7 +236,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1575854471723</updated>
-      <workItem from="1575854476406" duration="2015000" />
+      <workItem from="1575854476406" duration="2492000" />
     </task>
     <task id="LOCAL-00001" summary="Commit first version">
       <created>1575856515161</created>
@@ -677,73 +245,115 @@
       <option name="project" value="LOCAL" />
       <updated>1575856515161</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Commit first version">
+      <created>1575856749651</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575856749651</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Commit first version" />
     <option name="LAST_COMMIT_MESSAGE" value="Commit first version" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="832" y="240" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575855877567">
+    <state x="598" y="282" key="#Deployment" timestamp="1575856740092">
       <screen x="0" y="23" width="1920" height="1129" />
     </state>
-    <state x="832" y="240" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1920.1129@0.23.1920.1129" timestamp="1575855877567" />
-    <state x="521" y="219" key="CommitChangelistDialog2" timestamp="1575856686208">
+    <state x="598" y="282" key="#Deployment/0.23.1920.1129@0.23.1920.1129" timestamp="1575856740092" />
+    <state x="832" y="240" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575857141026">
       <screen x="0" y="23" width="1920" height="1129" />
     </state>
-    <state x="521" y="219" key="CommitChangelistDialog2/0.23.1920.1129@0.23.1920.1129" timestamp="1575856686208" />
-    <state width="1056" height="290" key="GridCell.Tab.0.bottom" timestamp="1575856686386">
+    <state x="832" y="240" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1920.1129@0.23.1920.1129" timestamp="1575857141026" />
+    <state x="521" y="219" key="CommitChangelistDialog2" timestamp="1575857136405">
       <screen x="0" y="23" width="1920" height="1129" />
     </state>
-    <state width="1056" height="290" key="GridCell.Tab.0.bottom/0.23.1920.1129@0.23.1920.1129" timestamp="1575856686386" />
-    <state width="1056" height="290" key="GridCell.Tab.0.center" timestamp="1575856686385">
+    <state x="521" y="219" key="CommitChangelistDialog2/0.23.1920.1129@0.23.1920.1129" timestamp="1575857136405" />
+    <state width="1056" height="290" key="GridCell.Tab.0.bottom" timestamp="1575857164866">
       <screen x="0" y="23" width="1920" height="1129" />
     </state>
-    <state width="1056" height="290" key="GridCell.Tab.0.center/0.23.1920.1129@0.23.1920.1129" timestamp="1575856686385" />
-    <state width="1056" height="290" key="GridCell.Tab.0.left" timestamp="1575856686385">
+    <state width="1056" height="290" key="GridCell.Tab.0.bottom/0.23.1920.1129@0.23.1920.1129" timestamp="1575857164866" />
+    <state width="1056" height="290" key="GridCell.Tab.0.center" timestamp="1575857164866">
       <screen x="0" y="23" width="1920" height="1129" />
     </state>
-    <state width="1056" height="290" key="GridCell.Tab.0.left/0.23.1920.1129@0.23.1920.1129" timestamp="1575856686385" />
-    <state width="1056" height="290" key="GridCell.Tab.0.right" timestamp="1575856686386">
+    <state width="1056" height="290" key="GridCell.Tab.0.center/0.23.1920.1129@0.23.1920.1129" timestamp="1575857164866" />
+    <state width="1056" height="290" key="GridCell.Tab.0.left" timestamp="1575857164865">
       <screen x="0" y="23" width="1920" height="1129" />
     </state>
-    <state width="1056" height="290" key="GridCell.Tab.0.right/0.23.1920.1129@0.23.1920.1129" timestamp="1575856686386" />
-    <state width="1077" height="291" key="GridCell.Tab.1.bottom" timestamp="1575856333279">
+    <state width="1056" height="290" key="GridCell.Tab.0.left/0.23.1920.1129@0.23.1920.1129" timestamp="1575857164865" />
+    <state width="1056" height="290" key="GridCell.Tab.0.right" timestamp="1575857164866">
       <screen x="0" y="23" width="1920" height="1129" />
     </state>
-    <state width="1077" height="291" key="GridCell.Tab.1.bottom/0.23.1920.1129@0.23.1920.1129" timestamp="1575856333279" />
-    <state width="1077" height="291" key="GridCell.Tab.1.center" timestamp="1575856333278">
+    <state width="1056" height="290" key="GridCell.Tab.0.right/0.23.1920.1129@0.23.1920.1129" timestamp="1575857164866" />
+    <state width="1056" height="290" key="GridCell.Tab.1.bottom" timestamp="1575857164867">
       <screen x="0" y="23" width="1920" height="1129" />
     </state>
-    <state width="1077" height="291" key="GridCell.Tab.1.center/0.23.1920.1129@0.23.1920.1129" timestamp="1575856333278" />
-    <state width="1077" height="291" key="GridCell.Tab.1.left" timestamp="1575856333277">
+    <state width="1056" height="290" key="GridCell.Tab.1.bottom/0.23.1920.1129@0.23.1920.1129" timestamp="1575857164867" />
+    <state width="1056" height="290" key="GridCell.Tab.1.center" timestamp="1575857164867">
       <screen x="0" y="23" width="1920" height="1129" />
     </state>
-    <state width="1077" height="291" key="GridCell.Tab.1.left/0.23.1920.1129@0.23.1920.1129" timestamp="1575856333277" />
-    <state width="1077" height="291" key="GridCell.Tab.1.right" timestamp="1575856333278">
+    <state width="1056" height="290" key="GridCell.Tab.1.center/0.23.1920.1129@0.23.1920.1129" timestamp="1575857164867" />
+    <state width="1056" height="290" key="GridCell.Tab.1.left" timestamp="1575857164866">
       <screen x="0" y="23" width="1920" height="1129" />
     </state>
-    <state width="1077" height="291" key="GridCell.Tab.1.right/0.23.1920.1129@0.23.1920.1129" timestamp="1575856333278" />
-    <state width="1077" height="291" key="GridCell.Tab.2.bottom" timestamp="1575856333280">
+    <state width="1056" height="290" key="GridCell.Tab.1.left/0.23.1920.1129@0.23.1920.1129" timestamp="1575857164866" />
+    <state width="1056" height="290" key="GridCell.Tab.1.right" timestamp="1575857164867">
       <screen x="0" y="23" width="1920" height="1129" />
     </state>
-    <state width="1077" height="291" key="GridCell.Tab.2.bottom/0.23.1920.1129@0.23.1920.1129" timestamp="1575856333280" />
-    <state width="1077" height="291" key="GridCell.Tab.2.center" timestamp="1575856333279">
+    <state width="1056" height="290" key="GridCell.Tab.1.right/0.23.1920.1129@0.23.1920.1129" timestamp="1575857164867" />
+    <state width="1056" height="290" key="GridCell.Tab.2.bottom" timestamp="1575857164868">
       <screen x="0" y="23" width="1920" height="1129" />
     </state>
-    <state width="1077" height="291" key="GridCell.Tab.2.center/0.23.1920.1129@0.23.1920.1129" timestamp="1575856333279" />
-    <state width="1077" height="291" key="GridCell.Tab.2.left" timestamp="1575856333279">
+    <state width="1056" height="290" key="GridCell.Tab.2.bottom/0.23.1920.1129@0.23.1920.1129" timestamp="1575857164868" />
+    <state width="1056" height="290" key="GridCell.Tab.2.center" timestamp="1575857164867">
       <screen x="0" y="23" width="1920" height="1129" />
     </state>
-    <state width="1077" height="291" key="GridCell.Tab.2.left/0.23.1920.1129@0.23.1920.1129" timestamp="1575856333279" />
-    <state width="1077" height="291" key="GridCell.Tab.2.right" timestamp="1575856333279">
+    <state width="1056" height="290" key="GridCell.Tab.2.center/0.23.1920.1129@0.23.1920.1129" timestamp="1575857164867" />
+    <state width="1056" height="290" key="GridCell.Tab.2.left" timestamp="1575857164867">
       <screen x="0" y="23" width="1920" height="1129" />
     </state>
-    <state width="1077" height="291" key="GridCell.Tab.2.right/0.23.1920.1129@0.23.1920.1129" timestamp="1575856333279" />
+    <state width="1056" height="290" key="GridCell.Tab.2.left/0.23.1920.1129@0.23.1920.1129" timestamp="1575857164867" />
+    <state width="1056" height="290" key="GridCell.Tab.2.right" timestamp="1575857164867">
+      <screen x="0" y="23" width="1920" height="1129" />
+    </state>
+    <state width="1056" height="290" key="GridCell.Tab.2.right/0.23.1920.1129@0.23.1920.1129" timestamp="1575857164867" />
+    <state x="463" y="230" key="SettingsEditor" timestamp="1575856965169">
+      <screen x="0" y="23" width="1920" height="1129" />
+    </state>
+    <state x="463" y="230" key="SettingsEditor/0.23.1920.1129@0.23.1920.1129" timestamp="1575856965169" />
+    <state x="714" y="495" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1575857098037">
+      <screen x="0" y="23" width="1920" height="1129" />
+    </state>
+    <state x="714" y="495" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1920.1129@0.23.1920.1129" timestamp="1575857098037" />
     <state x="569" y="281" key="spring file set editor" timestamp="1575855181655">
       <screen x="0" y="23" width="1920" height="1129" />
     </state>
