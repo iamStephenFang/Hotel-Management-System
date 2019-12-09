@@ -23,6 +23,11 @@ public class WaiterService implements IWaiterService {
         return waiterMapper;
     }
 
+    /**
+     * @author 王凌云
+     * @return boolean
+     * 通过 waiter id 查询
+     */
     @Override
     @Transactional
     public boolean findById(Waiter waiter) {

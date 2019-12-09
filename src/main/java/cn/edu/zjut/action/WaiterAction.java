@@ -28,7 +28,9 @@ public class WaiterAction {
         return waiterService;
     }
 
-    /*
+    /**
+     * @author 王凌云
+     * @return String
      * 服务员登录
      */
     public String login(){

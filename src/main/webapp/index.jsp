@@ -108,7 +108,7 @@
 
         $('.login-out').on("click", function () {
             layer.msg('退出登录成功', function () {
-                window.location = '/page/login-1.html';
+                window.location = 'login-1.html';
             });
         });
     });
