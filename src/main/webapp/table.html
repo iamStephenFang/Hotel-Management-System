@@ -19,25 +19,25 @@
                 <form class="layui-form layui-form-pane" action="">
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">用户姓名</label>
+                            <label class="layui-form-label">顾客姓名</label>
                             <div class="layui-input-inline">
                                 <input type="text" name="username" autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-inline">
-                            <label class="layui-form-label">用户性别</label>
+                            <label class="layui-form-label">顾客手机号</label>
                             <div class="layui-input-inline">
                                 <input type="text" name="sex" autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-inline">
-                            <label class="layui-form-label">用户城市</label>
+                            <label class="layui-form-label">订单ID</label>
                             <div class="layui-input-inline">
                                 <input type="text" name="city" autocomplete="off" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-inline">
-                            <label class="layui-form-label">用户职业</label>
+                            <label class="layui-form-label">房间号码</label>
                             <div class="layui-input-inline">
                                 <input type="text" name="classify" autocomplete="off" class="layui-input">
                             </div>
@@ -73,15 +73,14 @@
             url: '../api/table.json',
             cols: [[
                 {type: "checkbox", width: 50, fixed: "left"},
-                {field: 'id', width: 80, title: 'ID', sort: true},
-                {field: 'username', width: 80, title: '用户名'},
-                {field: 'sex', width: 80, title: '性别', sort: true},
-                {field: 'city', width: 80, title: '城市'},
-                {field: 'sign', title: '签名', minWidth: 150},
+                {field: 'id', width: 100, title: '订单ID', sort: true},
+                {field: 'username', width: 100, title: '顾客姓名'},
+                {field: 'sex', width: 80, title: '性别'},
+                {field: 'roomno', width: 80, title: '房间号'},
+                {field: 'sign', title: '备注', minWidth: 150},
                 {field: 'experience', width: 80, title: '积分', sort: true},
-                {field: 'score', width: 80, title: '评分', sort: true},
-                {field: 'classify', width: 80, title: '职业'},
-                {field: 'wealth', width: 135, title: '财富', sort: true},
+                {field: 'score', width: 80, title: '等级', sort: true},
+                {field: 'phone', width: 135, title: '联系方式', sort: true},
                 {title: '操作', minWidth: 50, templet: '#currentTableBar', fixed: "right", align: "center"}
             ]],
             limits: [10, 15, 20, 25, 50, 100],
