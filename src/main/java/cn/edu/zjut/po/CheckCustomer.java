@@ -3,15 +3,14 @@ package cn.edu.zjut.po;
 import java.sql.Date;
 
 public class CheckCustomer {
-    private Integer no;
-    private String customerId;
-    private String name;
-    private Byte gender;
-    private String phone;
-    private Date checkInTime;
-    private Date leaveTime;
-    private String roomId;
-    private Room roomByRoomId;
+    private Integer no; // 序号
+    private String customerId; // 身份证号
+    private String name; // 姓名
+    private Boolean gender; // 性别
+    private String phone; // 手机号
+    private Date checkInTime; // 入住时间
+    private Date leaveTime; // 离开时间
+    private Room room; // 一个入住顾客对应一件房间
 
     public Integer getNo() {
         return no;
@@ -37,11 +36,11 @@ public class CheckCustomer {
         this.name = name;
     }
 
-    public Byte getGender() {
+    public Boolean getGender() {
         return gender;
     }
 
-    public void setGender(Byte gender) {
+    public void setGender(Boolean gender) {
         this.gender = gender;
     }
 
@@ -69,11 +68,11 @@ public class CheckCustomer {
         this.leaveTime = leaveTime;
     }
 
-    public String getRoomId() {
-        return roomId;
+    public Room getRoom() {
+        return room;
     }
 
-    public void setRoomId(String roomId) {
-        this.roomId = roomId;
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }

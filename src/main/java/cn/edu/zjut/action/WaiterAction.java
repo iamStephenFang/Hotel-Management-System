@@ -13,11 +13,11 @@ public class WaiterAction {
     private Waiter waiter;
     IWaiterService waiterService;
 
-    public Waiter getWaiter() {
-        return waiter;
-    }
     public void setWaiter(Waiter waiter) {
         this.waiter = waiter;
+    }
+    public Waiter getWaiter() {
+        return waiter;
     }
 
     @Autowired

@@ -1,11 +1,9 @@
 package cn.edu.zjut.po;
 
 public class RoomOrder {
-    private Integer orderId;
-    private String roomId;
-    private Integer orderStatus;
-    private Order orderByOrderId;
-    private Room roomByRoomId;
+    private Integer orderId; // 订单号
+    private String roomId; // 房间号
+    private Integer orderStatus; // 订单备注
 
     public Integer getOrderId() {
         return orderId;
@@ -29,21 +27,5 @@ public class RoomOrder {
 
     public void setOrderStatus(Integer orderStatus) {
         this.orderStatus = orderStatus;
-    }
-
-    public Order getOrderByOrderId() {
-        return orderByOrderId;
-    }
-
-    public void setOrderByOrderId(Order orderByOrderId) {
-        this.orderByOrderId = orderByOrderId;
-    }
-
-    public Room getRoomByRoomId() {
-        return roomByRoomId;
-    }
-
-    public void setRoomByRoomId(Room roomByRoomId) {
-        this.roomByRoomId = roomByRoomId;
     }
 }

@@ -1,17 +1,16 @@
 package cn.edu.zjut.po;
 
-import java.util.Collection;
+import java.util.List;
 
 public class Register {
-    private String phone;
-    private String account;
-    private String password;
-    private Byte gender;
-    private String email;
-    private Integer level;
-    private Integer score;
-    private Collection<Order> ordersByPhone;
-    private Member memberByLevel;
+    private String phone; // 手机号
+    private String account; // 用户名
+    private String password; // 密码
+    private Boolean gender; // 性别
+    private String email; //邮箱
+    private Integer score; // 会员积分
+    private List<Order> orders; // 一个注册用户对应多个订单
+    private Member member; // 一个注册注册对应一种会员
 
     public String getPhone() {
         return phone;
@@ -37,11 +36,11 @@ public class Register {
         this.password = password;
     }
 
-    public Byte getGender() {
+    public Boolean getGender() {
         return gender;
     }
 
-    public void setGender(Byte gender) {
+    public void setGender(Boolean gender) {
         this.gender = gender;
     }
 
@@ -53,14 +52,6 @@ public class Register {
         this.email = email;
     }
 
-    public Integer getLevel() {
-        return level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
-    }
-
     public Integer getScore() {
         return score;
     }
@@ -69,19 +60,19 @@ public class Register {
         this.score = score;
     }
 
-    public Collection<Order> getOrdersByPhone() {
-        return ordersByPhone;
+    public List<Order> getOrders() {
+        return orders;
     }
 
-    public void setOrdersByPhone(Collection<Order> ordersByPhone) {
-        this.ordersByPhone = ordersByPhone;
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
-    public Member getMemberByLevel() {
-        return memberByLevel;
+    public Member getMember() {
+        return member;
     }
 
-    public void setMemberByLevel(Member memberByLevel) {
-        this.memberByLevel = memberByLevel;
+    public void setMember(Member member) {
+        this.member = member;
     }
 }

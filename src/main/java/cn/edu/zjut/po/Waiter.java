@@ -1,9 +1,9 @@
 package cn.edu.zjut.po;
 
 public class Waiter {
-    private String waiterId;
-    private String account;
-    private String password;
+    private String waiterId; // 服务员工号
+    private String account; // 服务员姓名
+    private String password; // 服务员密码
 
     public String getWaiterId() {
         return waiterId;

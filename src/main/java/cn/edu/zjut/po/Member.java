@@ -1,12 +1,12 @@
 package cn.edu.zjut.po;
 
-import java.util.Collection;
+import java.util.List;
 
 public class Member {
-    private Integer level;
-    private Double discount;
-    private String memberDetail;
-    private Collection<Register> registersByLevel;
+    private Integer level; // 会员等级
+    private Double discount; // 会员折扣
+    private String memberDetail; // 会员详情
+    private List<Register> registers; // 一种会员对应多个注册用户
 
     public Integer getLevel() {
         return level;
@@ -30,5 +30,13 @@ public class Member {
 
     public void setMemberDetail(String memberDetail) {
         this.memberDetail = memberDetail;
+    }
+
+    public List<Register> getRegisters() {
+        return registers;
+    }
+
+    public void setRegisters(List<Register> registers) {
+        this.registers = registers;
     }
 }

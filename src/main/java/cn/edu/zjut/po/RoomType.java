@@ -1,12 +1,12 @@
 package cn.edu.zjut.po;
 
-import java.util.Collection;
+import java.util.List;
 
 public class RoomType {
-    private String roomType;
-    private Integer checkInNum;
-    private Integer roomPrice;
-    private Collection<Room> roomsByRoomType;
+    private String roomType; // 房间类型
+    private Integer checkInNum; // 最多入住人数
+    private Integer roomPrice; // 房间价格
+    private List<Room> rooms; // 一种房间类型对应多个房间
 
     public String getRoomType() {
         return roomType;
@@ -32,11 +32,11 @@ public class RoomType {
         this.roomPrice = roomPrice;
     }
 
-    public Collection<Room> getRoomsByRoomType() {
-        return roomsByRoomType;
+    public List<Room> getRooms() {
+        return rooms;
     }
 
-    public void setRoomsByRoomType(Collection<Room> roomsByRoomType) {
-        this.roomsByRoomType = roomsByRoomType;
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
     }
 }

@@ -1,9 +1,9 @@
 package cn.edu.zjut.po;
 
 public class Admin {
-    private String adminId;
-    private String account;
-    private String password;
+    private String adminId; // 管理员工号
+    private String account; // 管理员姓名
+    private String password; // 管理员密码
 
     public String getAdminId() {
         return adminId;

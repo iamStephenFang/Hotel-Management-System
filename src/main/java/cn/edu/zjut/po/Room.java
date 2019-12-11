@@ -1,15 +1,14 @@
 package cn.edu.zjut.po;
 
-import java.util.Collection;
+import java.util.List;
 
 public class Room {
-    private String roomId;
-    private String roomType;
-    private String roomDetail;
-    private Byte roomStatus;
-    private Collection<CheckCustomer> checkCustomersByRoomId;
-    private RoomType roomTypeByRoomType;
-    private Collection<RoomOrder> roomOrdersByRoomId;
+    private String roomId; // 房间号
+    private String roomDetail; // 房间细节
+    private Boolean roomStatus; // 房间状态
+    private RoomType roomType; // 一个房间对应一个房间类型
+    private List<CheckCustomer> checkCustomers; // 一个房间对应多个入住顾客
+    private List<Order> orders; // 一个房间对应多个订单
 
     public String getRoomId() {
         return roomId;
@@ -17,14 +16,6 @@ public class Room {
 
     public void setRoomId(String roomId) {
         this.roomId = roomId;
-    }
-
-    public String getRoomType() {
-        return roomType;
-    }
-
-    public void setRoomType(String roomType) {
-        this.roomType = roomType;
     }
 
     public String getRoomDetail() {
@@ -35,35 +26,35 @@ public class Room {
         this.roomDetail = roomDetail;
     }
 
-    public Byte getRoomStatus() {
+    public Boolean getRoomStatus() {
         return roomStatus;
     }
 
-    public void setRoomStatus(Byte roomStatus) {
+    public void setRoomStatus(Boolean roomStatus) {
         this.roomStatus = roomStatus;
     }
 
-    public Collection<CheckCustomer> getCheckCustomersByRoomId() {
-        return checkCustomersByRoomId;
+    public List<CheckCustomer> getCheckCustomers() {
+        return checkCustomers;
     }
 
-    public void setCheckCustomersByRoomId(Collection<CheckCustomer> checkCustomersByRoomId) {
-        this.checkCustomersByRoomId = checkCustomersByRoomId;
+    public void setCheckCustomers(List<CheckCustomer> checkCustomers) {
+        this.checkCustomers = checkCustomers;
     }
 
-    public RoomType getRoomTypeByRoomType() {
-        return roomTypeByRoomType;
+    public RoomType getRoomType() {
+        return roomType;
     }
 
-    public void setRoomTypeByRoomType(RoomType roomTypeByRoomType) {
-        this.roomTypeByRoomType = roomTypeByRoomType;
+    public void setRoomType(RoomType roomType) {
+        this.roomType = roomType;
     }
 
-    public Collection<RoomOrder> getRoomOrdersByRoomId() {
-        return roomOrdersByRoomId;
+    public List<Order> getOrders() {
+        return orders;
     }
 
-    public void setRoomOrdersByRoomId(Collection<RoomOrder> roomOrdersByRoomId) {
-        this.roomOrdersByRoomId = roomOrdersByRoomId;
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 }
