@@ -1,5 +1,8 @@
 package cn.edu.zjut.po;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("admin")
 public class Admin {
     private String adminId; // 管理员工号
     private String account; // 管理员姓名

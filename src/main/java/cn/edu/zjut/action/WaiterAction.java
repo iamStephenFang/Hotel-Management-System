@@ -2,7 +2,6 @@ package cn.edu.zjut.action;
 
 import cn.edu.zjut.po.Waiter;
 import cn.edu.zjut.service.IWaiterService;
-import cn.edu.zjut.service.WaiterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;

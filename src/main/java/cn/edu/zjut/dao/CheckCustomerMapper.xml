@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.zjut.dao.CheckCustomerMapper">
+
+    <resultMap id="checkCustomerMapper" type="checkCustomer">
+        <id property="no" column="no"/>
+        <result property="customerId" column="customerID"/>
+        <result property="name" column="name"/>
+        <result property="gender" column="gender"/>
+        <result property="phone" column="phone"/>
+        <result property="checkInTime" column="checkInTime"/>
+        <result property="leaveTime" column="leaveTime"/>
+        <association property="room" javaType="room">
+            <id property="roomId" column="roomID"/>
+        </association>
+    </resultMap>
+
+    <select id="findAllCheckCustomers" resultMap="checkCustomerMapper">
+        select *
+        from `check_customer`
+    </select>
+
+    <select id="findCheckCustomersByName" resultMap="checkCustomerMapper" parameterType="string">
+        select *
+        from `check_customer`
+        where name = #{name}
+    </select>
+
+    <select id="findCheckCustomersById" resultMap="checkCustomerMapper" parameterType="string">
+        select *
+        from `check_customer`
+        where customerID = #{id}
+    </select>
+
+    <select id="findCheckCustomersByPhone" resultMap="checkCustomerMapper" parameterType="string">
+        select *
+        from `check_customer`
+        where phone = #{phone}
+    </select>
+</mapper>

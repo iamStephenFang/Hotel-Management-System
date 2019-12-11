@@ -1,7 +1,10 @@
 package cn.edu.zjut.po;
 
+import org.apache.ibatis.type.Alias;
+
 import java.util.List;
 
+@Alias("member")
 public class Member {
     private Integer level; // 会员等级
     private Double discount; // 会员折扣

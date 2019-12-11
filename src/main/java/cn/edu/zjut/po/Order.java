@@ -1,8 +1,11 @@
 package cn.edu.zjut.po;
 
+import org.apache.ibatis.type.Alias;
+
 import java.sql.Date;
 import java.util.List;
 
+@Alias("order")
 public class Order {
     private Integer orderId; // 订单号
     private String roomType; // 房间类型
@@ -93,5 +96,21 @@ public class Order {
 
     public void setRooms(List<Room> rooms) {
         this.rooms = rooms;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId=" + orderId +
+                ", phone=" + register.getPhone() +
+                ", roomType='" + roomType + '\'' +
+                ", orderTime=" + orderTime +
+                ", checkInTime=" + checkInTime +
+                ", leaveTime=" + leaveTime +
+                ", payment=" + payment +
+                ", roomNum=" + roomNum +
+                ", orderDetail='" + orderDetail + '\'' +
+                ", rooms=" + rooms +
+                '}';
     }
 }

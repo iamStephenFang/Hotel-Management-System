@@ -1,7 +1,10 @@
 package cn.edu.zjut.po;
 
+import org.apache.ibatis.type.Alias;
+
 import java.util.List;
 
+@Alias("register")
 public class Register {
     private String phone; // 手机号
     private String account; // 用户名

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.zjut.dao.OrderMapper">
+
+    <resultMap id="orderMapper" type="order">
+        <id property="orderId" column="orderID"/>
+        <result property="roomType" column="roomType"/>
+        <result property="orderTime" column="orderTime"/>
+        <result property="checkInTime" column="checkInTime"/>
+        <result property="leaveTime" column="leaveTime"/>
+        <result property="payment" column="payment"/>
+        <result property="roomNum" column="roomNum"/>
+        <result property="orderDetail" column="orderDetail"/>
+        <association property="register" javaType="register">
+            <id property="phone" column="phone"/>
+        </association>
+    </resultMap>
+
+    <select id="findAllOrders" resultMap="orderMapper">
+        select *
+        from `order`
+    </select>
+
+    <select id="findOrderById" resultMap="orderMapper" parameterType="int">
+        select *
+        from `order`
+        where orderID = #{id}
+    </select>
+
+    <select id="findOrdersByPhone" resultMap="orderMapper" parameterType="string">
+        select *
+        from `order`
+        where phone = #{phone}
+    </select>
+</mapper>

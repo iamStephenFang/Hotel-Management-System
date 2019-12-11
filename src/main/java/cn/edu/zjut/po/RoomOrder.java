@@ -1,5 +1,8 @@
 package cn.edu.zjut.po;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("roomOrder")
 public class RoomOrder {
     private Integer orderId; // 订单号
     private String roomId; // 房间号

@@ -1,5 +1,8 @@
 package cn.edu.zjut.po;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("waiter")
 public class Waiter {
     private String waiterId; // 服务员工号
     private String account; // 服务员姓名

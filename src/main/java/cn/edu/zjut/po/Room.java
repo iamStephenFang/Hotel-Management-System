@@ -1,7 +1,10 @@
 package cn.edu.zjut.po;
 
+import org.apache.ibatis.type.Alias;
+
 import java.util.List;
 
+@Alias("room")
 public class Room {
     private String roomId; // 房间号
     private String roomDetail; // 房间细节

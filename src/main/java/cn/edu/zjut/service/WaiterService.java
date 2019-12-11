@@ -5,14 +5,13 @@ import cn.edu.zjut.po.Waiter;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Map;
 
 @Service
 public class WaiterService implements IWaiterService {
     private Map session;
-    private Map<String,String> request;
+    private Map request;
     private WaiterMapper waiterMapper = null;
 
     @Autowired
@@ -29,7 +28,6 @@ public class WaiterService implements IWaiterService {
      * 通过 waiter id 查询
      */
     @Override
-    @Transactional
     public boolean findById(Waiter waiter) {
         System.out.println("正在执行WaiterService的login方法...");
         ActionContext context = ActionContext.getContext();

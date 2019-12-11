@@ -1,7 +1,10 @@
 package cn.edu.zjut.po;
 
+import org.apache.ibatis.type.Alias;
+
 import java.sql.Date;
 
+@Alias("checkCustomer")
 public class CheckCustomer {
     private Integer no; // 序号
     private String customerId; // 身份证号
@@ -74,5 +77,19 @@ public class CheckCustomer {
 
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    @Override
+    public String toString() {
+        return "CheckCustomer{" +
+                "no=" + no +
+                ", customerId='" + customerId + '\'' +
+                ", name='" + name + '\'' +
+                ", gender=" + gender +
+                ", phone='" + phone + '\'' +
+                ", checkInTime=" + checkInTime +
+                ", leaveTime=" + leaveTime +
+                ", room='" + room.getRoomId() + '\'' +
+                '}';
     }
 }
