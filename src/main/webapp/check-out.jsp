@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -24,23 +24,14 @@
                                     <div class="layui-form-item">
                                         <label class="layui-form-label">房间号:</label>
                                         <div class="layui-input-block">
-                                            <input type="text" placeholder="请填写入款人游戏ID" class="layui-input" lay-verify="number" required />
+                                            <input type="text" placeholder="请填写需退房的房间号" class="layui-input" lay-verify="number" required />
 
                                         </div>
                                     </div>
-                                    <div class="layui-form-item">
-                                        <label class="layui-form-label">退房类型:</label>
-                                        <div class="layui-input-block">
-                                            <select lay-verify="required">
-                                                <option value="1" selected>仅此间</option>
-                                                <option value="2">全部退房</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="layui-form-item">
-                                        <label class="layui-form-label">备注说明:</label>
-                                        <div class="layui-input-block">
-                                            <textarea placeholder="入款备注" value="" class="layui-textarea"></textarea>
+                                    <div class="layui-inline" style="margin-bottom: 15px">
+                                        <label class="layui-form-label">退房日期:</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
                                         </div>
                                     </div>
                                     <div class="layui-form-item">
@@ -61,18 +52,6 @@
                                         </div>
                                     </div>
                                     <div class="layui-form-item">
-                                        <label class="layui-form-label">房间数量:</label>
-                                        <div class="layui-input-block">
-                                            <div class="layui-form-mid layui-word-aux">2 间</div>
-                                        </div>
-                                    </div>
-                                    <div class="layui-form-item">
-                                        <label class="layui-form-label">其余房间:</label>
-                                            <div class="layui-input-block">
-                                                <div class="layui-form-mid layui-word-aux">201</div>
-                                            </div>
-                                    </div>
-                                    <div class="layui-form-item">
                                         <label class="layui-form-label">房间类型:</label>
                                         <div class="layui-input-block">
                                             <div class="layui-form-mid layui-word-aux">双床房</div>
@@ -91,9 +70,9 @@
                                         </div>
                                     </div>
                                     <div class="layui-form-item">
-                                        <label class="layui-form-label">退房备注:</label>
+                                        <label class="layui-form-label">订单备注:</label>
                                         <div class="layui-input-block">
-                                            <div class="layui-form-mid layui-word-aux"></div>
+                                            <div class="layui-form-mid layui-word-aux">无</div>
                                         </div>
                                     </div>
                                     <div class="layui-form-item">
@@ -137,10 +116,11 @@
 <script src="lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
 <script src="js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
-    layui.use([ 'form', 'step'], function () {
+    layui.use([ 'form', 'step', 'laydate'], function () {
         var $ = layui.$,
             form = layui.form,
-            step = layui.step;
+            step = layui.step,
+            laydate = layui.laydate;
 
         step.render({
             elem: '#stepForm',
@@ -149,14 +129,17 @@
             stepWidth: '750px',
             height: '500px',
             stepItems: [{
-                title: '填写入款信息'
+                title: '填写退房信息'
             }, {
-                title: '确认入款信息'
+                title: '确认退房信息'
             }, {
-                title: '完成'
+                title: '完成退房'
             }]
         });
 
+        laydate.render({
+            elem: '#date'
+        });
 
         form.on('submit(formStep)', function (data) {
             step.next('#stepForm');
@@ -177,5 +160,6 @@
         });
     })
 </script>
+
 </body>
 </html>

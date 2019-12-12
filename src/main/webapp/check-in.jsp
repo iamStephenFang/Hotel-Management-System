@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -25,38 +25,6 @@
                                         <label class="layui-form-label">订单ID:</label>
                                         <div class="layui-input-block">
                                             <input type="text" placeholder="请填写订单ID" class="layui-input" lay-verify="number" required />
-                                        </div>
-                                    </div>
-                                    <!-- <div class="layui-form-item">
-                                        <label class="layui-form-label">入住人数:</label>
-                                        <div class="layui-input-block">
-                                            <input type="number" placeholder="请填写入住人数" value="" class="layui-input" lay-verify="number" required>
-                                        </div>
-                                    </div> -->
-                                    <!-- <div class="layui-form-item">
-                                        <label class="layui-form-label">入款类型:</label>
-                                        <div class="layui-input-block">
-                                            <select lay-verify="required">
-                                                <option value="1" selected>保险箱</option>
-                                                <option value="2">现金</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="layui-form-item">
-                                        <label class="layui-form-label">入款方式:</label>
-                                        <div class="layui-input-block">
-                                            <select lay-verify="required">
-                                                <option value="1" selected>人工入款</option>
-                                                <option value="2">修正</option>
-                                                <option value="3">活动</option>
-                                                <option value="4">佣金</option>
-                                            </select>
-                                        </div>
-                                    </div> -->
-                                    <div class="layui-form-item">
-                                        <label class="layui-form-label">入住备注:</label>
-                                        <div class="layui-input-block">
-                                            <textarea placeholder="入款备注" value="" class="layui-textarea"></textarea>
                                         </div>
                                     </div>
                                     <div class="layui-form-item">
@@ -158,10 +126,10 @@
                                             <input type="text" name="" placeholder="请选择入住房间" autocomplete="off" class="layui-input" id="demo">
                                         </div>
                                     </div>
-                                    <div class="layui-form-item">
-                                        <label class="layui-form-label">信息备注:</label>
-                                        <div class="layui-input-block">
-                                            <input type="text" placeholder="若采用护照入住请填写" class="layui-input" />
+                                    <div class="layui-inline" style="margin-bottom: 15px">
+                                        <label class="layui-form-label">入住日期</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input" lay-key="1">
                                         </div>
                                     </div>
                                     <div class="layui-form-item">
@@ -214,7 +182,7 @@
                     <div style="color: #666;margin-top: 30px;margin-bottom: 40px;padding-left: 30px;">
                         <h3>注意</h3><br>
                         <h4>实际入住人数</h4>
-                        <p>请确核对住人数是否小于订单中规定的最大人数。</p>
+                        <p>请核对入住人数是否小于订单中规定的最大人数。</p>
                         <br><h4>入住人员信息</h4>
                         <p>请仔细核对住客信息确保和订单中一致</p>
                     </div>
@@ -227,11 +195,16 @@
 <script src="lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
 <script src="js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
-    layui.use([ 'form', 'step', 'tableSelect'], function () {
+    layui.use([ 'form', 'step', 'tableSelect','laydate'], function () {
         var $ = layui.$,
             form = layui.form,
-            step = layui.step;
-            tableSelect = layui.tableSelect;
+            step = layui.step,
+            tableSelect = layui.tableSelect,
+            laydate = layui.laydate;
+
+        laydate.render({
+            elem: '#date'
+        });
 
         step.render({
             elem: '#stepForm',
