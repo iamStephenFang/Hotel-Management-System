@@ -195,7 +195,7 @@
 <script src="lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
 <script src="js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
-    layui.use(['form', 'step', 'tableSelect', 'laydate'], function () {
+    layui.use(['form', 'step', 'tableSelect', 'laydate','layer', 'layuimini'], function () {
         var $ = layui.$,
             form = layui.form,
             step = layui.step,

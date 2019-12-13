@@ -61,9 +61,10 @@
     </script>
   </div>
 </div>
-<script src="lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
+<script src="lib/layui-v2.5.4/layui.js?v=1.0.4" charset="utf-8"></script>
+<script src="js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
-    layui.use(['form', 'table'], function () {
+    layui.use(['form', 'table', 'element', 'layer', 'layuimini'], function () {
         var $ = layui.jquery,
             form = layui.form,
             table = layui.table;
