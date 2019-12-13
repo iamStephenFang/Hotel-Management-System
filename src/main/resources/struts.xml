@@ -7,7 +7,7 @@
 <struts>
     <package name="hotel" extends="struts-default" namespace="/">
         <action name="waiterAction" class="waiterAction" method="login">
-            <result name="loginSuccess">/index.jsp</result>
+            <result name="loginSuccess">/search_cust.jsp</result>
             <result name="loginFail">/backend_login.html</result>
         </action>
     </package>

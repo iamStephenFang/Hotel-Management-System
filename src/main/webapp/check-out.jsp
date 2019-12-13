@@ -1,122 +1,118 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>酒店管理系统-办理退房</title>
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="lib/layui-v2.5.4/css/layui.css" media="all">
-    <link rel="stylesheet" href="css/public.css" media="all">
-    <link rel="stylesheet" href="../lib/lay-module/step-lay/step.css" media="all">
+  <title>酒店管理系统-办理退房</title>
+  <%@include file="head.jsp" %>
 </head>
-<body>
-<div class="layuimini-container">
-    <div class="layuimini-main">
-
-        <div class="layui-fluid">
-            <div class="layui-card">
-                <div class="layui-card-body" style="padding-top: 40px;">
-                    <div class="layui-carousel" id="stepForm" lay-filter="stepForm" style="margin: 0 auto;">
-                        <div carousel-item>
-                            <div>
-                                <form class="layui-form" style="margin: 0 auto;max-width: 460px;padding-top: 40px;">
-                                    <div class="layui-form-item">
-                                        <label class="layui-form-label">房间号:</label>
-                                        <div class="layui-input-block">
-                                            <input type="text" placeholder="请填写需退房的房间号" class="layui-input" lay-verify="number" required />
-
-                                        </div>
-                                    </div>
-                                    <div class="layui-inline" style="margin-bottom: 15px">
-                                        <label class="layui-form-label">退房日期:</label>
-                                        <div class="layui-input-inline">
-                                            <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
-                                        </div>
-                                    </div>
-                                    <div class="layui-form-item">
-                                        <div class="layui-input-block">
-                                            <button class="layui-btn" lay-submit lay-filter="formStep">
-                                                &emsp;下一步&emsp;
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div>
-                                <form class="layui-form" style="margin: 0 auto;max-width: 460px;padding-top: 40px;">
-                                    <div class="layui-form-item">
-                                        <label class="layui-form-label">订单ID:</label>
-                                        <div class="layui-input-block">
-                                            <div class="layui-form-mid layui-word-aux">111</div>
-                                        </div>
-                                    </div>
-                                    <div class="layui-form-item">
-                                        <label class="layui-form-label">房间类型:</label>
-                                        <div class="layui-input-block">
-                                            <div class="layui-form-mid layui-word-aux">双床房</div>
-                                        </div>
-                                    </div>
-                                    <div class="layui-form-item">
-                                        <label class="layui-form-label">入住日期:</label>
-                                        <div class="layui-input-block">
-                                            <div class="layui-form-mid layui-word-aux">2019-12-25</div>
-                                        </div>
-                                    </div>
-                                    <div class="layui-form-item">
-                                        <label class="layui-form-label">离店日期:</label>
-                                        <div class="layui-input-block">
-                                            <div class="layui-form-mid layui-word-aux">2019-12-27</div>
-                                        </div>
-                                    </div>
-                                    <div class="layui-form-item">
-                                        <label class="layui-form-label">订单备注:</label>
-                                        <div class="layui-input-block">
-                                            <div class="layui-form-mid layui-word-aux">无</div>
-                                        </div>
-                                    </div>
-                                    <div class="layui-form-item">
-                                        <div class="layui-input-block">
-                                            <button type="button" class="layui-btn layui-btn-primary pre">上一步</button>
-                                            <button class="layui-btn" lay-submit lay-filter="formStep2">
-                                                &emsp;确认退房信息&emsp;
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div>
-                                <div style="text-align: center;margin-top: 90px;">
-                                    <i class="layui-icon layui-circle"
-                                       style="color: white;font-size:30px;font-weight:bold;background: #52C41A;padding: 20px;line-height: 80px;">&#xe605;</i>
-                                    <div style="font-size: 24px;color: #333;font-weight: 500;margin-top: 30px;">
-                                        退房成功
-                                    </div>
-                                    <div style="font-size: 14px;color: #666;margin-top: 20px;">提醒顾客携带好个人证件离店</div>
-                                </div>
-                                <div style="text-align: center;margin-top: 50px;">
-                                    <button class="layui-btn next">再次办理</button>
-                                    <button class="layui-btn layui-btn-primary">查看信息</button>
-                                </div>
-                            </div>
-                        </div>
+<body class="layui-layout-body layuimini-all">
+<div class="layui-layout layui-layout-admin">
+  <%@include file="header.jsp" %>
+  <%@include file="sidebar.jsp" %>
+  <div class="layui-body">
+    <div class="layuimini-container">
+      <div class="layui-fluid">
+        <div class="layui-card">
+          <div class="layui-card-body" style="padding-top: 40px;">
+            <div class="layui-carousel" id="stepForm" lay-filter="stepForm" style="margin: 0 auto;">
+              <div carousel-item>
+                <div>
+                  <form class="layui-form" style="margin: 0 auto;max-width: 460px;padding-top: 40px;">
+                    <div class="layui-form-item">
+                      <label class="layui-form-label">房间号:</label>
+                      <div class="layui-input-block">
+                        <input type="text" placeholder="请填写需退房的房间号" class="layui-input" lay-verify="number" required/>
+                      </div>
                     </div>
-                    <hr>
-                    <div style="color: #666;margin-top: 30px;margin-bottom: 40px;padding-left: 30px;">
-                        <h3>说明</h3><br>
-                        <h4>退房</h4>
-                        <p>请顾客确认入住期间是否存在消费行为，若存在需要在备注中注明。</p>
+                    <div class="layui-inline" style="margin-bottom: 15px">
+                      <label class="layui-form-label">退房日期:</label>
+                      <div class="layui-input-inline">
+                        <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd"
+                               autocomplete="off" class="layui-input">
+                      </div>
                     </div>
+                    <div class="layui-form-item">
+                      <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formStep">
+                          &emsp;下一步&emsp;
+                        </button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
+                <div>
+                  <form class="layui-form" style="margin: 0 auto;max-width: 460px;padding-top: 40px;">
+                    <div class="layui-form-item">
+                      <label class="layui-form-label">订单ID:</label>
+                      <div class="layui-input-block">
+                        <div class="layui-form-mid layui-word-aux">111</div>
+                      </div>
+                    </div>
+                    <div class="layui-form-item">
+                      <label class="layui-form-label">房间类型:</label>
+                      <div class="layui-input-block">
+                        <div class="layui-form-mid layui-word-aux">双床房</div>
+                      </div>
+                    </div>
+                    <div class="layui-form-item">
+                      <label class="layui-form-label">入住日期:</label>
+                      <div class="layui-input-block">
+                        <div class="layui-form-mid layui-word-aux">2019-12-25</div>
+                      </div>
+                    </div>
+                    <div class="layui-form-item">
+                      <label class="layui-form-label">离店日期:</label>
+                      <div class="layui-input-block">
+                        <div class="layui-form-mid layui-word-aux">2019-12-27</div>
+                      </div>
+                    </div>
+                    <div class="layui-form-item">
+                      <label class="layui-form-label">订单备注:</label>
+                      <div class="layui-input-block">
+                        <div class="layui-form-mid layui-word-aux">无</div>
+                      </div>
+                    </div>
+                    <div class="layui-form-item">
+                      <div class="layui-input-block">
+                        <button type="button" class="layui-btn layui-btn-primary pre">上一步</button>
+                        <button class="layui-btn" lay-submit lay-filter="formStep2">
+                          &emsp;确认退房信息&emsp;
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div>
+                  <div style="text-align: center;margin-top: 90px;">
+                    <i class="layui-icon layui-circle"
+                       style="color: white;font-size:30px;font-weight:bold;background: #52C41A;padding: 20px;line-height: 80px;">&#xe605;</i>
+                    <div style="font-size: 24px;color: #333;font-weight: 500;margin-top: 30px;">
+                      退房成功
+                    </div>
+                    <div style="font-size: 14px;color: #666;margin-top: 20px;">提醒顾客携带好个人证件离店</div>
+                  </div>
+                  <div style="text-align: center;margin-top: 50px;">
+                    <button class="layui-btn next">再次办理</button>
+                    <button class="layui-btn layui-btn-primary">查看信息</button>
+                  </div>
+                </div>
+              </div>
             </div>
+            <hr>
+            <div style="color: #666;margin-top: 30px;margin-bottom: 40px;padding-left: 30px;">
+              <h3>说明</h3><br>
+              <h4>退房</h4>
+              <p>请顾客确认入住期间是否存在消费行为，若存在需要在备注中注明。</p>
+            </div>
+          </div>
         </div>
-
+      </div>
     </div>
+  </div>
 </div>
 <script src="lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
 <script src="js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
-    layui.use([ 'form', 'step', 'laydate'], function () {
+    layui.use(['form', 'step', 'laydate'], function () {
         var $ = layui.$,
             form = layui.form,
             step = layui.step,
