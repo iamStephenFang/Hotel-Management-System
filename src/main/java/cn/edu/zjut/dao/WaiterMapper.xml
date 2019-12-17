@@ -10,7 +10,7 @@
 
     <select id="findById" resultMap="waiterMapper" parameterType="String">
         select *
-        from waiter
+        from `waiter`
         where waiterID=#{id}
     </select>
 </mapper>

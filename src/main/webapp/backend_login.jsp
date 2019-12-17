@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -10,10 +11,6 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="format-detection" content="telephone=no">
   <link rel="stylesheet" href="lib/layui-v2.5.4/css/layui.css" media="all">
-  <!--[if lt IE 9]>
-  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
-  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
   <style>
     body {
       background-image: url("images/bd.jpg");
@@ -118,23 +115,33 @@
     <div class="admin-header">
       <span>后台系统登录</span>
     </div>
-    <form class="layui-form" action="waiterAction.action" method="post">
+    <form class="layui-form" action="login.action" method="post">
       <div>
         <i class="layui-icon layui-icon-username admin-icon"></i>
-        <input id="username" name="waiter.waiterId" type="text" placeholder="请输入用户名或邮箱" autocomplete="off"
-               class="layui-input admin-input admin-input-username" value="admin">
+        <input id="username" name="id" type="text" placeholder="请输入工号" autocomplete="off"
+               class="layui-input admin-input admin-input-username">
       </div>
       <div>
         <i class="layui-icon layui-icon-password admin-icon"></i>
-        <input  id="password" type="password" name="waiter.password"  placeholder="请输入密码" autocomplete="off" class="layui-input admin-input"
-               value="123456">
+        <input  id="password" type="password" name="password"  placeholder="请输入密码" autocomplete="off"
+                class="layui-input admin-input">
       </div>
-        <div>
-          <select class="user-type" >
-            <option value="1" selected>服务员登录</option>
-            <option value="2">管理员登录</option>
-          </select>
+      <div>
+        <select class="user-type" name="choice">
+          <option value="1" selected>服务员登录</option>
+          <option value="2">管理员登录</option>
+        </select>
+      </div>
+      <div>
+        <s:hidden name="realCode" value="%{#request.code}"/>
+        <input id="code" type="text" name="inputCode" lay-verify="required|captcha" placeholder="图形验证码" autocomplete="off"
+               class="layui-input verification captcha">
+        <div class="captcha-img">
+          <a href="authGenerate.action" title="重新生成验证码">
+            <img id="captchaPic" src="<s:property value='#request.imageBits'/>" alt="验证码">
+          </a>
         </div>
+      </div>
       <button class="layui-btn admin-button" lay-submit="" lay-filter="login">登 录</button>
     </form>
   </div>
@@ -159,6 +166,11 @@
                 layer.msg('密码不能为空');
                 return false;
             }
+            if (data.code == '') {
+              layer.msg('验证码不能为空');
+              return false;
+            }
+            return true;
         });
     });
 </script>

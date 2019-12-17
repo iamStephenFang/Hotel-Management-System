@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.zjut.dao.CheckOutMapper">
+
+    <!--    更新房间状态-->
+    <update id="updateRoomStatus" parameterType="string">
+        update `room`
+        set roomStatus = 1
+        where roomID = #{roomId}
+    </update>
+
+    <!--    通过房间号和离开时间为空的记录，能够唯一确定一个订单号-->
+    <select id="findOrderIdByRoomIdAndLeavingTime" parameterType="string" resultType="int">
+        select distinct orderID
+        from customer_order
+        where leaveTime is null and roomID = #{roomId}
+    </select>
+
+    <!--    查看某订单下的所有房客居住情况-->
+    <select id="findLivingConditions" parameterType="int" resultType="int">
+        select count(*)
+        from `customer_order`
+        where orderID = #{orderId} and living = 1
+    </select>
+
+    <!--    更新订单状态-->
+    <update id="updateOrderStatus" parameterType="int">
+        update `order`
+        set orderStatus=1
+        where orderID = #{orderId}
+    </update>
+
+    <!--    更新离开时间和居住状态-->
+    <update id="updateLeaveTimeAndLivingStatus">
+        update `customer_order`
+        set
+            leaveTime = #{leaveTime},
+            living = 0
+        where leaveTime is null and roomID = #{roomId}
+    </update>
+
+    <!--    按订单号查询订单信息-->
+    <select id="findOrderById" parameterType="int" resultType="order">
+        select *
+        from `order`
+        where orderID = #{orderId}
+    </select>
+</mapper>

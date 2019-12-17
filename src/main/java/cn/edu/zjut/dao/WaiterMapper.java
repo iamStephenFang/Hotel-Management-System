@@ -5,5 +5,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface WaiterMapper {
-    Waiter findById(String id) throws Exception;
+    /**
+     * @author 王凌云
+     * @param id 服务员工号
+     * @return Waiter
+     * 通过工号查找服务员信息
+     */
+    Waiter findById(String id);
 }

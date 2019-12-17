@@ -1,6 +1,6 @@
 package cn.edu.zjut.action;
 
-import cn.edu.zjut.po.CheckCustomer;
+import cn.edu.zjut.po.CheckCustomerExtendsOrder;
 import cn.edu.zjut.service.CheckCustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 @Controller
 @Scope("prototype")
 public class CheckCustomerAction {
-    private CheckCustomer checkCustomer;
+    private CheckCustomerExtendsOrder checkCustomer;
     private CheckCustomerService checkCustomerService = null;
 
     @Autowired
@@ -37,42 +37,28 @@ public class CheckCustomerAction {
     /**
      * @author 王凌云
      * @return String
-     * 按姓名查询房客
+     * 按姓名 / 手机号 / 订单 / 房间号查询房客
      */
-    public String findCheckCustomersByName(){
-        if (checkCustomerService.findCheckCustomersByName(checkCustomer.getName())){
-            return "findCheckCustomersByNameSuccess";
+    public String findByMultiConditions(){
+        if (checkCustomerService.findByMultiConditions(checkCustomer)){
+            return "findByMultiConditionsSuccess";
         }
         else {
-            return "findCheckCustomersByNameFail";
+            return "findByMultiConditionsFail";
         }
     }
 
     /**
      * @author 王凌云
      * @return String
-     * 按身份证号查询房客
+     * 更新入住房客信息
      */
-    public String findCheckCustomersById(){
-        if (checkCustomerService.findCheckCustomersById(checkCustomer.getCustomerId())){
-            return "findCheckCustomersByIdSuccess";
+    public String updateCheckCustomer() {
+        if (checkCustomerService.updateCheckCustomer(checkCustomer)){
+            return "updateCheckCustomerSuccess";
         }
         else {
-            return "findCheckCustomersByIdFail";
-        }
-    }
-
-    /**
-     * @author 王凌云
-     * @return String
-     * 按手机号码查询房客
-     */
-    public String findCheckCustomersByPhone(){
-        if (checkCustomerService.findCheckCustomersByPhone(checkCustomer.getPhone())){
-            return "findCheckCustomersByPhoneSuccess";
-        }
-        else {
-            return "findCheckCustomersByPhoneFail";
+            return "updateCheckCustomerFail";
         }
     }
 }
