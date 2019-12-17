@@ -7,7 +7,7 @@
 <body class="layui-layout-body layuimini-all">
 <div class="layui-layout layui-layout-admin">
   <%@include file="header.jsp" %>
-  <%@include file="sidebar.jsp" %>
+  <%@include file="waiter_sidebar.jsp" %>
   <div class="layui-body">
     <div class="layuimini-container">
       <div class="layui-fluid">
@@ -112,48 +112,48 @@
 <script src="lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
 <script src="js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
-    layui.use(['form', 'step', 'laydate','layer', 'layuimini'], function () {
+    layui.use(['form', 'laydate','layer', 'layuimini'], function () {
         var $ = layui.$,
             form = layui.form,
-            step = layui.step,
+            // step = layui.step,
             laydate = layui.laydate;
 
-        step.render({
-            elem: '#stepForm',
-            filter: 'stepForm',
-            width: '100%', //设置容器宽度
-            stepWidth: '750px',
-            height: '500px',
-            stepItems: [{
-                title: '填写退房信息'
-            }, {
-                title: '确认退房信息'
-            }, {
-                title: '完成退房'
-            }]
-        });
-
-        laydate.render({
-            elem: '#date'
-        });
-
-        form.on('submit(formStep)', function (data) {
-            step.next('#stepForm');
-            return false;
-        });
-
-        form.on('submit(formStep2)', function (data) {
-            step.next('#stepForm');
-            return false;
-        });
-
-        $('.pre').click(function () {
-            step.pre('#stepForm');
-        });
-
-        $('.next').click(function () {
-            step.next('#stepForm');
-        });
+        // step.render({
+        //     elem: '#stepForm',
+        //     filter: 'stepForm',
+        //     width: '100%', //设置容器宽度
+        //     stepWidth: '750px',
+        //     height: '500px',
+        //     stepItems: [{
+        //         title: '填写退房信息'
+        //     }, {
+        //         title: '确认退房信息'
+        //     }, {
+        //         title: '完成退房'
+        //     }]
+        // });
+        //
+        // laydate.render({
+        //     elem: '#date'
+        // });
+        //
+        // form.on('submit(formStep)', function (data) {
+        //     step.next('#stepForm');
+        //     return false;
+        // });
+        //
+        // form.on('submit(formStep2)', function (data) {
+        //     step.next('#stepForm');
+        //     return false;
+        // });
+        //
+        // $('.pre').click(function () {
+        //     step.pre('#stepForm');
+        // });
+        //
+        // $('.next').click(function () {
+        //     step.next('#stepForm');
+        // });
     })
 </script>
 

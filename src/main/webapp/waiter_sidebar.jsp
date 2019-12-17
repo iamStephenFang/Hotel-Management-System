@@ -18,12 +18,12 @@
             class="layui-left-nav"> 办理操作</span> <span class="layui-nav-more"></span></a>
         <dl class="layui-nav-child">
           <dd>
-            <a href="/check-in.jsp" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-6"
+            <a href="/check_in.jsp" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-6"
                data-tab="/form.html" target="_self"><i class="fa fa-navicon"></i><span
                 class="layui-left-nav"> 办理入住</span></a>
           </dd>
           <dd>
-            <a href="/check-out.jsp" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-7"
+            <a href="/check_out.jsp" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-7"
                data-tab="/form-step.html" target="_self"><i class="fa fa-navicon"></i><span
                 class="layui-left-nav"> 办理退房</span></a>
           </dd>

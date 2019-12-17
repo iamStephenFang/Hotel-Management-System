@@ -9,7 +9,7 @@
   <%--顶部导航栏--%>
   <%@include file="header.jsp" %>
   <!-- 侧边导航栏 -->
-  <%@include file="sidebar.jsp" %>
+  <%@include file="waiter_sidebar.jsp" %>
   <div class="layui-body">
     <div class="layuimini-container">
       <fieldset class="layui-elem-field layuimini-search">
