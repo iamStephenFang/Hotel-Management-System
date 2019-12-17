@@ -2,26 +2,15 @@ package cn.edu.zjut.po;
 
 import org.apache.ibatis.type.Alias;
 
-import java.sql.Date;
+import java.util.List;
 
 @Alias("checkCustomer")
 public class CheckCustomer {
-    private Integer no; // 序号
     private String customerId; // 身份证号
     private String name; // 姓名
     private Boolean gender; // 性别
     private String phone; // 手机号
-    private Date checkInTime; // 入住时间
-    private Date leaveTime; // 离开时间
-    private Room room; // 一个入住顾客对应一件房间
-
-    public Integer getNo() {
-        return no;
-    }
-
-    public void setNo(Integer no) {
-        this.no = no;
-    }
+    private List<Order> orders; // 一个入住顾客对应多个订单
 
     public String getCustomerId() {
         return customerId;
@@ -55,41 +44,22 @@ public class CheckCustomer {
         this.phone = phone;
     }
 
-    public Date getCheckInTime() {
-        return checkInTime;
+    public List<Order> getOrders() {
+        return orders;
     }
 
-    public void setCheckInTime(Date checkInTime) {
-        this.checkInTime = checkInTime;
-    }
-
-    public Date getLeaveTime() {
-        return leaveTime;
-    }
-
-    public void setLeaveTime(Date leaveTime) {
-        this.leaveTime = leaveTime;
-    }
-
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     @Override
     public String toString() {
         return "CheckCustomer{" +
-                "no=" + no +
-                ", customerId='" + customerId + '\'' +
+                "customerId='" + customerId + '\'' +
                 ", name='" + name + '\'' +
                 ", gender=" + gender +
                 ", phone='" + phone + '\'' +
-                ", checkInTime=" + checkInTime +
-                ", leaveTime=" + leaveTime +
-                ", room='" + room.getRoomId() + '\'' +
+                ", orders=" + orders +
                 '}';
     }
 }

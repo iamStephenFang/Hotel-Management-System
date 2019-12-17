@@ -1,4 +1,4 @@
-import cn.edu.zjut.dao.OrderMapper;
+import cn.edu.zjut.dao.CheckOutMapper;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
@@ -10,15 +10,15 @@ import org.springframework.transaction.annotation.Transactional;
 @ContextConfiguration("classpath:applicationContext.xml")
 @Transactional
 @Rollback
-public class OrderTest {
-    private OrderMapper orderMapper = null;
+public class CheckOutTest {
+    private CheckOutMapper checkOutMapper = null;
 
     @Autowired
-    public void setOrderMapper(OrderMapper orderMapper) {
-        this.orderMapper = orderMapper;
+    public void setCheckOutMapper(CheckOutMapper checkOutMapper) {
+        this.checkOutMapper = checkOutMapper;
     }
-    public OrderMapper getOrderMapper() {
-        return orderMapper;
+    public CheckOutMapper getCheckOutMapper() {
+        return checkOutMapper;
     }
 
 

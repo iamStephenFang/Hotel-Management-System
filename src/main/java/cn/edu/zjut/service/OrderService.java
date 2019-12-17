@@ -1,6 +1,7 @@
 package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.OrderMapper;
+import cn.edu.zjut.po.CheckCustomer;
 import cn.edu.zjut.po.Order;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,7 +86,7 @@ public class OrderService implements IOrderService {
     /**
      * @author 王凌云
      * @return boolean
-     * 查询所有订单
+     * 根据手机号查询所有订单
      */
     @Override
     public boolean findOrdersByPhone(String phone) {

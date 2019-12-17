@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class AccessFilter implements Filter {
     /**
-     * @author 王凌云
+     * @author 王凌云 方宣淼
      * @param servletRequest 可获取request作用域的值
      * @param servletResponse 可获取response作用域的值
      * @param filterChain 可转到下一个过滤器链

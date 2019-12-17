@@ -2,7 +2,7 @@ package cn.edu.zjut.po;
 
 import org.apache.ibatis.type.Alias;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 @Alias("order")
@@ -16,7 +16,8 @@ public class Order {
     private Integer roomNum; // 房间数量
     private String orderDetail; //订单备注
     private Register register; // 一个订单对应一个注册会员
-    private List<Room> rooms; // 一个订单对应多个房间
+    private Boolean orderStatus; // 订单状态， 0 未完成，1 进行中，2 已完成
+    private List<CheckCustomer> checkCustomers; // 一个订单对应多个入住房客
 
     public Integer getOrderId() {
         return orderId;
@@ -90,19 +91,25 @@ public class Order {
         this.register = register;
     }
 
-    public List<Room> getRooms() {
-        return rooms;
+    public Boolean getOrderStatus() {
+        return orderStatus;
     }
 
-    public void setRooms(List<Room> rooms) {
-        this.rooms = rooms;
+    public void setOrderStatus(Boolean orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+    public List<CheckCustomer> getCheckCustomers() {
+        return checkCustomers;
+    }
+
+    public void setCheckCustomers(List<CheckCustomer> checkCustomers) {
+        this.checkCustomers = checkCustomers;
     }
 
     @Override
     public String toString() {
         return "Order{" +
                 "orderId=" + orderId +
-                ", phone=" + register.getPhone() +
                 ", roomType='" + roomType + '\'' +
                 ", orderTime=" + orderTime +
                 ", checkInTime=" + checkInTime +
@@ -110,7 +117,9 @@ public class Order {
                 ", payment=" + payment +
                 ", roomNum=" + roomNum +
                 ", orderDetail='" + orderDetail + '\'' +
-                ", rooms=" + rooms +
+                ", register=" + register +
+                ", orderStatus=" + orderStatus +
+                ", checkCustomers=" + checkCustomers +
                 '}';
     }
 }

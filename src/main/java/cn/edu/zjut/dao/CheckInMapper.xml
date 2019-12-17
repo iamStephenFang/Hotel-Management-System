@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.zjut.dao.CheckInMapper">
+
+    <!--    按订单号查询订单信息-->
+    <select id="findOrderById" parameterType="int" resultType="order">
+        select *
+        from `order`
+        where orderID = #{orderId}
+    </select>
+
+    <!--    按身份证号查询是否已存在该房客信息-->
+    <select id="findCheckCustomerById" parameterType="string" resultType="int">
+        select count(*)
+        from `check_customer`
+        where customerID = #{customerId}
+    </select>
+
+    <!--    插入入住顾客信息-->
+    <insert id="insertCheckCustomer" parameterType="checkCustomer">
+        insert
+        into `check_customer`(customerID, name, gender, phone)
+        value (#{customerId},#{name},#{gender},#{phone})
+    </insert>
+</mapper>
