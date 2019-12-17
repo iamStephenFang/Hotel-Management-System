@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -131,6 +132,16 @@
           <option value="2">管理员登录</option>
         </select>
       </div>
+      <div>
+        <s:hidden name="realCode" value="%{#request.code}"/>
+        <input id="code" type="text" name="inputCode" lay-verify="required|captcha" placeholder="图形验证码" autocomplete="off"
+               class="layui-input verification captcha">
+        <div class="captcha-img">
+          <a href="authGenerate.action" title="重新生成验证码">
+            <img id="captchaPic" src="<s:property value='#request.imageBits'/>" alt="验证码">
+          </a>
+        </div>
+      </div>
       <button class="layui-btn admin-button" lay-submit="" lay-filter="login">登 录</button>
     </form>
   </div>
@@ -154,6 +165,10 @@
             if (data.password == '') {
                 layer.msg('密码不能为空');
                 return false;
+            }
+            if (data.code == '') {
+              layer.msg('验证码不能为空');
+              return false;
             }
             return true;
         });

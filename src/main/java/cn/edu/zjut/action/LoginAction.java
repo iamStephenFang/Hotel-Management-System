@@ -4,9 +4,12 @@ import cn.edu.zjut.po.Admin;
 import cn.edu.zjut.po.Waiter;
 import cn.edu.zjut.service.IAdminService;
 import cn.edu.zjut.service.IWaiterService;
+import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+
+import java.util.Map;
 
 @Controller
 @Scope("prototype")
@@ -14,6 +17,8 @@ public class LoginAction {
     private String id;
     private String password;
     private int choice;
+    private String inputCode;
+    private String realCode;
     IWaiterService waiterService;
     IAdminService adminService;
 
@@ -38,6 +43,20 @@ public class LoginAction {
         return choice;
     }
 
+    public void setInputCode(String inputCode) {
+        this.inputCode = inputCode;
+    }
+    public String getInputCode() {
+        return inputCode;
+    }
+
+    public void setRealCode(String realCode) {
+        this.realCode = realCode;
+    }
+    public String getRealCode() {
+        return realCode;
+    }
+
     @Autowired
     public void setWaiterService(IWaiterService waiterService) {
         this.waiterService = waiterService;
@@ -60,6 +79,9 @@ public class LoginAction {
      * 服务员或管理员登录
      */
     public String login(){
+        if (!inputCode.equals(realCode)){
+            return "LoginFail";
+        }
         if (choice == 1){
             Waiter waiter = new Waiter();
             waiter.setWaiterId(id);

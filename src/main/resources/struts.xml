@@ -6,11 +6,16 @@
 
 <struts>
     <package name="hotel" extends="struts-default" namespace="/">
+<!--        生成验证码-->
+        <action name="authGenerate" class="authCodeAction" method="authGenerate">
+            <result name="GeneratedSuccess">/backend_login.jsp</result>
+            <result name="GeneratedFail">/404.jsp</result>
+        </action>
 <!--        服务员和管理员登录-->
         <action name="login" class="loginAction" method="login">
             <result name="waiterLoginSuccess">/check_in.jsp</result>
-            <result name="adminLoginSuccess">/backend_login.html</result>
-            <result name="LoginFail">/backend_login.html</result>
+            <result name="adminLoginSuccess">/backend_login.jsp</result>
+            <result name="LoginFail" type="chain">authGenerate</result>
         </action>
 <!--        服务员办理入住 —— 查询订单-->
         <action name="checkIn_SearchOrderId" class="checkInAction" method="findOrderById">
