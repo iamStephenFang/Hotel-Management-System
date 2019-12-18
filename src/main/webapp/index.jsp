@@ -7,7 +7,8 @@
 <body class="layui-layout-body layuimini-all">
 <div class="layui-layout layui-layout-admin">
   <%@include file="header.jsp" %>
-  <%@include file="waiter_sidebar.jsp" %>
+<%--  <%@include file="waiter_sidebar.jsp" %>--%>
+  <%@include file="admin_sidebar.jsp" %>
   <div class="layui-body">
   </div>
 

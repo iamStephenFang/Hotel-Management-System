@@ -107,6 +107,7 @@
     i {
       position: absolute;
     }
+    .captcha-img {position:absolute;margin-left:205px;margin-top:-36px;}
   </style>
 </head>
 <body>
@@ -132,9 +133,10 @@
           <option value="2">管理员登录</option>
         </select>
       </div>
+
       <div>
         <s:hidden name="realCode" value="%{#request.code}"/>
-        <input id="code" type="text" name="inputCode" lay-verify="required|captcha" placeholder="图形验证码" autocomplete="off"
+        <input id="code" type="text" name="inputCode" lay-verify="required|captcha" placeholder="验证码" autocomplete="off"
                class="layui-input verification captcha">
         <div class="captcha-img">
           <a href="authGenerate.action" title="重新生成验证码">

@@ -18,14 +18,19 @@
             class="layui-left-nav"> 管理操作</span> <span class="layui-nav-more"></span></a>
         <dl class="layui-nav-child">
           <dd>
-            <a href="*" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-6"
-               data-tab="/form.html" target="_self"><i class="fa fa-navicon"></i><span
-                class="layui-left-nav"> 管理订单</span></a>
+            <a href="*" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-7"
+               data-tab="/form-step.html" target="_self"><i class="fa fa-navicon"></i><span
+                class="layui-left-nav"> 管理服务员</span></a>
+          </dd>
+          <dd>
+            <a href="*" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-8"
+               data-tab="/form-step.html" target="_self"><i class="fa fa-navicon"></i><span
+                class="layui-left-nav"> 管理用户</span></a>
           </dd>
           <dd>
             <a href="*" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-7"
                data-tab="/form-step.html" target="_self"><i class="fa fa-navicon"></i><span
-                class="layui-left-nav"> 管理账户</span></a>
+                class="layui-left-nav"> 管理住客</span></a>
           </dd>
         </dl>
       </li>
@@ -35,11 +40,13 @@
         <dl class="layui-nav-child">
           <dd>
             <a href="*" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-8"
-               data-tab="/login-1.html" target="_blank"><i class="fa fa-search-minus"></i><span class="layui-left-nav"> 维护房间</span></a>
+               data-tab="/login-1.html" target="_blank"><i class="fa fa-search-minus"></i><span
+                class="layui-left-nav"> 维护房间信息</span></a>
           </dd>
           <dd>
             <a href="*" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-9"
-               data-tab="/login-2.html" target="_blank"><i class="fa fa-search-plus"></i><span class="layui-left-nav"> 维护信息</span></a>
+               data-tab="/login-2.html" target="_blank"><i class="fa fa-search-plus"></i><span
+                class="layui-left-nav"> 维护订单信息</span></a>
           </dd>
         </dl>
       </li>
