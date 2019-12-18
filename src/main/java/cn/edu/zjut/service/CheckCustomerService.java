@@ -70,17 +70,16 @@ public class CheckCustomerService implements ICheckCustomerService{
         try {
             customers = checkCustomerMapper.findByMultiConditions(checkCustomer);
             if (customers == null){
-                System.out.println("查询失败...");
-                return false;
+                System.out.println("未查找到房客...");
             }
             else {
-                request.put("checkCustomers",customers);
                 for (CheckCustomer customer: customers){
                     System.out.println(customer);
                 }
-                System.out.println("查询成功...");
-                return true;
             }
+            request.put("checkCustomers",customers);
+            System.out.println("查询成功...");
+            return true;
         }catch (Exception e){
             e.printStackTrace();
             return false;

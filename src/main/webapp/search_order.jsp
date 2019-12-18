@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
   <title>后台管理系统—订单查询</title>
@@ -44,11 +45,46 @@
           </div>
         </fieldset>
       </div>
-      <!--        <div class="layui-btn-group">-->
-      <!--            <button class="layui-btn data-add-btn">添加</button>-->
-      <!--            <button class="layui-btn layui-btn-danger data-delete-btn">删除</button>-->
-      <!--        </div>-->
-      <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>
+
+      <table id="currentTableId" lay-filter="currentTableFilter">
+        <thead>
+          <tr>
+            <th lay-data="{field:'orderId',width:100，sort:true}">订单ID</th>
+            <th lay-data="{field:'account',width:100}">用户名</th>
+            <th lay-data="{field:'gender',width:80}">性别</th>
+            <th lay-data="{field:'roomType',width:100}">房间类型</th>
+            <th lay-data="{field:'email',width:135}">邮箱地址</th>
+            <th lay-data="{field:'phone',width:135}">电话号码</th>
+            <th lay-data="{field:'orderStatus',width:100}">订单状态</th>
+            <th lay-data="{field:'checkInTime',width:135}">到店时间</th>
+            <th lay-data="{field:'leaveTime',width:135}">离开时间</th>
+            <th lay-data="{field:'orderStatus',width:50}">订单备注</th>
+            <th lay-data="{field:'operate',width:50}">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <s:iterator id="order" value="#request.orders">
+            <tr>
+              <td><s:property value="orderId"/></td>
+              <td><s:property value="account"/> </td>
+              <td><s:property value="gender"/> </td>
+              <td><s:property value="roomType"/> </td>
+              <td><s:property value="email"/> </td>
+              <td><s:property value="phone"/> </td>
+              <td><s:property value="orderStatus"/> </td>
+              <td><s:property value="checkInTime"/> </td>
+              <td><s:property value="leaveTime"/> </td>
+              <td><s:property value="orderDetail"/> </td>
+              <td>
+                <form action="" method="post">
+                  <button class="layui-btn data-add-btn">添加</button>
+                  <button class="layui-btn layui-btn-danger data-delete-btn">删除</button>
+                </form>
+              </td>
+            </tr>
+          </s:iterator>
+        </tbody>
+      </table>
       <script type="text/html" id="currentTableBar">
         <a class="layui-btn layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
         <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
@@ -63,77 +99,59 @@
               form = layui.form,
               table = layui.table;
 
-          table.render({
-              elem: '#currentTableId',
-              url: '../api/table.json',
-              cols: [[
-                  {type: "checkbox", width: 50, fixed: "left"},
-                  {field: 'id', width: 100, title: '订单ID', sort: true},
-                  {field: 'username', width: 100, title: '用户名'},
-                  {field: 'sex', width: 80, title: '性别'},
-                  {field: 'roomtype', width: 100, title: '房间类型'},
-                  {field: 'email', width: 135, title: '邮箱地址'},
-                  {field: 'phone', width: 135, title: '电话号码'},
-                  {field: 'orderstatus', width: 100, title: '订单状态'},
-                  {field: 'checkintime', width: 135, title: '到店时间'},
-                  {field: 'leavetime', width: 135, title: '离店时间'},
-                  {field: 'comment', title: '备注', minWidth: 150},
-                  {title: '操作', minWidth: 50, templet: '#currentTableBar', fixed: "right", align: "center"}
-              ]],
-              limits: [10, 15, 20, 25, 50, 100],
+          table.init('currentTableFilter',{
               limit: 15,
               page: true
           });
 
-          // 监听搜索操作
-          form.on('submit(data-search-btn)', function (data) {
-              var result = JSON.stringify(data.field);
-              layer.alert(result, {
-                  title: '最终的搜索信息'
-              });
-
-              //执行搜索重载
-              table.reload('currentTableId', {
-                  page: {
-                      curr: 1
-                  }
-                  , where: {
-                      searchParams: result
-                  }
-              }, 'data');
-
-              return false;
-          });
-
-          // 监听添加操作
-          $(".data-add-btn").on("click", function () {
-              layer.msg('添加数据');
-          });
-
-          // 监听删除操作
-          $(".data-delete-btn").on("click", function () {
-              var checkStatus = table.checkStatus('currentTableId')
-                  , data = checkStatus.data;
-              layer.alert(JSON.stringify(data));
-          });
-
-          //监听表格复选框选择
-          table.on('checkbox(currentTableFilter)', function (obj) {
-              console.log(obj)
-          });
-
-          table.on('tool(currentTableFilter)', function (obj) {
-              var data = obj.data;
-              if (obj.event === 'edit') {
-                  layer.alert('编辑行：<br>' + JSON.stringify(data))
-              } else if (obj.event === 'delete') {
-                  layer.confirm('真的删除行么', function (index) {
-                      obj.del();
-                      layer.close(index);
-                  });
-              }
-          });
-
+          // // 监听搜索操作
+          // form.on('submit(data-search-btn)', function (data) {
+          //     var result = JSON.stringify(data.field);
+          //     layer.alert(result, {
+          //         title: '最终的搜索信息'
+          //     });
+          //
+          //     //执行搜索重载
+          //     table.reload('currentTableId', {
+          //         page: {
+          //             curr: 1
+          //         }
+          //         , where: {
+          //             searchParams: result
+          //         }
+          //     }, 'data');
+          //
+          //     return false;
+          // });
+          //
+          // // 监听添加操作
+          // $(".data-add-btn").on("click", function () {
+          //     layer.msg('添加数据');
+          // });
+          //
+          // // 监听删除操作
+          // $(".data-delete-btn").on("click", function () {
+          //     var checkStatus = table.checkStatus('currentTableId')
+          //         , data = checkStatus.data;
+          //     layer.alert(JSON.stringify(data));
+          // });
+          //
+          // //监听表格复选框选择
+          // table.on('checkbox(currentTableFilter)', function (obj) {
+          //     console.log(obj)
+          // });
+          //
+          // table.on('tool(currentTableFilter)', function (obj) {
+          //     var data = obj.data;
+          //     if (obj.event === 'edit') {
+          //         layer.alert('编辑行：<br>' + JSON.stringify(data))
+          //     } else if (obj.event === 'delete') {
+          //         layer.confirm('真的删除行么', function (index) {
+          //             obj.del();
+          //             layer.close(index);
+          //         });
+          //     }
+          // });
       });
   </script>
 

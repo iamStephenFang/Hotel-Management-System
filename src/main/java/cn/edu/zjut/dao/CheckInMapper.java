@@ -4,6 +4,8 @@ import cn.edu.zjut.po.CheckCustomer;
 import cn.edu.zjut.po.Order;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CheckInMapper {
     /**
@@ -29,4 +31,12 @@ public interface CheckInMapper {
      * 通过身份证号查询入住房客信息，此处主要用来判断房客是否已被记录
      */
     int findCheckCustomerById(String customerId);
+
+    /**
+     * @author 王凌云
+     * @param orderId 订单号
+     * @return List<String>
+     * 根据订单号查询订下的房间类型，以及该房间类型对应的空房
+     */
+    List<String> findRoomByOrderId(String orderId);
 }

@@ -1,7 +1,7 @@
 package cn.edu.zjut.action;
 
 import cn.edu.zjut.po.CheckCustomerExtendsOrder;
-import cn.edu.zjut.service.CheckCustomerService;
+import cn.edu.zjut.service.ICheckCustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -10,13 +10,13 @@ import org.springframework.stereotype.Controller;
 @Scope("prototype")
 public class CheckCustomerAction {
     private CheckCustomerExtendsOrder checkCustomer;
-    private CheckCustomerService checkCustomerService = null;
+    private ICheckCustomerService checkCustomerService = null;
 
     @Autowired
-    public void setCheckCustomerService(CheckCustomerService checkCustomerService) {
+    public void setCheckCustomerService(ICheckCustomerService checkCustomerService) {
         this.checkCustomerService = checkCustomerService;
     }
-    public CheckCustomerService getCheckCustomerService() {
+    public ICheckCustomerService getCheckCustomerService() {
         return checkCustomerService;
     }
 

@@ -1,6 +1,6 @@
 package cn.edu.zjut.action;
 
-import cn.edu.zjut.service.CheckOutService;
+import cn.edu.zjut.service.ICheckOutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,7 @@ import java.util.Date;
 public class CheckOutAction {
     private String roomId;
     private Date leaveTime;
-    private CheckOutService checkOutService = null;
+    private ICheckOutService checkOutService = null;
 
     public void setRoomId(String roomId) {
         this.roomId = roomId;
@@ -29,10 +29,10 @@ public class CheckOutAction {
     }
 
     @Autowired
-    public void setCheckOutService(CheckOutService checkOutService) {
+    public void setCheckOutService(ICheckOutService checkOutService) {
         this.checkOutService = checkOutService;
     }
-    public CheckOutService getCheckOutService() {
+    public ICheckOutService getCheckOutService() {
         return checkOutService;
     }
 
