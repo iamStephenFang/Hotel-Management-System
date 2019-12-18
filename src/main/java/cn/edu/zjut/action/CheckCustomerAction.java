@@ -12,6 +12,13 @@ public class CheckCustomerAction {
     private CheckCustomerExtendsOrder checkCustomer;
     private ICheckCustomerService checkCustomerService = null;
 
+    public void setCheckCustomer(CheckCustomerExtendsOrder checkCustomer) {
+        this.checkCustomer = checkCustomer;
+    }
+    public CheckCustomerExtendsOrder getCheckCustomer() {
+        return checkCustomer;
+    }
+
     @Autowired
     public void setCheckCustomerService(ICheckCustomerService checkCustomerService) {
         this.checkCustomerService = checkCustomerService;

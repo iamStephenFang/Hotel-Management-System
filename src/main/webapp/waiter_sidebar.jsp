@@ -52,7 +52,7 @@
             </a>
           </dd>
           <dd>
-            <a href="search_cust.jsp" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-9">
+            <a href="listAllCustomers.action" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-9">
               <i class="fa fa-search-plus"></i>
               <span class="layui-left-nav"> 查询入住</span>
             </a>

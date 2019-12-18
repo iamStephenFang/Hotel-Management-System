@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
@@ -17,28 +17,22 @@
         <fieldset class="layui-elem-field layuimini-search">
           <legend>搜索信息</legend>
           <div style="margin: 10px 10px 10px 10px">
-            <form class="layui-form layui-form-pane" action="">
+            <form class="layui-form layui-form-pane" action="findOrders.action" method="post">
               <div class="layui-form-item">
-                <div class="layui-inline">
-                  <label class="layui-form-label">用户账户名</label>
-                  <div class="layui-input-inline">
-                    <input type="text" name="username" autocomplete="off" class="layui-input">
-                  </div>
-                </div>
                 <div class="layui-inline">
                   <label class="layui-form-label">用户手机号</label>
                   <div class="layui-input-inline">
-                    <input type="text" name="sex" autocomplete="off" class="layui-input">
+                    <input type="text" name="phone" autocomplete="off" class="layui-input">
                   </div>
                 </div>
                 <div class="layui-inline">
                   <label class="layui-form-label">订单ID</label>
                   <div class="layui-input-inline">
-                    <input type="text" name="city" autocomplete="off" class="layui-input">
+                    <input type="text" name="orderId" autocomplete="off" class="layui-input">
                   </div>
                 </div>
                 <div class="layui-inline">
-                  <a class="layui-btn" lay-submit="" lay-filter="data-search-btn">搜索</a>
+                  <input type="submit" class="layui-btn" value="搜索">
                 </div>
               </div>
             </form>
@@ -46,49 +40,58 @@
         </fieldset>
       </div>
 
-      <table id="currentTableId" lay-filter="currentTableFilter">
-        <thead>
+      <div style="padding:10px">
+        <table lay-filter="currentTableFilter">
+          <thead>
           <tr>
-            <th lay-data="{field:'orderId',width:100，sort:true}">订单ID</th>
-            <th lay-data="{field:'account',width:100}">用户名</th>
-            <th lay-data="{field:'gender',width:80}">性别</th>
-            <th lay-data="{field:'roomType',width:100}">房间类型</th>
-            <th lay-data="{field:'email',width:135}">邮箱地址</th>
-            <th lay-data="{field:'phone',width:135}">电话号码</th>
-            <th lay-data="{field:'orderStatus',width:100}">订单状态</th>
-            <th lay-data="{field:'checkInTime',width:135}">到店时间</th>
-            <th lay-data="{field:'leaveTime',width:135}">离开时间</th>
-            <th lay-data="{field:'orderStatus',width:50}">订单备注</th>
-            <th lay-data="{field:'operate',width:50}">操作</th>
+            <th lay-data="{field:'orderId',width:90,sort:true}">订单ID</th>
+            <th lay-data="{field:'account',width:90}">用户名</th>
+            <th lay-data="{field:'gender',width:60}">性别</th>
+            <th lay-data="{field:'roomType',width:120,sort:true}">房间类型</th>
+            <th lay-data="{field:'email',width:180}">邮箱地址</th>
+            <th lay-data="{field:'phone',width:130}">电话号码</th>
+            <th lay-data="{field:'orderStatus',width:120,sort:true}">订单状态</th>
+            <th lay-data="{field:'checkInTime',width:120,sort:true}">入住时间</th>
+            <th lay-data="{field:'leaveTime',width:120,sort:true}">离开时间</th>
+            <th lay-data="{field:'orderDetail',width:160}">订单备注</th>
+            <th lay-data="{field:'operate'}">操作</th>
           </tr>
-        </thead>
-        <tbody>
-          <s:iterator id="order" value="#request.orders">
+          </thead>
+          <tbody>
+          <s:iterator value="#request.orders">
             <tr>
               <td><s:property value="orderId"/></td>
-              <td><s:property value="account"/> </td>
-              <td><s:property value="gender"/> </td>
-              <td><s:property value="roomType"/> </td>
-              <td><s:property value="email"/> </td>
-              <td><s:property value="phone"/> </td>
-              <td><s:property value="orderStatus"/> </td>
-              <td><s:property value="checkInTime"/> </td>
-              <td><s:property value="leaveTime"/> </td>
-              <td><s:property value="orderDetail"/> </td>
+              <td><s:property value="account"/></td>
+              <s:if test="%{gender==true}">
+                <td>男</td>
+              </s:if>
+              <s:else>
+                <td>女</td>
+              </s:else>
+              <td><s:property value="roomType"/></td>
+              <td><s:property value="email"/></td>
+              <td><s:property value="register.phone"/></td>
+              <s:if test="%{orderStatus==true}">
+                <td>
+                  <span class="layui-badge layui-bg-blue" style="margin-top: 5px">已完成</span>
+                </td>
+              </s:if>
+              <s:else>
+                <td>
+                  <span class="layui-badge layui-bg-orange" style="margin-top: 5px">未完成</span>
+                </td>
+              </s:else>
+              <td><s:property value="checkInTime"/></td>
+              <td><s:property value="leaveTime"/></td>
+              <td><s:property value="orderDetail"/></td>
               <td>
-                <form action="" method="post">
-                  <button class="layui-btn data-add-btn">添加</button>
-                  <button class="layui-btn layui-btn-danger data-delete-btn">删除</button>
-                </form>
+                <a href="#" class="layui-btn layui-btn-xs data-count-edit">编辑</a>
               </td>
             </tr>
           </s:iterator>
-        </tbody>
-      </table>
-      <script type="text/html" id="currentTableBar">
-        <a class="layui-btn layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
-        <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
-      </script>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
   <script src="lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
@@ -100,7 +103,7 @@
               table = layui.table;
 
           table.init('currentTableFilter',{
-              limit: 15,
+              limit: 10,
               page: true
           });
 

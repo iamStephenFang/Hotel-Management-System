@@ -22,6 +22,21 @@
             <result name="findAllSuccess">/search_order.jsp</result>
             <result name="findAllFail">/404.jsp</result>
         </action>
+<!--        订单操作 —— 多条件搜索订单-->
+        <action name="findOrders" class="orderAction" method="findByMultiConditions">
+            <result name="findByMultiConditionsSuccess">/search_order.jsp</result>
+            <result name="findByMultiConditionsFail">/404.jsp</result>
+        </action>
+<!--        入住房客操作 —— 查询所有房客信息-->
+        <action name="listAllCustomers" class="checkCustomerAction" method="findAllCheckCustomers">
+            <result name="findAllCheckCustomersSuccess">/search_cust.jsp</result>
+            <result name="findAllCheckCustomersFail">/404.jsp</result>
+        </action>
+<!--        入住房客操作 —— 查询所有房客信息-->
+        <action name="findCustomers" class="checkCustomerAction" method="findByMultiConditions">
+            <result name="findByMultiConditionsSuccess">/search_cust.jsp</result>
+            <result name="findByMultiConditionsFail">/404.jsp</result>
+        </action>
 <!--        服务员办理入住 —— 查询订单-->
         <action name="checkIn_SearchOrderId" class="checkInAction" method="findOrderById">
             <result name="findOrderByIdSuccess">/check_in.jsp</result>
