@@ -1,6 +1,7 @@
 package cn.edu.zjut.dao;
 
 import cn.edu.zjut.po.CheckCustomer;
+import cn.edu.zjut.po.CheckCustomerExtendsOrder;
 import cn.edu.zjut.po.Order;
 import org.springframework.stereotype.Repository;
 
@@ -26,6 +27,14 @@ public interface CheckInMapper {
 
     /**
      * @author 王凌云
+     * @param checkCustomerExtendsOrder 入住房客和订单信息
+     * @return int
+     * 插入订单和入住房客中间表记录
+     */
+    int insertMiddleRecord(CheckCustomerExtendsOrder checkCustomerExtendsOrder);
+
+    /**
+     * @author 王凌云
      * @param customerId 身份证号
      * @return int
      * 通过身份证号查询入住房客信息，此处主要用来判断房客是否已被记录
@@ -38,5 +47,5 @@ public interface CheckInMapper {
      * @return List<String>
      * 根据订单号查询订下的房间类型，以及该房间类型对应的空房
      */
-    List<String> findRoomByOrderId(String orderId);
+    List<String> findRoomByOrderId(int orderId);
 }

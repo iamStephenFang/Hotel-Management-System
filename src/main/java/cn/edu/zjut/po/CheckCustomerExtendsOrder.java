@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Alias("checkCusExtOrder")
 public class CheckCustomerExtendsOrder extends CheckCustomer {
-    private String orderId;
+    private int orderId;
     private String roomType;
     private Boolean orderStatus;
     private String orderDetail;
@@ -14,10 +14,10 @@ public class CheckCustomerExtendsOrder extends CheckCustomer {
     private Date leaveTime;
     private String roomId;
 
-    public void setOrderId(String orderId) {
+    public void setOrderId(int orderId) {
         this.orderId = orderId;
     }
-    public String getOrderId() {
+    public int getOrderId() {
         return orderId;
     }
 

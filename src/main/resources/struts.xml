@@ -27,21 +27,30 @@
             <result name="findByMultiConditionsSuccess">/search_order.jsp</result>
             <result name="findByMultiConditionsFail">/404.jsp</result>
         </action>
-<!--        入住房客操作 —— 查询所有房客信息-->
+<!--        房客操作 —— 查询所有房客信息-->
         <action name="listAllCustomers" class="checkCustomerAction" method="findAllCheckCustomers">
             <result name="findAllCheckCustomersSuccess">/search_cust.jsp</result>
             <result name="findAllCheckCustomersFail">/404.jsp</result>
         </action>
-<!--        入住房客操作 —— 查询所有房客信息-->
+<!--        房客操作 —— 查询所有房客信息-->
         <action name="findCustomers" class="checkCustomerAction" method="findByMultiConditions">
             <result name="findByMultiConditionsSuccess">/search_cust.jsp</result>
             <result name="findByMultiConditionsFail">/404.jsp</result>
         </action>
 <!--        服务员办理入住 —— 查询订单-->
-        <action name="checkIn_SearchOrderId" class="checkInAction" method="findOrderById">
+        <action name="searchOrder" class="checkInAction" method="findOrderById">
             <result name="findOrderByIdSuccess">/check_in.jsp</result>
             <result name="findOrderByIdFail">/404.jsp</result>
         </action>
-<!--        服务员办理入住 —— 查询订单-->
+<!--        服务员办理入住 —— 查询空房-->
+        <action name="findEmptyRoom" class="checkInAction" method="findRoomByOrderId">
+            <result name="findRoomByOrderIdSuccess">/check_in.jsp</result>
+            <result name="findRoomByOrderIdFail">/404.jsp</result>
+        </action>
+<!--        服务员办理入住 —— 插入房客信息以及订单和入住房客中间表记录-->
+        <action name="insertCustomer" class="checkInAction" method="checkIn">
+            <result name="checkInSuccess">/check_in.jsp</result>
+            <result name="checkInFail">/404.jsp</result>
+        </action>
     </package>
 </struts>

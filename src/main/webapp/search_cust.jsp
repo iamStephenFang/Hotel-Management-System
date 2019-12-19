@@ -53,7 +53,7 @@
       </div>
 
       <div style="padding:10px">
-        <table lay-filter="currentTableFilter">
+        <table class="layui-table" lay-filter="currentTableFilter">
           <thead>
           <tr>
             <th lay-data="{field:'id', width:100, sort:true}">订单ID</th>
@@ -110,6 +110,7 @@
 <script src="lib/layui-v2.5.4/layui.js?v=1.0.4" charset="utf-8"></script>
 <script src="js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
+    document.getElementById("findCheckCustomer").className += "layui-this";
     layui.use(['form', 'table', 'element', 'layer', 'layuimini'], function () {
         var $ = layui.jquery,
             form = layui.form,
