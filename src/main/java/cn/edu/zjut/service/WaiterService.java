@@ -1,11 +1,14 @@
 package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.WaiterMapper;
+import cn.edu.zjut.po.Admin;
 import cn.edu.zjut.po.Waiter;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -51,6 +54,37 @@ public class WaiterService implements IWaiterService {
                 return false;
             }
         } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * @author 方宣淼
+     * @return boolean
+     * 查询所有Waiter账户
+     */
+    @Override
+    public boolean findAllWaiters() {
+        System.out.println("正在执行findAllWaiters方法...");
+        ActionContext context = ActionContext.getContext();
+        request = (Map<String, List>)context.get("request");
+        List<Waiter> waiters = new ArrayList<Waiter>();
+        try {
+            waiters = waiterMapper.findAllWaiters();
+            if (waiters == null){
+                System.out.println("查询失败...");
+                return false;
+            }
+            else {
+                request.put("waiter",waiters);
+                for (Waiter waiter: waiters){
+                    System.out.println(waiter);
+                }
+                System.out.println("查询成功...");
+                return true;
+            }
+        }catch (Exception e){
             e.printStackTrace();
             return false;
         }

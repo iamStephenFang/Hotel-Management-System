@@ -56,6 +56,37 @@ public class CheckCustomerService implements ICheckCustomerService{
     }
 
     /**
+     * @author 方宣淼
+     * @return boolean
+     * 仅查询所有入住房客
+     */
+    @Override
+    public boolean findAllCheckCustomersWithout() {
+        System.out.println("正在执行findAllCheckCustomersWithout方法...");
+        ActionContext context = ActionContext.getContext();
+        request = (Map<String, List>)context.get("request");
+        List<CheckCustomer> checkCustomers = new ArrayList<CheckCustomer>();
+        try {
+            checkCustomers = checkCustomerMapper.findAllCheckCustomersWithout();
+            if (checkCustomers == null){
+                System.out.println("查询失败...");
+                return false;
+            }
+            else {
+                request.put("checkCustomers",checkCustomers);
+                for (CheckCustomer checkCustomer: checkCustomers){
+                    System.out.println(checkCustomer);
+                }
+                System.out.println("查询成功...");
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
      * @author 王凌云
      * @param checkCustomer 包含订单信息和入住顾客信息
      * @return boolean

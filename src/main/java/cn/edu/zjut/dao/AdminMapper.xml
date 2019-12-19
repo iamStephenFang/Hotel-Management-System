@@ -13,4 +13,9 @@
         from `admin`
         where adminID=#{id}
     </select>
+
+    <select id="findAllAdmins" resultMap="adminMapper">
+        select *
+        from `admin`
+    </select>
 </mapper>

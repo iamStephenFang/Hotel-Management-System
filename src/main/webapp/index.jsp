@@ -1,13 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+
 <html>
 <head>
-  <title>酒店管理系统-服务员登入</title>
+  <title>酒店管理系统-登入</title>
   <%@include file="head.jsp" %>
 </head>
 <body class="layui-layout-body layuimini-all">
 <div class="layui-layout layui-layout-admin">
   <%@include file="header.jsp" %>
-<%--  <%@include file="waiter_sidebar.jsp" %>--%>
+  <%@include file="waiter_sidebar.jsp" %>
+
   <%@include file="admin_sidebar.jsp" %>
   <div class="layui-body">
   </div>
@@ -20,8 +23,6 @@
         var $ = layui.jquery,
             element = layui.element,
             layer = layui.layer;
-
-        layuimini.init('api/init.json');
 
         $('.login-out').on("click", function () {
             layer.msg('退出登录成功', function () {

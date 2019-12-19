@@ -13,4 +13,9 @@
         from `waiter`
         where waiterID=#{id}
     </select>
+
+    <select id="findAllWaiters" resultMap="waiterMapper">
+        select *
+        from `waiter`
+    </select>
 </mapper>

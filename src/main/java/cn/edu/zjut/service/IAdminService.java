@@ -4,4 +4,5 @@ import cn.edu.zjut.po.Admin;
 
 public interface IAdminService {
     boolean findById(Admin admin);
+    boolean findAllAdmins();
 }

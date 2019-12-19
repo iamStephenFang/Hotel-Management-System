@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.zjut.dao.MemberMapper">
+
+    <resultMap id="memberMapper" type="member">
+        <id property="level" column="level"/>
+        <result property="discount" column="discount"/>
+        <result property="memberDetail" column="memberDetail"/>
+    </resultMap>
+
+    <select id="findAllMembers" resultMap="memberMapper">
+        select *
+        from `member`
+    </select>
+</mapper>

@@ -38,6 +38,13 @@
         where o.orderID = co.orderID and co.customerID = c.customerID
     </select>
 
+    <!--    查询所有入住房客信息： -->
+    <!--    身份证号 / 姓名 / 性别 /手机号 -->
+    <select id="findAllCheckCustomersWithout" resultMap="checkCustomerMapper">
+        select *
+        from `check_customer`
+    </select>
+
 <!--    按姓名 / 手机号 / 订单 / 房间号查询房客-->
     <select id="findByMultiConditions" resultMap="checkCusExtOrderMapper" parameterType="checkCusExtOrder">
         select
@@ -56,7 +63,7 @@
         <where>
             o.orderID = co.orderID and co.customerID = c.customerID
             <if test="roomId != null and roomId != ''">
-                and co.roomID = #{roomId}
+                and co.roomID = #{room.roomId}
             </if>
             <if test="name != null and name != ''">
                 and c.name = #{name}
