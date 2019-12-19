@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.zjut.dao.RegisterMapper">
+
+    <resultMap id="registerMapper" type="Register">
+        <result property="account" column="account"/>
+        <result property="password" column="password"/>
+        <result property="gender" column="gender"/>
+        <result property="phone" column="phone"/>
+        <result property="email" column="email"/>
+        <result property="level" column="level"/>
+        <result property="score" column="score"/>
+    </resultMap>
+
+    <!--    查询所有注册用户信息： -->
+    <!--    订单号 / 身份证号 / 姓名 / 性别 / 房间号 / 房间类型 / 手机号 / 订单状态 / 入住时间 / 离开时间 / 订单细节-->
+    <select id="findAllRegisters" resultMap="registerMapper">
+        select *
+        from `register`
+    </select>
+
+
+    <!--    更新入住房客信息-->
+    <update id="updateRegister" parameterType="register">
+        update `register`
+        set
+            account = #{account},
+            password = #{password},
+            gender = #{gender},
+            phone = #{phone},
+            email = #{email},
+            level = #{level},
+            score = #{score}
+    </update>
+
+</mapper>

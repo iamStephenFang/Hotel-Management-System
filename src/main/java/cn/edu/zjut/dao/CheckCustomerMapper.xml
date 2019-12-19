@@ -2,73 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.zjut.dao.CheckCustomerMapper">
 
-    <resultMap id="checkCustomerMapper" type="checkCustomer">
-        <result property="customerId" column="customerID"/>
-        <result property="name" column="name"/>
+    <resultMap id="registerMapper" type="register">
+        <result property="account" column="account"/>
+        <result property="password" column="password"/>
+        <result property="email" column="email"/>
         <result property="gender" column="gender"/>
         <result property="phone" column="phone"/>
-    </resultMap>
-
-    <resultMap id="checkCusExtOrderMapper" type="checkCusExtOrder" extends="checkCustomerMapper">
-        <result property="orderId" column="orderID"/>
-        <result property="roomType" column="roomType"/>
-        <result property="orderStatus" column="orderStatus"/>
-        <result property="orderDetail" column="orderDetail"/>
-        <result property="checkInTime" column="checkInTime"/>
-        <result property="leaveTime" column="leaveTime"/>
-        <result property="roomId" column="roomId"/>
+        <result property="score" column="score"/>
     </resultMap>
 
 <!--    查询所有入住房客信息： -->
 <!--    订单号 / 身份证号 / 姓名 / 性别 / 房间号 / 房间类型 / 手机号 / 订单状态 / 入住时间 / 离开时间 / 订单细节-->
-    <select id="findAllCheckCustomers" resultMap="checkCusExtOrderMapper">
-        select
-            o.orderID,
-            o.orderDetail,
-            o.roomType,
-            o.orderStatus,
-            co.customerID,
-            co.roomID,
-            co.checkInTime,
-            co.leaveTime,
-            c.name,
-            c.gender,
-            c.phone
-        from `check_customer` c, `order` o ,`customer_order` co
-        where o.orderID = co.orderID and co.customerID = c.customerID
+    <select id="findAllRegisters" resultMap="Mapper">
+        select*   from 'regi'
     </select>
 
-<!--    按姓名 / 手机号 / 订单 / 房间号查询房客-->
-    <select id="findByMultiConditions" resultMap="checkCusExtOrderMapper" parameterType="checkCusExtOrder">
-        select
-            o.orderID,
-            o.orderDetail,
-            o.roomType,
-            o.orderStatus,
-            co.customerID,
-            co.roomID,
-            co.checkInTime,
-            co.leaveTime,
-            c.name,
-            c.gender,
-            c.phone
-        from `check_customer` c, `order` o ,`customer_order` co
-        <where>
-            o.orderID = co.orderID and co.customerID = c.customerID
-            <if test="roomId != null and roomId != ''">
-                and co.roomID = #{room.roomId}
-            </if>
-            <if test="name != null and name != ''">
-                and c.name = #{name}
-            </if>
-            <if test="phone != null and phone != ''">
-                and c.phone = #{phone}
-            </if>
-            <if test="orderId != null and orderId != ''">
-                and o.orderID = #{orderId}
-            </if>
-        </where>
-    </select>
 
 <!--    更新入住房客信息-->
     <update id="updateCheckCustomer" parameterType="checkCusExtOrder">

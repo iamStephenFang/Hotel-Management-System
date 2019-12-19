@@ -9,6 +9,13 @@ import java.util.List;
 @Repository
 public interface CheckCustomerMapper {
     /**
+     * @author 方宣淼
+     * @return List
+     * 查询所有入住房客信息
+     */
+    List<CheckCustomer> findAllCheckCustomersWithout();
+
+    /**
      * @author 王凌云
      * @return List
      * 查询所有入住房客和订单的联合信息

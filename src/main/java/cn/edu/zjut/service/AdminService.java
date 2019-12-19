@@ -2,10 +2,13 @@ package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.AdminMapper;
 import cn.edu.zjut.po.Admin;
+import cn.edu.zjut.po.Order;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -51,6 +54,37 @@ public class AdminService implements IAdminService {
                 return false;
             }
         } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * @author 方宣淼
+     * @return boolean
+     * 查询所有Admin账户
+     */
+    @Override
+    public boolean findAllAdmins() {
+        System.out.println("正在执行findAllAdmins方法...");
+        ActionContext context = ActionContext.getContext();
+        request = (Map<String, List>)context.get("request");
+        List<Admin> admins = new ArrayList<Admin>();
+        try {
+            admins = adminMapper.findAllAdmins();
+            if (admins == null){
+                System.out.println("查询失败...");
+                return false;
+            }
+            else {
+                request.put("admin",admins);
+                for (Admin admin: admins){
+                    System.out.println(admin);
+                }
+                System.out.println("查询成功...");
+                return true;
+            }
+        }catch (Exception e){
             e.printStackTrace();
             return false;
         }
