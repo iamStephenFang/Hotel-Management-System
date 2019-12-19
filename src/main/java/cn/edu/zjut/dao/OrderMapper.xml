@@ -8,28 +8,58 @@
         <result property="orderTime" column="orderTime"/>
         <result property="checkInTime" column="checkInTime"/>
         <result property="leaveTime" column="leaveTime"/>
-        <result property="payment" column="payment"/>
-        <result property="roomNum" column="roomNum"/>
         <result property="orderDetail" column="orderDetail"/>
+        <result property="orderStatus" column="orderStatus"/>
         <association property="register" javaType="register">
             <id property="phone" column="phone"/>
         </association>
     </resultMap>
 
-    <select id="findAllOrders" resultMap="orderMapper">
-        select *
-        from `order`
+    <resultMap id="orderExtRegMapper" type="orderExtReg" extends="orderMapper">
+        <result property="account" column="account"/>
+        <result property="gender" column="gender"/>
+        <result property="email" column="email"/>
+    </resultMap>
+
+<!--    查询所有订单-->
+    <select id="findAllOrders" resultMap="orderExtRegMapper">
+        select
+            orderID,
+            account,
+            gender,
+            roomType,
+            email,
+            o.phone,
+            orderStatus,
+            checkInTime,
+            leaveTime,
+            orderDetail
+        from `order` o ,`register` r
+        where o.phone = r.phone
     </select>
 
-    <select id="findOrderById" resultMap="orderMapper" parameterType="int">
-        select *
-        from `order`
-        where orderID = #{id}
-    </select>
-
-    <select id="findOrdersByPhone" resultMap="orderMapper" parameterType="string">
-        select *
-        from `order`
-        where phone = #{phone}
+<!--    通过订单号或手机号查询订单-->
+    <select id="findByMultiConditions" resultMap="orderExtRegMapper">
+        select
+            orderID,
+            account,
+            gender,
+            roomType,
+            email,
+            o.phone,
+            orderStatus,
+            checkInTime,
+            leaveTime,
+            orderDetail
+        from `order` o ,`register` r
+        <where>
+            <if test="orderId != null and orderId != ''">
+                and orderId = #{orderId}
+            </if>
+            <if test="phone != null and phone != ''">
+                and o.phone = #{phone}
+            </if>
+            and o.phone = r.phone
+        </where>
     </select>
 </mapper>

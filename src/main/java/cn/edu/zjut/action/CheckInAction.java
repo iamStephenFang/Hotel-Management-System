@@ -1,7 +1,7 @@
 package cn.edu.zjut.action;
 
 import cn.edu.zjut.po.CheckCustomer;
-import cn.edu.zjut.service.CheckInService;
+import cn.edu.zjut.service.ICheckInService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 public class CheckInAction {
     private int orderId;
     private CheckCustomer checkCustomer;
-    private CheckInService checkInService = null;
+    private ICheckInService checkInService = null;
 
     public void setOrderId(int orderId) {
         this.orderId = orderId;
@@ -28,10 +28,10 @@ public class CheckInAction {
     }
 
     @Autowired
-    public void setCheckInService(CheckInService checkInService) {
+    public void setCheckInService(ICheckInService checkInService) {
         this.checkInService = checkInService;
     }
-    public CheckInService getCheckInService() {
+    public ICheckInService getCheckInService() {
         return checkInService;
     }
 

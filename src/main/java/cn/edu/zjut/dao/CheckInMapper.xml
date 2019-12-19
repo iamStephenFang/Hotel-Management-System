@@ -9,6 +9,13 @@
         where orderID = #{orderId}
     </select>
 
+    <!--    按订单号查询房间类型和相应的空余房间-->
+    <select id="findRoomByOrderId" parameterType="int" resultType="list">
+        select roomID
+        from `order` o ,`room` r
+        where orderID = #{orderId} and o.roomType = r.roomType and roomStatus = 1
+    </select>
+
     <!--    按身份证号查询是否已存在该房客信息-->
     <select id="findCheckCustomerById" parameterType="string" resultType="int">
         select count(*)
