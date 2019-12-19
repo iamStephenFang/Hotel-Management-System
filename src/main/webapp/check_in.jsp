@@ -189,10 +189,9 @@
                         </div>
                       </div>
                       <div class="layui-form-item">
-                        <label class="layui-form-label">证件信息:</label>
+                        <label class="layui-form-label">证件信息</label>
                         <div class="layui-input-block">
-                          <input type="number" placeholder="请填写贵宾身份证号" value="" class="layui-input" lay-verify="number"
-                                 required>
+                          <input type="text" name="identity" lay-verify="identity" placeholder="请填写贵宾身份证号" autocomplete="off" class="layui-input">
                         </div>
                       </div>
                       <div class="layui-form-item">

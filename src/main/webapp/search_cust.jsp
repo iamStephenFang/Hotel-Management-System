@@ -97,10 +97,11 @@
               <td><s:property value="leaveTime"/></td>
               <td><s:property value="orderDetail"/></td>
               <td>
-                <a href="#" class="layui-btn layui-btn-xs data-count-edit">编辑</a>
+                <a id='edit' class="layui-btn layui-btn-xs data-count-edit">编辑</a>
               </td>
             </tr>
           </s:iterator>
+          <a id='edit' class="layui-btn layui-btn-xs data-count-edit">编辑</a>
           </tbody>
         </table>
       </div>
@@ -110,16 +111,43 @@
 <script src="lib/layui-v2.5.4/layui.js?v=1.0.4" charset="utf-8"></script>
 <script src="js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
-    layui.use(['form', 'table', 'element', 'layer', 'layuimini'], function () {
+    layui.use(['form', 'table', 'element', 'layer', 'layuimini','element'], function () {
         var $ = layui.jquery,
             form = layui.form,
-            table = layui.table;
+            table = layui.table,
+            element = layui.element,
+            layer = layui.layer,
+            index = parent.layer.getFrameIndex(window.name); //获取窗口索引
 
       table.init('currentTableFilter',{
         limit: 10,
         page: true
       });
 
+        $('#edit').on('click', function () {
+            layer.open({
+                type: 2,
+                area: ['700px', '600px'],
+                fixed: false, //不固定
+                maxmin: true,
+                content: 'cust_edit.jsp'
+            });
+            parent.layer.iframeAuto(index);
+        });
+        // //在父层弹出一个层
+//         $('#new').on('click', function () {
+//             parent.layer.msg('该项目无法改变', {shade: 0.3})
+//         });
+// //关闭iframe
+//         $('#closeIframe').click(function () {
+//             var val = $('#name').val();
+//             if(val === ''){
+//                 parent.layer.msg('请填写标记');
+//                 return;
+//             }
+//             parent.layer.msg('信息成功修改');
+//             parent.layer.close(index);
+//         });
         // // 监听搜索操作
         // form.on('submit(data-search-btn)', function (data) {
         //     var result = JSON.stringify(data.field);
