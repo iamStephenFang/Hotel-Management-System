@@ -14,8 +14,7 @@
        https://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--加载数据库配置-->
-<!--    <context:property-placeholder location="classpath:database.properties"/>-->
-    <context:property-placeholder location="classpath:mariadb.properties"/>
+    <context:property-placeholder location="classpath:baiducloud.properties"/>
     <!--配置数据源-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="${c3p0.driverClass}"/>

@@ -85,11 +85,11 @@
               <td><s:property value="leaveTime"/></td>
               <td><s:property value="orderDetail"/></td>
               <td>
-                <a id='edit1' class="layui-btn layui-btn-xs data-count-edit">编辑</a>
+                <a id="edit1" class="layui-btn layui-btn-xs data-count-edit">编辑</a>
               </td>
             </tr>
           </s:iterator>
-          <a id='edit' class="layui-btn layui-btn-xs data-count-edit">编辑</a>
+          <a id="edit" class="layui-btn layui-btn-xs data-count-edit">编辑</a>
           </tbody>
         </table>
       </div>

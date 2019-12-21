@@ -13,6 +13,7 @@ import java.util.Map;
 @Service
 public class CheckInService implements ICheckInService {
     private Map request;
+    private Map session;
     private CheckInMapper checkInMapper = null;
 
     @Autowired
@@ -34,6 +35,7 @@ public class CheckInService implements ICheckInService {
         System.out.println("正在执行findOrderById方法...");
         ActionContext context = ActionContext.getContext();
         request = (Map) context.get("request");
+        session = context.getSession();
         try {
             Order order = checkInMapper.findOrderById(orderId);
             if (order == null){
@@ -41,9 +43,10 @@ public class CheckInService implements ICheckInService {
                 return false;
             }
             else {
-                System.out.println("查询成功...");
                 System.out.println(order);
+                System.out.println("查询成功...");
                 request.put("order",order);
+                session.put("orderId",orderId);
                 return true;
             }
         }catch (Exception e) {
@@ -117,15 +120,20 @@ public class CheckInService implements ICheckInService {
 
     /**
      * @author 王凌云
-     * @param orderId 订单号
      * @return boolean
      * 根据订单号查询空房
      */
     @Override
-    public boolean findRoomByOrderId(int orderId) {
+    public boolean findRoomByOrderId() {
         System.out.println("正在执行findRoomByOrderId方法...");
         ActionContext context = ActionContext.getContext();
         request = (Map) context.get("request");
+        session = context.getSession();
+        Integer orderId = (Integer) session.get("orderId");
+        if (orderId == null){
+            System.out.println("会话作用域存值orderId失败...");
+            return false;
+        }
         try {
             List<String> rooms = checkInMapper.findRoomByOrderId(orderId);
             if (rooms == null)
@@ -137,7 +145,6 @@ public class CheckInService implements ICheckInService {
                 }
             }
             request.put("rooms",rooms);
-            request.put("orderId",orderId);
             return true;
         }catch (Exception e){
             e.printStackTrace();

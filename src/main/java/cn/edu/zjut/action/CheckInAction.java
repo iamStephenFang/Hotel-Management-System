@@ -52,9 +52,6 @@ public class CheckInAction {
      * 按订单号查询
      */
     public String findOrderById() {
-        ActionContext context = ActionContext.getContext();
-        Map request = (Map) context.get("request");
-        request.put("step",step);
         if (checkInService.findOrderById(orderId)){
             return "findOrderByIdSuccess";
         }
@@ -69,10 +66,7 @@ public class CheckInAction {
      * 根据订单号查询空房
      */
     public String findRoomByOrderId() {
-        ActionContext context = ActionContext.getContext();
-        Map request = (Map) context.get("request");
-        request.put("step",step);
-        if (checkInService.findRoomByOrderId(orderId))
+        if (checkInService.findRoomByOrderId())
             return "findRoomByOrderIdSuccess";
         else
             return "findRoomByOrderIdFail";
@@ -85,11 +79,8 @@ public class CheckInAction {
      * 插入订单和入住房客中间表记录
      */
     public String checkIn() {
-        ActionContext context = ActionContext.getContext();
-        Map request = (Map) context.get("request");
-        request.put("step",step);
         if (step == 3){
-            if (!checkInService.findRoomByOrderId(checkCustomer.getOrderId()))
+            if (!checkInService.findRoomByOrderId())
                 return "checkInFail";
         }
         if (!checkInService.insertCheckCustomer(checkCustomer))

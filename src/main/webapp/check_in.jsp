@@ -96,7 +96,6 @@
                       </div>
                     </div>
                     <form class="layui-form" action="findEmptyRoom.action?step=3" method="post" style="margin: 0 auto;max-width: 460px;padding-top: 40px;">
-                      <s:hidden name="orderId" value="%{#request.order.orderId}"/>
                       <div class="layui-form-item">
                         <label class="layui-form-label">订单ID:</label>
                         <div class="layui-input-block">
@@ -182,7 +181,24 @@
                       </div>
                     </div>
                     <form id="diffActionForm" class="layui-form" method="post" style="margin: 0 auto;max-width: 460px;padding-top: 40px;">
-                      <s:hidden name="checkCustomer.orderId" value="%{#request.orderId}"/>
+                      <s:hidden name="checkCustomer.orderId" value="%{#session.orderId}"/>
+                      <div class="layui-inline" style="margin-bottom: 15px">
+                        <label class="layui-form-label">入住日期</label>
+                        <div class="layui-input-inline">
+                          <input name="checkCustomer.checkInTime" type="text" id="date" lay-verify="date" placeholder="yyyy-MM-dd"
+                                 autocomplete="off" class="layui-input" lay-key="1">
+                        </div>
+                      </div>
+                      <div class="layui-form-item">
+                        <label class="layui-form-label">分配房间:</label>
+                        <div class="layui-input-inline">
+                          <select name="checkCustomer.roomId" lay-verify="required" lay-search>
+                            <s:iterator value="#request.rooms" var="roomId">
+                              <option value="<s:property value='roomId'/>"><s:property value="roomId"/></option>
+                            </s:iterator>
+                          </select>
+                        </div>
+                      </div>
                       <div class="layui-form-item">
                         <label class="layui-form-label">贵宾姓名:</label>
                         <div class="layui-input-block">
@@ -193,7 +209,7 @@
                       <div class="layui-form-item">
                         <label class="layui-form-label">证件信息:</label>
                         <div class="layui-input-block">
-                          <input name="checkCustomer.customerId" placeholder="请填写贵宾身份证号"
+                          <input name="checkCustomer.customerId" placeholder="请填写贵宾身份证号" autocomplete="false"
                                  class="layui-input" lay-verify="identity" required>
                         </div>
                       </div>
@@ -211,23 +227,6 @@
                         <div class="layui-input-block">
                           <input name="checkCustomer.phone" type="number" placeholder="请填写贵宾电话号码"
                                  class="layui-input" lay-verify="number" required>
-                        </div>
-                      </div>
-                      <div class="layui-form-item">
-                        <label class="layui-form-label">分配房间:</label>
-                        <div class="layui-input-inline">
-                          <select name="checkCustomer.roomId" lay-verify="required" lay-search>
-                            <s:iterator value="#request.rooms" var="roomId">
-                              <option value="<s:property value='roomId'/>"><s:property value="roomId"/></option>
-                            </s:iterator>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="layui-inline" style="margin-bottom: 15px">
-                        <label class="layui-form-label">入住日期</label>
-                        <div class="layui-input-inline">
-                          <input name="checkCustomer.checkInTime" type="text" id="date" lay-verify="date" placeholder="yyyy-MM-dd"
-                                 autocomplete="off" class="layui-input" lay-key="1">
                         </div>
                       </div>
                       <div class="layui-form-item">
@@ -283,7 +282,7 @@
 
                     <div style="text-align: center;margin-top: 50px;">
                       <a href="check_in.jsp" class="layui-btn next">再次办理</a>
-                      <a href="search_cust.jsp" class="layui-btn layui-btn-primary">查看信息</a>
+                      <a href="listAllCustomers.action" class="layui-btn layui-btn-primary">查看信息</a>
                     </div>
                   </div>
                 </s:if>
@@ -322,7 +321,7 @@
       layui.use(['form', 'step','tableSelect', 'laydate', 'layer', 'layuimini'], function () {
           var $ = layui.$,
               form = layui.form,
-              step = layui.step,
+              // step = layui.step,
               // tableSelect = layui.tableSelect,
               laydate = layui.laydate;
 

@@ -52,5 +52,15 @@
             <result name="checkInSuccess">/check_in.jsp</result>
             <result name="checkInFail">/404.jsp</result>
         </action>
+<!--        服务员办理退房 —— 按房间号和离开时间为空查找对应订单信息-->
+        <action name="findCheckOutOrder" class="checkOutAction" method="findOrderByRoomIdAndLeaveTime">
+            <result name="findOrderByRoomIdAndLeaveTimeSuccess">/check_out.jsp</result>
+            <result name="findOrderByRoomIdAndLeaveTimeFail">/404.jsp</result>
+        </action>
+<!--        服务员办理退房 —— 更新入离开时间、入住状态、房间状态和订单状态-->
+        <action name="updateCheckOutStatus" class="checkOutAction" method="updateLeaveTimeAndStatus">
+            <result name="updateLeaveTimeAndStatusSuccess">/check_out.jsp</result>
+            <result name="updateLeaveTimeAndStatusFail">/404.jsp</result>
+        </action>
     </package>
 </struts>

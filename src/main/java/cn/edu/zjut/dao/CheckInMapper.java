@@ -47,5 +47,5 @@ public interface CheckInMapper {
      * @return List<String>
      * 根据订单号查询订下的房间类型，以及该房间类型对应的空房
      */
-    List<String> findRoomByOrderId(int orderId);
+    List<String> findRoomByOrderId(Integer orderId);
 }
