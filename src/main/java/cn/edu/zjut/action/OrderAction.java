@@ -1,5 +1,6 @@
 package cn.edu.zjut.action;
 
+import cn.edu.zjut.po.Order;
 import cn.edu.zjut.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -8,22 +9,14 @@ import org.springframework.stereotype.Controller;
 @Controller
 @Scope("prototype")
 public class OrderAction {
-    private Integer orderId;
-    private String phone;
+    private Order order;
     private IOrderService orderService;
 
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
+    public void setOrder(Order order) {
+        this.order = order;
     }
-    public Integer getOrderId() {
-        return orderId;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-    public String getPhone() {
-        return phone;
+    public Order getOrder() {
+        return order;
     }
 
     @Autowired
@@ -51,14 +44,38 @@ public class OrderAction {
     /**
      * @author 王凌云
      * @return String
+     * 通过订单号单条件搜索订单
+     */
+    public String findOrderById() {
+        if (orderService.findOrderById(order.getOrderId()))
+            return "findOrderByIdSuccess";
+        else
+            return "findOrderByIdFail";
+    }
+
+    /**
+     * @author 王凌云
+     * @return String
      * 返回指定订单号或手机号的订单信息
      */
     public String findByMultiConditions(){
-        if (orderService.findByMultiConditions(orderId,phone)){
+        if (orderService.findByMultiConditions(order.getOrderId(),order.getRegister().getPhone())){
             return "findByMultiConditionsSuccess";
         }
         else {
             return "findByMultiConditionsFail";
         }
+    }
+
+    /**
+     * @author 王凌云
+     * @return String
+     * 更新订单信息
+     */
+    public String updateOrder() {
+        if (orderService.updateOrder(order))
+            return "updateOrderSuccess";
+        else
+            return "updateOrderFail";
     }
 }

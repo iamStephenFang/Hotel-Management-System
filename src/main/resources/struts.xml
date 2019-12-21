@@ -15,17 +15,32 @@
         <action name="login" class="loginAction" method="login">
             <result name="waiterLoginSuccess">/check_in.jsp</result>
             <result name="adminLoginSuccess">/backend_login.jsp</result>
-            <result name="LoginFail" type="chain">authGenerate</result>
+            <result name="LoginFail">authGenerate.action</result>
         </action>
 <!--        订单操作 —— 查询所有订单-->
         <action name="listAllOrders" class="orderAction" method="listAll">
             <result name="findAllSuccess">/search_order.jsp</result>
             <result name="findAllFail">/404.jsp</result>
         </action>
+<!--        订单操作 —— 单条件搜索订单-->
+        <action name="findOrderById" class="orderAction" method="findOrderById">
+            <result name="findOrderByIdSuccess">/order_edit.jsp</result>
+            <result name="findOrderByIdFail">/404.jsp</result>
+        </action>
 <!--        订单操作 —— 多条件搜索订单-->
         <action name="findOrders" class="orderAction" method="findByMultiConditions">
             <result name="findByMultiConditionsSuccess">/search_order.jsp</result>
             <result name="findByMultiConditionsFail">/404.jsp</result>
+        </action>
+<!--        订单操作 —— 修改订单信息-->
+        <action name="updateOrder" class="orderAction" method="updateOrder">
+            <result name="updateOrderSuccess">/success_icon.jsp</result>
+            <result name="updateOrderFail">/404.jsp</result>
+        </action>
+<!--        房客操作 —— 通过订单号和身份证号单条房客信息-->
+        <action name="findCustomerByIds" class="checkCustomerAction" method="findCustomerByIds">
+            <result name="findCustomerByIdsSuccess">/cust_edit.jsp</result>
+            <result name="findCustomerByIdsFail">/404.jsp</result>
         </action>
 <!--        房客操作 —— 查询所有房客信息-->
         <action name="listAllCustomers" class="checkCustomerAction" method="findAllCheckCustomers">
@@ -36,6 +51,11 @@
         <action name="findCustomers" class="checkCustomerAction" method="findByMultiConditions">
             <result name="findByMultiConditionsSuccess">/search_cust.jsp</result>
             <result name="findByMultiConditionsFail">/404.jsp</result>
+        </action>
+<!--        房客操作 —— 修改房客信息-->
+        <action name="updateCustomer" class="checkCustomerAction" method="updateCheckCustomer">
+            <result name="updateCheckCustomerSuccess">/success_icon.jsp</result>
+            <result name="updateCheckCustomerFail">/404.jsp</result>
         </action>
 <!--        服务员办理入住 —— 查询订单-->
         <action name="searchOrder" class="checkInAction" method="findOrderById">

@@ -57,6 +57,35 @@ public class OrderService implements IOrderService {
 
     /**
      * @author 王凌云
+     * @param orderId 订单
+     * @return boolean
+     * 通过订单号单条件搜索订单
+     */
+    @Override
+    public boolean findOrderById(int orderId){
+        System.out.println("正在执行findOrderById方法...");
+        ActionContext context = ActionContext.getContext();
+        request = (Map<String, List>)context.get("request");
+        try {
+            Order order = orderMapper.findOrderById(orderId);
+            if (order == null){
+                System.out.println("未找到订单...");
+                return false;
+            }
+            else {
+                System.out.println(order);
+                System.out.println("找到订单...");
+                request.put("order",order);
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * @author 王凌云
      * @return boolean
      * 根据订单号或手机号查询所有订单
      */
@@ -79,6 +108,31 @@ public class OrderService implements IOrderService {
             request.put("orders",orders);
             System.out.println("查询成功...");
             return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * @author 王凌云
+     * @param order 订单
+     * @return boolean
+     * 更新订单信息
+     */
+    @Override
+    public boolean updateOrder(Order order) {
+        System.out.println("正在执行updateOrder方法...");
+        int colNum = orderMapper.updateOrder(order);
+        try {
+            if (colNum == 0){
+                System.out.println("更新订单信息失败...");
+                return false;
+            }
+            else {
+                System.out.println("更新订单信息成功...");
+                return true;
+            }
         }catch (Exception e){
             e.printStackTrace();
             return false;

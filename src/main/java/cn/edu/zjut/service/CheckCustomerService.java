@@ -26,6 +26,37 @@ public class CheckCustomerService implements ICheckCustomerService{
 
     /**
      * @author 王凌云
+     * @param orderId 订单号
+     * @param customerId 身份证号
+     * @return boolean
+     * 通过订单号和身份证号查找房客信息
+     */
+    @Override
+    public boolean findCustomerByIds(int orderId,String customerId) {
+        System.out.println("正在执行findCustomerByIds方法...");
+        ActionContext context = ActionContext.getContext();
+        Map request = (Map) context.get("request");
+        try {
+            System.out.println("orderId: " + orderId + ", customerId: " + customerId);
+            CheckCustomerExtendsOrder customer = checkCustomerMapper.findCustomerByIds(orderId, customerId);
+            if (customer == null){
+                System.out.println("查询失败...");
+                return false;
+            }
+            else {
+                System.out.println(customer);
+                System.out.println("查询成功...");
+                request.put("checkCustomer",customer);
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * @author 王凌云
      * @return boolean
      * 查询所有入住房客
      */
