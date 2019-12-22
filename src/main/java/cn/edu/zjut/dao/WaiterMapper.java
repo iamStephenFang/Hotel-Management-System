@@ -29,4 +29,12 @@ public interface WaiterMapper {
      * 更新入住房客信息
      */
     int updateWaiter(Waiter waiter);
+
+    /**
+     * @author 方宣淼
+     * @param  waiter
+     * @return int
+     * 插入服务员信息
+     */
+    int insertWaiter(Waiter waiter);
 }

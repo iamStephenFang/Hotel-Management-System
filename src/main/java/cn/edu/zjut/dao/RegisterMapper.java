@@ -1,6 +1,7 @@
 package cn.edu.zjut.dao;
 
 import cn.edu.zjut.po.Register;
+import cn.edu.zjut.po.Waiter;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,9 +11,17 @@ public interface RegisterMapper {
     /**
      * @author 方宣淼
      * @return List
-     * 查询所有入住房客和订单的联合信息
+     * 查询所有注册用户信息
      */
     List<Register> findAllRegisters();
+
+    /**
+     * @author 方宣淼
+     * @param phone
+     * @return Register
+     * 通过电话号码查找注册用户信息
+     */
+    Register findByPhone(String phone);
 
     /**
      * @author 方宣淼

@@ -12,4 +12,25 @@
         select *
         from `member`
     </select>
+
+    <!--    更新成员信息-->
+    <update id="updateMember" parameterType="member" >
+        update `member`
+        set
+            discount = #{discount},
+            memberDetail = #{memberDetail}
+        where level = #{level}
+    </update>
+
+    <insert id="insertMember" parameterType="member">
+        insert
+        into `member`(level,discount,memberDetail)
+            value (#{level},#{discount},#{memberDetail})
+    </insert>
+
+    <select id="findByLevel" resultMap="memberMapper" parameterType="int">
+        select *
+        from `member`
+        where level=#{level}
+    </select>
 </mapper>

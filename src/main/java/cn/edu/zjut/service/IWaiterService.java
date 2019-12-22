@@ -6,4 +6,5 @@ public interface IWaiterService {
     boolean findAllWaiters();
     boolean findById(Waiter waiter);
     boolean updateWaiter(Waiter waiter);
+    boolean insertWaiter(Waiter waiter);
 }

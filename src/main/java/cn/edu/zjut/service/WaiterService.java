@@ -89,7 +89,11 @@ public class WaiterService implements IWaiterService {
             return false;
         }
     }
-
+    /**
+     * @author 方宣淼
+     * @return boolean
+     * 更新Waiter账户信息
+     */
     @Override
     public boolean updateWaiter(Waiter waiter){
         System.out.println("正在执行updateWaiter方法...");
@@ -104,6 +108,42 @@ public class WaiterService implements IWaiterService {
                 return true;
             }
         }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * @author 方宣淼
+     * @return boolean
+     * 添加Waiter账户信息
+     */
+    @Override
+    public boolean insertWaiter(Waiter waiter){
+        System.out.println("正在执行insertWaiter方法...");
+        System.out.println(waiter);
+        try {
+            Waiter instance = waiterMapper.findById(waiter.getWaiterId());
+            if (instance == null){
+                int colNum = waiterMapper.insertWaiter(waiter);
+                if (colNum == 0){
+                    System.out.println("插入失败...");
+                    return false;
+                }
+                else {
+                    System.out.println("插入成功...");
+                    return true;
+                }
+            }
+            else if (instance.getPassword().equals(waiter.getPassword())) {
+                System.out.println("已存在该服务员信息...");
+                return true;
+            }
+            else {
+                System.out.println("添加服务员信息失败...");
+                return false;
+            }
+        }catch (Exception e) {
             e.printStackTrace();
             return false;
         }

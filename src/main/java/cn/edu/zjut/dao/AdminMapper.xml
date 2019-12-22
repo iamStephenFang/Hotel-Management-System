@@ -19,10 +19,10 @@
         from `admin`
     </select>
 
-    <update id="updateAdmin">
+    <update id="updateAdmin" parameterType="admin">
         update `admin`
         set account = #{account},
-           password =#{passwprd}
+           password =#{password}
         where adminID = #{adminId}
     </update>
 </mapper>

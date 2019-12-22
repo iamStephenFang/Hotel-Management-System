@@ -1,9 +1,11 @@
 package cn.edu.zjut.dao;
 
 import cn.edu.zjut.po.Admin;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface AdminMapper {
     /**
      * @author 王凌云

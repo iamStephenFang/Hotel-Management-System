@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.zjut.dao.RegisterMapper">
 
-    <resultMap id="registerMapper" type="Register">
+    <resultMap id="registerMapper" type="register">
         <result property="account" column="account"/>
         <result property="password" column="password"/>
         <result property="gender" column="gender"/>
@@ -19,18 +19,24 @@
         from `register`
     </select>
 
+    <!--    查询注册用户信息： -->
+    <select id="findByPhone" parameterType="string" resultType="register">
+        select *
+        from `register`
+        where phone=#{phone}
+    </select>
 
     <!--    更新入住房客信息-->
-    <update id="updateRegister" parameterType="register">
+    <update id="updateRegister" parameterType="register" >
         update `register`
         set
             account = #{account},
             password = #{password},
             gender = #{gender},
-            phone = #{phone},
             email = #{email},
             level = #{level},
             score = #{score}
+      where phone = #{phone}
     </update>
 
 </mapper>

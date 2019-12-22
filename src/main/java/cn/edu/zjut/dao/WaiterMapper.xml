@@ -19,11 +19,16 @@
         from `waiter`
     </select>
 
-
-    <update id="updateWaiter">
+    <update id="updateWaiter" parameterType="waiter">
         update `waiter`
         set account = #{account},
-            password =#{passwprd}
+            password =#{password}
         where waiterID = #{waiterId}
     </update>
+
+    <insert id="insertWaiter" parameterType="waiter">
+        insert
+        into `waiter`(account, password)
+            value (#{account},#{password})
+    </insert>
 </mapper>
