@@ -12,6 +12,7 @@ import java.util.Date;
 public class CheckOutAction {
     private String roomId;
     private Date leaveTime;
+    public int step;
     private ICheckOutService checkOutService = null;
 
     public void setRoomId(String roomId) {
@@ -28,6 +29,13 @@ public class CheckOutAction {
         return leaveTime;
     }
 
+    public void setStep(int step) {
+        this.step = step;
+    }
+    public int getStep() {
+        return step;
+    }
+
     @Autowired
     public void setCheckOutService(ICheckOutService checkOutService) {
         this.checkOutService = checkOutService;
@@ -39,10 +47,22 @@ public class CheckOutAction {
     /**
      * @author 王凌云
      * @return String
+     * 通过房间号和离开时间为空查询订单信息
+     */
+    public String findOrderByRoomIdAndLeaveTime() {
+        if (checkOutService.findOrderByRoomIdAndLeaveTime(roomId,leaveTime))
+            return "findOrderByRoomIdAndLeaveTimeSuccess";
+        else
+            return "findOrderByRoomIdAndLeaveTimeFail";
+    }
+
+    /**
+     * @author 王凌云
+     * @return String
      * 更新入住房客信息、房间状态和订单状态
      */
     public String updateLeaveTimeAndStatus() {
-        if (checkOutService.updateLeaveTimeAndStatus(roomId,leaveTime))
+        if (checkOutService.updateLeaveTimeAndStatus())
             return "updateLeaveTimeAndStatusSuccess";
         else
             return "updateLeaveTimeAndStatusFail";

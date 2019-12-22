@@ -9,8 +9,24 @@ import org.springframework.stereotype.Controller;
 @Controller
 @Scope("prototype")
 public class CheckCustomerAction {
+    private String orderId;
+    private String customerId;
     private CheckCustomerExtendsOrder checkCustomer;
     private ICheckCustomerService checkCustomerService = null;
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+    public String getCustomerId() {
+        return customerId;
+    }
 
     public void setCheckCustomer(CheckCustomerExtendsOrder checkCustomer) {
         this.checkCustomer = checkCustomer;
@@ -25,6 +41,18 @@ public class CheckCustomerAction {
     }
     public ICheckCustomerService getCheckCustomerService() {
         return checkCustomerService;
+    }
+
+    /**
+     * @author 王凌云
+     * @return String
+     * 通过订单号和身份证号查找房客信息
+     */
+    public String findCustomerByIds() {
+        if (checkCustomerService.findCustomerByIds(Integer.parseInt(orderId),customerId))
+            return "findCustomerByIdsSuccess";
+        else
+            return "findCustomerByIdsFail";
     }
 
     /**

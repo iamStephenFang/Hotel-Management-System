@@ -15,29 +15,73 @@
         <action name="login" class="loginAction" method="login">
             <result name="waiterLoginSuccess">/check_in.jsp</result>
             <result name="adminLoginSuccess">/backend_login.jsp</result>
-            <result name="LoginFail" type="chain">authGenerate</result>
+            <result name="LoginFail">authGenerate.action</result>
         </action>
         <!--        订单操作 —— 查询所有订单-->
         <action name="listAllOrders" class="orderAction" method="listAll">
             <result name="findAllSuccess">/search_order.jsp</result>
             <result name="findAllFail">/404.jsp</result>
         </action>
-        <!--        订单操作 —— 多条件搜索订单-->
+<!--        订单操作 —— 单条件搜索订单-->
+        <action name="findOrderById" class="orderAction" method="findOrderById">
+            <result name="findOrderByIdSuccess">/order_edit.jsp</result>
+            <result name="findOrderByIdFail">/404.jsp</result>
+        </action>
+<!--        订单操作 —— 多条件搜索订单-->
         <action name="findOrders" class="orderAction" method="findByMultiConditions">
             <result name="findByMultiConditionsSuccess">/search_order.jsp</result>
             <result name="findByMultiConditionsFail">/404.jsp</result>
         </action>
-        <!--        入住房客操作 —— 查询所有房客信息-->
+<!--        订单操作 —— 修改订单信息-->
+        <action name="updateOrder" class="orderAction" method="updateOrder">
+            <result name="updateOrderSuccess">/success_icon.jsp</result>
+            <result name="updateOrderFail">/404.jsp</result>
+        </action>
+<!--        房客操作 —— 通过订单号和身份证号单条房客信息-->
+        <action name="findCustomerByIds" class="checkCustomerAction" method="findCustomerByIds">
+            <result name="findCustomerByIdsSuccess">/cust_edit.jsp</result>
+            <result name="findCustomerByIdsFail">/404.jsp</result>
+        </action>
+<!--        房客操作 —— 查询所有房客信息-->
         <action name="listAllCustomers" class="checkCustomerAction" method="findAllCheckCustomers">
             <result name="findAllCheckCustomersSuccess">/search_cust.jsp</result>
             <result name="findAllCheckCustomersFail">/404.jsp</result>
         </action>
-        <!--        入住房客操作 —— 查询所有房客信息-->
+<!--        房客操作 —— 查询所有房客信息-->
         <action name="findCustomers" class="checkCustomerAction" method="findByMultiConditions">
             <result name="findByMultiConditionsSuccess">/search_cust.jsp</result>
             <result name="findByMultiConditionsFail">/404.jsp</result>
         </action>
-        <!--        服务员办理入住 —— 查询订单-->
+<!--        房客操作 —— 修改房客信息-->
+        <action name="updateCustomer" class="checkCustomerAction" method="updateCheckCustomer">
+            <result name="updateCheckCustomerSuccess">/success_icon.jsp</result>
+            <result name="updateCheckCustomerFail">/404.jsp</result>
+        </action>
+<!--        服务员办理入住 —— 查询订单-->
+        <action name="searchOrder" class="checkInAction" method="findOrderById">
+            <result name="findOrderByIdSuccess">/check_in.jsp</result>
+            <result name="findOrderByIdFail">/404.jsp</result>
+        </action>
+<!--        服务员办理入住 —— 查询空房-->
+        <action name="findEmptyRoom" class="checkInAction" method="findRoomByOrderId">
+            <result name="findRoomByOrderIdSuccess">/check_in.jsp</result>
+            <result name="findRoomByOrderIdFail">/404.jsp</result>
+        </action>
+<!--        服务员办理入住 —— 插入房客信息以及订单和入住房客中间表记录-->
+        <action name="insertCustomer" class="checkInAction" method="checkIn">
+            <result name="checkInSuccess">/check_in.jsp</result>
+            <result name="checkInFail">/404.jsp</result>
+        </action>
+<!--        服务员办理退房 —— 按房间号和离开时间为空查找对应订单信息-->
+        <action name="findCheckOutOrder" class="checkOutAction" method="findOrderByRoomIdAndLeaveTime">
+            <result name="findOrderByRoomIdAndLeaveTimeSuccess">/check_out.jsp</result>
+            <result name="findOrderByRoomIdAndLeaveTimeFail">/404.jsp</result>
+        </action>
+<!--        服务员办理退房 —— 更新入离开时间、入住状态、房间状态和订单状态-->
+        <action name="updateCheckOutStatus" class="checkOutAction" method="updateLeaveTimeAndStatus">
+            <result name="updateLeaveTimeAndStatusSuccess">/check_out.jsp</result>
+            <result name="updateLeaveTimeAndStatusFail">/404.jsp</result>
+        </action>
         <action name="checkIn_SearchOrderId" class="checkInAction" method="findOrderById">
             <result name="findOrderByIdSuccess">/check_in.jsp</result>
             <result name="findOrderByIdFail">/404.jsp</result>

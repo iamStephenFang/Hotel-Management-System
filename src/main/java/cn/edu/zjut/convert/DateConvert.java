@@ -19,8 +19,7 @@ public class DateConvert extends StrutsTypeConverter {
             new SimpleDateFormat("yyyy/MM/dd"),
             new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"),
             new SimpleDateFormat("yyyy:MM:dd HH:mm:ss"),
-            new SimpleDateFormat("yyyy/MM/dd HH:mm:ss"),
-            new SimpleDateFormat("yyyy年MM月dd日")
+            new SimpleDateFormat("yyyy/MM/dd HH:mm:ss")
     };
 
     /*

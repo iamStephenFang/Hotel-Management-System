@@ -19,6 +19,25 @@
         <result property="roomId" column="roomId"/>
     </resultMap>
 
+<!--    通过订单号和身份证号查找房客信息-->
+    <select id="findCustomerByIds" resultMap="checkCusExtOrderMapper">
+        select
+            o.orderID,
+            o.orderDetail,
+            o.roomType,
+            o.orderStatus,
+            co.customerID,
+            co.roomID,
+            co.checkInTime,
+            co.leaveTime,
+            c.name,
+            c.gender,
+            c.phone
+        from `check_customer` c, `order` o ,`customer_order` co
+        where o.orderID = #{orderId} and o.orderID = co.orderID
+          and co.customerID = #{customerId} and co.customerID = c.customerID
+    </select>
+
 <!--    查询所有入住房客信息： -->
 <!--    订单号 / 身份证号 / 姓名 / 性别 / 房间号 / 房间类型 / 手机号 / 订单状态 / 入住时间 / 离开时间 / 订单细节-->
     <select id="findAllCheckCustomers" resultMap="checkCusExtOrderMapper">
@@ -38,8 +57,8 @@
         where o.orderID = co.orderID and co.customerID = c.customerID
     </select>
 
-    <!--    查询所有入住房客信息： -->
-    <!--    身份证号 / 姓名 / 性别 /手机号 -->
+<!--    查询所有入住房客信息： -->
+<!--    身份证号 / 姓名 / 性别 /手机号 -->
     <select id="findAllCheckCustomersWithout" resultMap="checkCustomerMapper">
         select *
         from `check_customer`
@@ -87,7 +106,8 @@
             co.checkInTime = #{checkInTime},
             co.leaveTime = #{leaveTime},
             co.roomID = #{roomId},
-            o.orderStatus = #{orderStatus}
-         where o.orderID = co.orderID and co.customerID = c.customerID
+            o.orderDetail = #{orderDetail}
+        where o.orderID = #{orderId} and o.orderID = co.orderID
+          and co.customerID = #{customerId} and co.customerID = c.customerID
     </update>
 </mapper>

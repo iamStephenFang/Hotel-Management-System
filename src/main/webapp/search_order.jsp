@@ -22,13 +22,13 @@
                 <div class="layui-inline">
                   <label class="layui-form-label">用户手机号</label>
                   <div class="layui-input-inline">
-                    <input type="text" name="phone" autocomplete="off" class="layui-input">
+                    <input type="text" name="order.phone" autocomplete="off" class="layui-input">
                   </div>
                 </div>
                 <div class="layui-inline">
                   <label class="layui-form-label">订单ID</label>
                   <div class="layui-input-inline">
-                    <input type="text" name="orderId" autocomplete="off" class="layui-input">
+                    <input type="text" name="order.register.orderId" autocomplete="off" class="layui-input">
                   </div>
                 </div>
                 <div class="layui-inline">
@@ -41,7 +41,7 @@
       </div>
 
       <div style="padding:10px">
-        <table lay-filter="currentTableFilter">
+        <table class="layui-table" lay-data="{page:true,limit:10}" lay-filter="currentTableFilter">
           <thead>
           <tr>
             <th lay-data="{field:'orderId',width:90,sort:true}">订单ID</th>
@@ -85,11 +85,12 @@
               <td><s:property value="leaveTime"/></td>
               <td><s:property value="orderDetail"/></td>
               <td>
-                <a id='edit1' class="layui-btn layui-btn-xs data-count-edit">编辑</a>
+                <a class="layui-btn layui-btn-xs data-count-edit" style="margin-top: 3px"
+                   onclick="layuiLayer(<s:property value='orderId'/>);">编辑</a>
               </td>
             </tr>
           </s:iterator>
-          <a id='edit' class="layui-btn layui-btn-xs data-count-edit">编辑</a>
+<%--          <a id="edit" class="layui-btn layui-btn-xs data-count-edit">编辑</a>--%>
           </tbody>
         </table>
       </div>
@@ -98,43 +99,63 @@
   <script src="lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
   <script src="js/lay-config.js?v=1.0.4" charset="utf-8"></script>
   <script>
+      document.getElementById("findOrder").className += "layui-this";
+
+      function layuiLayer(orderId) {
+          layui.use('layer',function () {
+              var layer = layui.layer;
+                  // ,index = parent.layer.getFrameIndex(window.name);
+
+              layer.open({
+                  type: 2,
+                  area: ['500px','520px'],
+                  fixed: false,
+                  maxmin: true,
+                  scrollbar: false,
+                  content: 'findOrderById.action?order.orderId=' + orderId.toString(),
+                  cancel: function(index,layero) {
+                      if (confirm("是否刷新数据？")){
+                          window.location.href="http://localhost:8080/hotel_management_war_exploded/listAllOrders.action";
+                      }
+                      return true;
+                  }
+              });
+          })
+      }
+
       layui.use(['form', 'table', 'layer', 'layuimini', 'element'], function () {
           var $ = layui.jquery,
               form = layui.form,
               table = layui.table,
-              element = layui.element,
-              layer = layui.layer,
-              index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+              element = layui.element;
+              // layer = layui.layer,
+              // index = parent.layer.getFrameIndex(window.name); //获取窗口索引
 
-          table.init('currentTableFilter',{
-              limit: 10,
-              page: true
-          });
+          // $('#edit').on('click', function () {
+          //     layer.open({
+          //         type: 2,
+          //         area: ['700px', '450px'],
+          //         fixed: false, //不固定
+          //         maxmin: true,
+          //         content: 'order_edit.jsp'
+          //     });
+          //     parent.layer.iframeAuto(index);
+          // });
 
-          $('#edit').on('click', function () {
-              layer.open({
-                  type: 2,
-                  area: ['700px', '450px'],
-                  fixed: false, //不固定
-                  maxmin: true,
-                  content: 'order_edit.jsp'
-              });
-              parent.layer.iframeAuto(index);
-          });
           // //在父层弹出一个层
-//         $('#new').on('click', function () {
-//             parent.layer.msg('该项目无法改变', {shade: 0.3})
-//         });
-// //关闭iframe
-//         $('#closeIframe').click(function () {
-//             var val = $('#name').val();
-//             if(val === ''){
-//                 parent.layer.msg('请填写标记');
-//                 return;
-//             }
-//             parent.layer.msg('信息成功修改');
-//             parent.layer.close(index);
-//         });
+          //   $('#new').on('click', function () {
+          //       parent.layer.msg('该项目无法改变', {shade: 0.3})
+          //   });
+          //  //关闭iframe
+          //   $('#closeIframe').click(function () {
+          //       var val = $('#name').val();
+          //       if(val === ''){
+          //           parent.layer.msg('请填写标记');
+          //           return;
+          //       }
+          //       parent.layer.msg('信息成功修改');
+          //       parent.layer.close(index);
+          //   });
           // // 监听搜索操作
           // form.on('submit(data-search-btn)', function (data) {
           //     var result = JSON.stringify(data.field);
