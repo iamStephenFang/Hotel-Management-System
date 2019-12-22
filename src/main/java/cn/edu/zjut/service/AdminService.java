@@ -89,4 +89,23 @@ public class AdminService implements IAdminService {
             return false;
         }
     }
+
+    @Override
+    public boolean updateAdmin(Admin admin){
+        System.out.println("正在执行updateAdmin方法...");
+        try {
+            int updatedColumns = adminMapper.updateAdmin(admin);
+            if (updatedColumns == 0){
+                System.out.println("更新失败...");
+                return false;
+            }
+            else {
+                System.out.println("更新成功...");
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

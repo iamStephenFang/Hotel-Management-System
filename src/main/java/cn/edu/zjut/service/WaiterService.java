@@ -89,4 +89,23 @@ public class WaiterService implements IWaiterService {
             return false;
         }
     }
+
+    @Override
+    public boolean updateWaiter(Waiter waiter){
+        System.out.println("正在执行updateWaiter方法...");
+        try {
+            int updatedColumns = waiterMapper.updateWaiter(waiter);
+            if (updatedColumns == 0){
+                System.out.println("更新失败...");
+                return false;
+            }
+            else {
+                System.out.println("更新成功...");
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

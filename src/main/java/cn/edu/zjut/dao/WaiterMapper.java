@@ -21,4 +21,12 @@ public interface WaiterMapper {
      * 查询所有服务员信息
      */
     List<Waiter> findAllWaiters();
+
+    /**
+     * @author 方宣淼
+     * @param waiter 服务员
+     * @return int
+     * 更新入住房客信息
+     */
+    int updateWaiter(Waiter waiter);
 }

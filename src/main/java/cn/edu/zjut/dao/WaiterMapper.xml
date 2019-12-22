@@ -18,4 +18,12 @@
         select *
         from `waiter`
     </select>
+
+
+    <update id="updateWaiter">
+        update `waiter`
+        set account = #{account},
+            password =#{passwprd}
+        where waiterID = #{waiterId}
+    </update>
 </mapper>

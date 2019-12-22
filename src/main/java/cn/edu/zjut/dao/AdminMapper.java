@@ -19,4 +19,12 @@ public interface AdminMapper {
      * 查询所有管理员信息
      */
     List<Admin> findAllAdmins();
+
+    /**
+     * @author 方宣淼
+     * @param admin 管理员
+     * @return int
+     * 更新入住房客信息
+     */
+    int updateAdmin(Admin admin);
 }
