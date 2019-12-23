@@ -1,11 +1,7 @@
 package cn.edu.zjut.action;
 
-import cn.edu.zjut.po.Member;
-import cn.edu.zjut.po.Register;
-import cn.edu.zjut.po.Waiter;
-import cn.edu.zjut.service.IMemberService;
-import cn.edu.zjut.service.IRegisterService;
-import cn.edu.zjut.service.IWaiterService;
+import cn.edu.zjut.po.*;
+import cn.edu.zjut.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -16,21 +12,25 @@ public class AdminAction {
     private IWaiterService waiterService = null;
     private IRegisterService registerService = null;
     private IMemberService memberService = null;
+    private IRoomTypeService roomTypeService = null;
+    private IRoomService roomService = null;
     private Waiter waiter;
     private Register register;
     private Member member;
+    private RoomType roomType;
+    private Room room;
 
     public IWaiterService getiWaiterService() {
         return waiterService;
     }
-
     public IRegisterService getRegisterService() {
         return registerService;
     }
-
     public IMemberService getMemberService() {
         return memberService;
     }
+    public IRoomService getRoomService() { return roomService; }
+    public IRoomTypeService getRoomTypeService() { return roomTypeService; }
 
     @Autowired
     public void setiWaiterService(IWaiterService waiterService) {
@@ -39,10 +39,9 @@ public class AdminAction {
     public void setRegisterService(IRegisterService registerService) {
         this.registerService = registerService;
     }
-
-    public void setMemberService(IMemberService memberService) {
-        this.memberService = memberService;
-    }
+    public void setRoomService(IRoomService roomService) { this.roomService = roomService; }
+    public void setRoomTypeService(IRoomTypeService roomTypeService) { this.roomTypeService = roomTypeService; }
+    public void setMemberService(IMemberService memberService) { this.memberService = memberService; }
 
     /**
      * @return String
@@ -141,5 +140,127 @@ public class AdminAction {
             return "insertMemberSuccess";
         else
             return "insertMemberFail";
+    }
+
+    /**
+     * @return String
+     * 显示所有RoomType信息
+     * @author 方宣淼
+     */
+    public String findAllRoomTypes() {
+        if (roomTypeService.findAllRoomTypes()) {
+            return "findAllRoomTypesSuccess";
+        } else {
+            return "findAllRoomTypesFail";
+        }
+    }
+
+    /**
+     * @return String
+     * 修改RoomType信息
+     * @author 方宣淼
+     */
+    public String updateRoomType() {
+        if (roomTypeService.updateRoomType(roomType))
+            return "updateRoomTypeSuccess";
+        else
+            return "updateRoomTypeFail";
+    }
+
+    /**
+     * @return String
+     * 新增RoomType信息
+     * @author 方宣淼
+     */
+    public String insertRoomType() {
+        if (roomTypeService.insertRoomType(roomType))
+            return "insertRoomTypeSuccess";
+        else
+            return "insertRoomTypeFail";
+    }
+
+    /**
+     * @return String
+     * 删除RoomType信息
+     * @author 方宣淼
+     */
+    public String deleteRoomType() {
+        if (roomTypeService.deleteRoomType(roomType))
+            return "deleteRoomTypeSuccess";
+        else
+            return "deleteRoomTypeFail";
+    }
+
+    /**
+     * @return String
+     * 检索RoomType信息
+     * @author 方宣淼
+     */
+    public String findByRoomType() {
+        if (roomTypeService.findByRoomType(roomType.getType()))
+            return "findByRoomTypeSuccess";
+        else
+            return "findByRoomTypeFail";
+    }
+
+    /**
+     * @return String
+     * 显示所有Room信息
+     * @author 方宣淼
+     */
+    public String findAllRooms() {
+        if (roomService.findAllRooms()) {
+            return "findAllRoomsSuccess";
+        } else {
+            return "findAllRoomsFail";
+        }
+    }
+
+    /**
+     * @return String
+     * 修改Room信息
+     * @author 方宣淼
+     */
+    public String updateRoom() {
+        if (roomService.updateRoom(room))
+            return "updateRoomSuccess";
+        else
+            return "updateRoomFail";
+    }
+
+    /**
+     * @return String
+     * 新增Room信息
+     * @author 方宣淼
+     */
+    public String insertRoom() {
+        if (roomService.insertRoom(room))
+            return "insertRoomSuccess";
+        else
+            return "insertRoomFail";
+    }
+
+    /**
+     * @return String
+     * 删除Room信息
+     * @author 方宣淼
+     */
+    public String deleteRoom() {
+        if (roomService.deleteRoom(room))
+            return "deleteRoomSuccess";
+        else
+            return "deleteRoomFail";
+    }
+
+    /**
+     * @return String
+     * 检索Room信息
+     * @author 方宣淼
+     */
+    public String findByRoomID() {
+        if (roomService.findByRoomID(room.getRoomId()))
+            return "findByRoomIDSuccess";
+        else
+            return "findByRoomIDFail";
     }
 }

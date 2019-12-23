@@ -28,7 +28,7 @@
 
     <insert id="insertWaiter" parameterType="waiter">
         insert
-        into `waiter`(account, password)
-            value (#{account},#{password})
+        into `waiter`(waiterID,account, password)
+            value (#{waiterID},#{account},#{password})
     </insert>
 </mapper>

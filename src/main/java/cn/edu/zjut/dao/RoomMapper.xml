@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.zjut.dao.RoomMapper">
+
+    <resultMap type="room" id="roomMapper">
+        <id column="roomID" property="roomID"/>
+        <result column="roomType" property="roomType"/>
+        <result column="roomDetail" property="roomDetail"/>
+        <result column="roomStatus" property="roomStatus"/>
+    </resultMap>
+
+    <select id="findByRoomID" resultMap="roomMapper" parameterType="String">
+        select *
+        from `room`
+        where roomID=#{roomID}
+    </select>
+
+    <select id="findAllRooms" resultMap="roomMapper">
+        select *
+        from `room`
+    </select>
+
+    <update id="updateRoom" parameterType="room">
+        update `room`
+        set roomType = #{roomType},
+            roomDetail = #{roomDetail},
+            roomStatus = #{roomStatus}
+        where roomID= #{roomID}
+    </update>
+
+    <insert id="insertRoom" parameterType="room">
+        insert
+        into `room`(roomID, roomType, roomDetail, roomStatus)
+            value (#{roomID}, #{roomType},#{roomDetail},#{roomStatus})
+    </insert>
+
+    <delete id="deleteRoom" parameterType="room">
+        delete from `room`
+        where roomID = #{roomID}
+    </delete>
+</mapper>
