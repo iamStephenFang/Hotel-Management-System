@@ -13,6 +13,10 @@
     <!-- waiter 侧边导航栏 -->
     <%@include file="waiter_sidebar.jsp" %>
   </s:if>
+  <s:else>
+    <!-- admin 侧边导航栏 -->
+    <%@include file="admin_sidebar.jsp" %>
+  </s:else>
   <div class="layui-body">
     <div class="layuimini-container">
       <div class="layui-main">
@@ -75,6 +79,8 @@
 <script src="lib/layui-v2.5.4/layui.js?v=1.0.4" charset="utf-8"></script>
 <script src="js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
+    document.getElementById("updatePassword").className += "layui-this";
+
     layui.use(['element', 'layuimini'], function () {
         var $ = layui.jquery,
             element = layui.element;

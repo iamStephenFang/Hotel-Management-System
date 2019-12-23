@@ -2,55 +2,85 @@
 <!-- 侧边导航栏 -->
 <div class="layui-side layui-bg-black">
   <div class="layui-side-scroll layui-left-menu">
-    <ul class="layui-nav layui-nav-tree layui-left-nav-tree layui-this" id="currency">
+    <ul class="layui-nav layui-nav-tree layui-left-nav-tree">
 
       <li class="layui-nav-item">
-        <a href="*" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-3" data-tab="/menu.html"
-           target="_self"><i class="fa fa-home"></i><span class="layui-left-nav"> 后台首页</span></a>
-      </li>
-      <li class="layui-nav-item">
-        <a href="javascript:;" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-4"
-           data-tab="/setting.html" target="_self"><i class="fa fa-gears"></i><span class="layui-left-nav"> 账户设置</span></a>
+        <a href="javascript:;" class="layui-menu-tips">
+          <i class="fa fa-home"></i>
+          <span class="layui-left-nav"> 后台首页</span>
+        </a>
       </li>
 
       <li class="layui-nav-item layui-nav-itemed">
-        <a href="javascript:;" class="layui-menu-tips"><i class="fa fa-file-text"></i><span
-            class="layui-left-nav"> 管理操作</span> <span class="layui-nav-more"></span></a>
+        <a href="javascript:;" class="layui-menu-tips">
+          <i class="fa fa-file-text"></i>
+          <span class="layui-left-nav"> 管理操作</span>
+        </a>
         <dl class="layui-nav-child">
-          <dd>
-            <a href="*" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-7"
-               data-tab="/form-step.html" target="_self"><i class="fa fa-navicon"></i><span
-                class="layui-left-nav"> 管理服务员</span></a>
+          <dd id="findWaiter">
+            <a href="search_waiter.jsp" class="layui-menu-tips">
+              <i class="fa fa-navicon"></i>
+              <span class="layui-left-nav"> 管理服务员</span>
+            </a>
           </dd>
-          <dd>
-            <a href="*" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-8"
-               data-tab="/form-step.html" target="_self"><i class="fa fa-navicon"></i><span
-                class="layui-left-nav"> 管理用户</span></a>
+          <dd id="findRegister">
+            <a href="search_register.jsp" class="layui-menu-tips">
+              <i class="fa fa-navicon"></i>
+              <span class="layui-left-nav"> 管理用户</span>
+            </a>
           </dd>
-          <dd>
-            <a href="*" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-7"
-               data-tab="/form-step.html" target="_self"><i class="fa fa-navicon"></i><span
-                class="layui-left-nav"> 管理住客</span></a>
+          <dd id="findCheckCustomer">
+            <a href="listAllCustomers.action" class="layui-menu-tips">
+              <i class="fa fa-navicon"></i>
+              <span class="layui-left-nav"> 管理住客</span>
+            </a>
           </dd>
         </dl>
       </li>
+
       <li class="layui-nav-item layui-nav-itemed">
-        <a href="javascript:;" class="layui-menu-tips"><i class="fa fa-search"></i><span
-            class="layui-left-nav"> 维护操作</span> <span class="layui-nav-more"></span></a>
+        <a href="javascript:;" class="layui-menu-tips">
+          <i class="fa fa-search"></i>
+          <span class="layui-left-nav"> 维护操作</span>
+        </a>
         <dl class="layui-nav-child">
-          <dd>
-            <a href="*" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-8"
-               data-tab="/login-1.html" target="_blank"><i class="fa fa-search-minus"></i><span
-                class="layui-left-nav"> 维护房间信息</span></a>
+          <dd id="findRoom">
+            <a href="search_room.jsp" class="layui-menu-tips">
+              <i class="fa fa-search-minus"></i>
+              <span class="layui-left-nav"> 维护房间信息</span>
+            </a>
           </dd>
-          <dd>
-            <a href="*" class="layui-menu-tips" data-type="tabAdd" data-tab-mpi="m-p-i-9"
-               data-tab="/login-2.html" target="_blank"><i class="fa fa-search-plus"></i><span
-                class="layui-left-nav"> 维护订单信息</span></a>
+          <dd id="findRoomType">
+            <a href="search_roomType.jsp" class="layui-menu-tips">
+              <i class="fa fa-search-minus"></i>
+              <span class="layui-left-nav"> 维护房型信息</span>
+            </a>
+          </dd>
+          <dd id="findOrder">
+            <a href="listAllOrders.action" class="layui-menu-tips">
+              <i class="fa fa-search-plus"></i>
+              <span class="layui-left-nav"> 维护订单信息</span>
+            </a>
           </dd>
         </dl>
       </li>
-      <span class="layui-nav-bar" style="top: 0px; height: 0px; opacity: 0;"></span></ul>
+
+      <li class="layui-nav-item layui-nav-itemed">
+        <a href="javascript:;" class="layui-menu-tips">
+          <i class="fa fa-gears"></i>
+          <span class="layui-left-nav"> 账户设置</span>
+        </a>
+        <dl class="layui-nav-child">
+          <dd id="updatePassword">
+            <a href="info_edit.jsp" class="layui-menu-tips">
+              <i class="fa fa-search-minus"></i>
+              <span class="layui-left-nav"> 修改密码</span>
+            </a>
+          </dd>
+        </dl>
+      </li>
+
+    </ul>
   </div>
 </div>
 

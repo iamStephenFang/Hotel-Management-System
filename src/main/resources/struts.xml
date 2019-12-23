@@ -14,7 +14,7 @@
 <!--        服务员和管理员登录-->
         <action name="login" class="loginAction" method="login">
             <result name="waiterLoginSuccess">/check_in.jsp</result>
-            <result name="adminLoginSuccess">/backend_login.jsp</result>
+            <result name="adminLoginSuccess">/search_waiter.jsp</result>
             <result name="LoginFail" type="chain">authGenerate</result>
         </action>
 <!--        订单操作 —— 查询所有订单-->

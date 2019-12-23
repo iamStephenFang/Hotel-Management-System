@@ -9,8 +9,14 @@
 <div class="layui-layout layui-layout-admin">
   <%--顶部导航栏--%>
   <%@include file="header.jsp" %>
-  <!-- 侧边导航栏 -->
-  <%@include file="waiter_sidebar.jsp" %>
+  <s:if test="#session.choice == 1">
+    <!-- waiter 侧边导航栏 -->
+    <%@include file="waiter_sidebar.jsp" %>
+  </s:if>
+  <s:else>
+    <!-- admin 侧边导航栏 -->
+    <%@include file="admin_sidebar.jsp" %>
+  </s:else>
   <div class="layui-body">
     <div class="layuimini-container">
       <div class="layuimini-main">

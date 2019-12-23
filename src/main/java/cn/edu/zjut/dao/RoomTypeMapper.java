@@ -20,7 +20,7 @@ public interface RoomTypeMapper {
      * @return RoomType
      * 通过roomType查找房间类型信息
      */
-    RoomType findbyRoomType(String roomType);
+    RoomType findByRoomType(String roomType);
 
     /**
      * @author 方宣淼

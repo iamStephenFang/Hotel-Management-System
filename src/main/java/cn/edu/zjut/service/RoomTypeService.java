@@ -57,7 +57,7 @@ public class RoomTypeService implements IRoomTypeService{
         ActionContext context = ActionContext.getContext();
         request = (Map<String, String>) context.get("request");
         try {
-            RoomType instance = roomTypeMapper.findbyRoomType(roomType);
+            RoomType instance = roomTypeMapper.findByRoomType(roomType);
             if (instance == null){
                 System.out.println("未找到该房型...");
                 return false;
@@ -108,7 +108,7 @@ public class RoomTypeService implements IRoomTypeService{
         System.out.println("正在执行insertRoomType方法...");
         System.out.println(roomType);
         try {
-            RoomType instance = roomTypeMapper.findbyRoomType(roomType.getType());
+            RoomType instance = roomTypeMapper.findByRoomType(roomType.getType());
             if (instance == null){
                 int colNum = roomTypeMapper.insertRoomType(roomType);
                 if (colNum == 0){
@@ -144,7 +144,7 @@ public class RoomTypeService implements IRoomTypeService{
         System.out.println("正在执行deleteRoomType方法...");
         System.out.println(roomType);
         try {
-            RoomType instance = roomTypeMapper.findbyRoomType(roomType.getType());
+            RoomType instance = roomTypeMapper.findByRoomType(roomType.getType());
             if (instance == null){
                 System.out.println("未找到该房型...");
                 return false;

@@ -2,19 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.zjut.dao.RoomTypeMapper">
 
-    <resultMap type="roomType" id="roomTypeMapper">
-        <id column="roomType" property="roomType"/>
-        <result column="checkInNum" property="checkInNum"/>
-        <result column="roomPrice" property="roomPrice"/>
-    </resultMap>
-
-    <select id="findByRoomType" resultMap="roomTypeMapper" parameterType="String">
+    <select id="findByRoomType" resultType="roomType" parameterType="string">
         select *
         from `room_type`
-        where roomType=#{roomType}
+        where type=#{roomType}
     </select>
 
-    <select id="findAllRoomTypes" resultMap="roomTypeMapper">
+    <select id="findAllRoomTypes" resultType="roomType">
         select *
         from `room_type`
     </select>
@@ -23,17 +17,17 @@
         update `room_type`
         set checkInNum = #{checkInNum},
             roomPrice = #{roomPrice}
-        where roomType= #{roomType}
+        where type= #{type}
     </update>
 
     <insert id="insertRoomType" parameterType="roomType">
         insert
-        into `room_type`(roomType, checkInNum, roomPrice)
-            value (#{roomType},#{checkInNum},#{roomPrice})
+        into `room_type`(type, checkInNum, roomPrice)
+            value (#{type},#{checkInNum},#{roomPrice})
     </insert>
 
     <delete id="deleteRoomType" parameterType="roomType">
         delete from `room_type`
-           where roomType = #{roomType}
+           where type = #{type}
     </delete>
 </mapper>

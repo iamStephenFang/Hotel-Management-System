@@ -56,7 +56,7 @@ public class RoomService implements IRoomService{
         ActionContext context = ActionContext.getContext();
         request = (Map<String, String>) context.get("request");
         try {
-            Room instance = roomMapper.findbyRoomID(roomID);
+            Room instance = roomMapper.findByRoomId(roomID);
             if (instance == null){
                 System.out.println("未找到该房间...");
                 return false;
@@ -107,7 +107,7 @@ public class RoomService implements IRoomService{
         System.out.println("正在执行insertRoom方法...");
         System.out.println(room);
         try {
-            Room instance = roomMapper.findbyRoomID(room.getRoomId());
+            Room instance = roomMapper.findByRoomId(room.getRoomId());
             if (instance == null){
                 int colNum = roomMapper.insertRoom(room);
                 if (colNum == 0){
@@ -143,7 +143,7 @@ public class RoomService implements IRoomService{
         System.out.println("正在执行deleteRoom方法...");
         System.out.println(room);
         try {
-            Room instance = roomMapper.findbyRoomID(room.getRoomId());
+            Room instance = roomMapper.findByRoomId(room.getRoomId());
             if (instance == null){
                 System.out.println("未找到该房间...");
                 return false;

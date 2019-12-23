@@ -20,7 +20,7 @@ public interface RoomMapper {
      * @return Room
      * 通过roomID查找房间信息
      */
-    Room findbyRoomID(String roomID);
+    Room findByRoomId(String roomID);
 
     /**
      * @author 方宣淼

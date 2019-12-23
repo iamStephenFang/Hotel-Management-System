@@ -4,7 +4,7 @@
   <div class="layui-side-scroll layui-left-menu">
     <ul class="layui-nav layui-nav-tree layui-left-nav-tree">
 
-      <li class="layui-nav-item" id="homePage">
+      <li class="layui-nav-item">
         <a href="index.jsp" class="layui-menu-tips">
           <i class="fa fa-home"></i>
           <span class="layui-left-nav"> 后台首页</span>
@@ -54,11 +54,19 @@
         </dl>
       </li>
 
-      <li class="layui-nav-item" id="setAccount">
-        <a href="info_edit.jsp" class="layui-menu-tips">
+      <li class="layui-nav-item layui-nav-itemed">
+        <a href="javascript:;" class="layui-menu-tips">
           <i class="fa fa-gears"></i>
           <span class="layui-left-nav"> 账户设置</span>
         </a>
+        <dl class="layui-nav-child">
+          <dd id="updatePassword">
+            <a href="info_edit.jsp" class="layui-menu-tips">
+              <i class="fa fa-search-minus"></i>
+              <span class="layui-left-nav"> 修改密码</span>
+            </a>
+          </dd>
+        </dl>
       </li>
     </ul>
   </div>
