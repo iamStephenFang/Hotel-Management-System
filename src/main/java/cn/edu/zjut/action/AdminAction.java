@@ -44,9 +44,9 @@ public class AdminAction {
     public void setMemberService(IMemberService memberService) { this.memberService = memberService; }
 
     /**
+     * @author 方宣淼
      * @return String
      * 显示所有Waiter信息
-     * @author 方宣淼
      */
     public String findAllWaiters() {
         if (waiterService.findAllWaiters()) {
@@ -57,9 +57,9 @@ public class AdminAction {
     }
 
     /**
+     * @author 方宣淼
      * @return String
      * 修改Waiter信息
-     * @author 方宣淼
      */
     public String updateWaiter() {
         if (waiterService.updateWaiter(waiter))
@@ -69,9 +69,9 @@ public class AdminAction {
     }
 
     /**
+     * @author 方宣淼
      * @return String
      * 新增Waiter信息
-     * @author 方宣淼
      */
     public String insertWaiter() {
         if (waiterService.insertWaiter(waiter))
@@ -81,9 +81,9 @@ public class AdminAction {
     }
 
     /**
+     * @author 方宣淼
      * @return String
      * 显示所有Register信息
-     * @author 方宣淼
      */
     public String findAllRegisters() {
         if (registerService.findAllRegisters()) {
@@ -94,9 +94,9 @@ public class AdminAction {
     }
 
     /**
+     * @author 方宣淼
      * @return String
      * 修改Register信息
-     * @author 方宣淼
      */
     public String updateRegister() {
         if (registerService.updateRegister(register))
@@ -106,9 +106,9 @@ public class AdminAction {
     }
 
     /**
+     * @author 方宣淼
      * @return String
      * 显示所有Member信息
-     * @author 方宣淼
      */
     public String findAllMembers() {
         if (memberService.findAllMembers()) {
@@ -119,9 +119,9 @@ public class AdminAction {
     }
 
     /**
+     * @author 方宣淼
      * @return String
      * 修改Member信息
-     * @author 方宣淼
      */
     public String updateMember() {
         if (memberService.updateMember(member))
@@ -131,9 +131,9 @@ public class AdminAction {
     }
 
     /**
+     * @author 方宣淼
      * @return String
      * 新增Member信息
-     * @author 方宣淼
      */
     public String insertMember() {
         if (memberService.insertMember(member))

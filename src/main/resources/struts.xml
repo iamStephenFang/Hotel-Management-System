@@ -6,18 +6,18 @@
 
 <struts>
     <package name="hotel" extends="struts-default" namespace="/">
-        <!--        生成验证码-->
+<!--        生成验证码-->
         <action name="authGenerate" class="authCodeAction" method="authGenerate">
             <result name="GeneratedSuccess">/backend_login.jsp</result>
             <result name="GeneratedFail">/404.jsp</result>
         </action>
-        <!--        服务员和管理员登录-->
+<!--        服务员和管理员登录-->
         <action name="login" class="loginAction" method="login">
             <result name="waiterLoginSuccess">/check_in.jsp</result>
             <result name="adminLoginSuccess">/backend_login.jsp</result>
-            <result name="LoginFail">authGenerate.action</result>
+            <result name="LoginFail" type="chain">authGenerate</result>
         </action>
-        <!--        订单操作 —— 查询所有订单-->
+<!--        订单操作 —— 查询所有订单-->
         <action name="listAllOrders" class="orderAction" method="listAll">
             <result name="findAllSuccess">/search_order.jsp</result>
             <result name="findAllFail">/404.jsp</result>
@@ -86,15 +86,11 @@
             <result name="findOrderByIdSuccess">/check_in.jsp</result>
             <result name="findOrderByIdFail">/404.jsp</result>
         </action>
-        <!--        修改管理员信息 ——修改房客账户和密码-->
-        <action name="updateAdmin" class="infoAction" method="updateAdmin">
-            <result name="updateAdminSuccess">/backend_login.jsp</result>
-            <result name="updateAdminFailed">/info_edit.jsp</result>
+<!--        修改管理员或服务员信息 ——修改房客账户和密码-->
+        <action name="updateInfo" class="infoAction" method="updateInfo">
+            <result name="updateSuccess" type="chain">authGenerate</result>
+            <result name="updateFailed">/info_edit.jsp</result>
         </action>
-        <!--        修改管理员信息 ——修改房客账户和密码-->
-        <action name="updateWaiter" class="infoAction" method="updateWaiter">
-            <result name="updateWaiterSuccess">/backend_login.jsp</result>
-            <result name="updateWaiterFailed">/info_edit.jsp</result>
-        </action>
+
     </package>
 </struts>

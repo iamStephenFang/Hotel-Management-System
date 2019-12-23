@@ -31,7 +31,7 @@ public class AdminService implements IAdminService {
      * 通过 admin id 查询
      */
     @Override
-    public boolean findById(Admin admin) {
+    public Admin findById(Admin admin) {
         System.out.println("正在执行AdminService的login方法...");
         ActionContext context = ActionContext.getContext();
         session = context.getSession();
@@ -41,21 +41,21 @@ public class AdminService implements IAdminService {
             if (instance == null){
                 request.put("tip","用户不存在");
                 System.out.println("查无此人...");
-                return false;
+                return null;
             }
             if (instance.getPassword().equals(admin.getPassword())) {
-                session.put("admin",instance);
-                System.out.println("登录成功...");
-                return true;
+                session.put("user",instance);
+                System.out.println("查找管理员信息成功...");
+                return instance;
             }
             else {
                 request.put("tip","密码错误");
                 System.out.println("密码错误...");
-                return false;
+                return null;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 

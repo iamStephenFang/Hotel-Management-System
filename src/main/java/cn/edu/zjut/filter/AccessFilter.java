@@ -22,8 +22,7 @@ public class AccessFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest)servletRequest;
         HttpServletResponse response = (HttpServletResponse)servletResponse;
         HttpSession session = request.getSession();
-        if (session.getAttribute("waiter") == null
-                && session.getAttribute("admin") == null
+        if (session.getAttribute("user") == null
                 && !request.getRequestURI().contains("backend_login.jsp")){
             response.sendRedirect("authGenerate.action");
             return;
