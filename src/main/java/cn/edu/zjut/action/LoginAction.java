@@ -82,11 +82,14 @@ public class LoginAction {
         if (!inputCode.equals(realCode)){
             return "LoginFail";
         }
+        ActionContext context = ActionContext.getContext();
+        Map session = (Map) context.getSession();
+        session.put("choice",choice);
         if (choice == 1){
             Waiter waiter = new Waiter();
             waiter.setWaiterId(id);
             waiter.setPassword(password);
-            if (waiterService.findById(waiter)){
+            if (waiterService.findById(waiter) != null){
                 return "waiterLoginSuccess";
             }
             else
@@ -96,7 +99,7 @@ public class LoginAction {
             Admin admin = new Admin();
             admin.setAdminId(id);
             admin.setPassword(password);
-            if (adminService.findById(admin)){
+            if (adminService.findById(admin) != null){
                 return "adminLoginSuccess";
             }
             else

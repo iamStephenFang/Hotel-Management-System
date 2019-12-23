@@ -32,7 +32,7 @@ public interface WaiterMapper {
 
     /**
      * @author 方宣淼
-     * @param  waiter
+     * @param  waiter 服务员
      * @return int
      * 插入服务员信息
      */

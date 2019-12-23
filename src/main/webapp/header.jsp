@@ -12,16 +12,18 @@
 
   <ul class="layui-nav layui-layout-right">
     <li class="layui-nav-item layuimini-setting">
-      <a href="javascript:;" style="margin-right: 20px">admin<span class="layui-nav-more"></span></a>
+      <a href="javascript:;" style="margin-right: 20px">
+        <s:property value="#session.user.account"/>
+        <span class="layui-nav-more"></span></a>
       <dl class="layui-nav-child">
+<%--        <dd>--%>
+<%--          <a href="javascript:;" data-title="基本资料" data-icon="fa fa-gears">基本资料</a>--%>
+<%--        </dd>--%>
         <dd>
-          <a href="javascript:;" data-iframe-tab="page/user-setting.html" data-title="基本资料" data-icon="fa fa-gears">基本资料</a>
+          <a href="info_edit.jsp" data-title="修改密码" data-icon="fa fa-gears">账号设置</a>
         </dd>
         <dd>
-          <a href="javascript:;" data-iframe-tab="page/user-password.html" data-title="修改密码" data-icon="fa fa-gears">修改密码</a>
-        </dd>
-        <dd>
-          <a href="javascript:;" class="login-out">退出登录</a>
+          <a href="authGenerate.action" class="login-out">退出登录</a>
         </dd>
       </dl>
     </li>

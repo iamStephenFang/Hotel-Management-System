@@ -1,7 +1,6 @@
 package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.WaiterMapper;
-import cn.edu.zjut.po.Admin;
 import cn.edu.zjut.po.Waiter;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +30,7 @@ public class WaiterService implements IWaiterService {
      * 通过 waiter id 查询
      */
     @Override
-    public boolean findById(Waiter waiter) {
+    public Waiter findById(Waiter waiter) {
         System.out.println("正在执行WaiterService的login方法...");
         ActionContext context = ActionContext.getContext();
         session = context.getSession();
@@ -41,21 +40,21 @@ public class WaiterService implements IWaiterService {
             if (instance == null){
                 request.put("tip","用户不存在");
                 System.out.println("查无此人...");
-                return false;
+                return null;
             }
             if (instance.getPassword().equals(waiter.getPassword())) {
-                session.put("waiter",instance);
-                System.out.println("登录成功...");
-                return true;
+                session.put("user",instance);
+                System.out.println("查找服务员信息成功...");
+                return instance;
             }
             else {
                 request.put("tip","密码错误");
                 System.out.println("密码错误...");
-                return false;
+                return null;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 

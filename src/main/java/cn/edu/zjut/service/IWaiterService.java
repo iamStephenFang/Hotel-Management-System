@@ -4,7 +4,7 @@ import cn.edu.zjut.po.Waiter;
 
 public interface IWaiterService {
     boolean findAllWaiters();
-    boolean findById(Waiter waiter);
+    Waiter findById(Waiter waiter);
     boolean updateWaiter(Waiter waiter);
     boolean insertWaiter(Waiter waiter);
 }
