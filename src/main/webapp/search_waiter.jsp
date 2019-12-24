@@ -15,6 +15,37 @@
     <div class="layuimini-container">
       <div class="layuimini-main">
         <fieldset class="layui-elem-field layuimini-search">
+          <legend>添加信息</legend>
+          <div style="margin: 10px 10px 10px 10px">
+            <form class="layui-form layui-form-pane" action="" method="post">
+              <div class="layui-form-item">
+                <div class="layui-inline">
+                  <label class="layui-form-label">工号</label>
+                  <div class="layui-input-inline">
+                    <input type="text" name="" autocomplete="off" class="layui-input">
+                  </div>
+                </div>
+                <div class="layui-inline">
+                  <label class="layui-form-label">账号名</label>
+                  <div class="layui-input-inline">
+                    <input type="text" name="" autocomplete="off" class="layui-input">
+                  </div>
+                </div>
+                <div class="layui-inline">
+                  <label class="layui-form-label">密码</label>
+                  <div class="layui-input-inline">
+                    <input type="text" name="" autocomplete="off" class="layui-input">
+                  </div>
+                </div>
+                <div class="layui-inline">
+                  <input type="submit" class="layui-btn" value="添加">
+                </div>
+              </div>
+            </form>
+          </div>
+        </fieldset>
+
+        <fieldset class="layui-elem-field layuimini-search">
           <legend>搜索信息</legend>
           <div style="margin: 10px 10px 10px 10px">
             <form class="layui-form layui-form-pane" action="" method="post">
@@ -58,9 +89,11 @@
               <td><s:property value="'123456'"/></td>
               <td>
                 <a class="layui-btn layui-btn-xs data-count-edit"
-                   onclick="updateLayer(<s:property value='17857699125'/>);">修改</a>
-                <a class="layui-btn layui-btn-warm layui-btn-xs data-count-edit"
-                   onclick="deleteLayer();">删除</a>
+                   onclick="updateLayer(<s:property value='waiterId'/>);">修改</a>
+                <form id="deleteWaiter" action="" method="post" class="layui-inline">
+                  <a class="layui-btn layui-btn-danger layui-btn-xs data-count-edit"
+                     onclick="deleteLayer();">删除</a>
+                </form>
               </td>
             </tr>
 <%--          </s:iterator>--%>
@@ -74,7 +107,7 @@
   <script>
       document.getElementById("findWaiter").className += "layui-this";
 
-      function updateLayer(phone) {
+      function updateLayer(waiterId) {
           layui.use('layer', function () {
               var layer = layui.layer;
 
@@ -96,7 +129,24 @@
       }
 
       function deleteLayer() {
+          layui.use('layer', function () {
+              var layer = layui.layer;
 
+              layer.open({
+                  type: 0,
+                  fixed: false,
+                  maxmin: true,
+                  scrollbar: false,
+                  content: '确认删除该服务员信息？',
+                  btn: ['确认', '取消'],
+                  yes: function(index, layero){
+                      var form = document.getElementById('deleteWaiter');
+                      form.submit();
+                  },
+                  btn2: function(index, layero){
+                  }
+              });
+          })
       }
 
       layui.use(['form', 'table', 'element', 'layer', 'layuimini','element'], function () {

@@ -15,6 +15,50 @@
     <div class="layuimini-container">
       <div class="layuimini-main">
         <fieldset class="layui-elem-field layuimini-search">
+          <legend>添加信息</legend>
+          <div style="margin: 10px 10px 10px 10px">
+            <form class="layui-form layui-form-pane" action="" method="post">
+              <div class="layui-form-item">
+                <div class="layui-inline">
+                  <label class="layui-form-label">房间号</label>
+                  <div class="layui-input-inline" style="width: 150px">
+                    <input type="number" name="" autocomplete="off" class="layui-input" lay-verify="required">
+                  </div>
+                </div>
+                <div class="layui-inline">
+                  <label class="layui-form-label">房间类型</label>
+                  <div class="layui-input-inline" style="width: 150px">
+                    <select name="" lay-filter="room_type" lay-verify="required">
+                      <option value="" selected></option>
+                      <option value="双床房">双床房</option>
+                      <option value="大床房">大床房</option>
+                      <option value="家庭房">家庭房</option>
+                      <option value="总统套房">总统套房</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="layui-inline">
+                  <label class="layui-form-label">房间详情</label>
+                  <div class="layui-input-inline" style="width: 150px">
+                    <input type="text" name="" autocomplete="off" class="layui-input" lay-verify="required">
+                  </div>
+                </div>
+                <div class="layui-inline">
+                  <label class="layui-form-label">房间状态</label>
+                  <div class="layui-input-inline" style="width: 150px">
+                    <s:hidden name="" value="1"/>
+                    <input type="text" value="房间空余" class="layui-input" style="color: #9dadce" readonly>
+                  </div>
+                </div>
+                <div class="layui-inline">
+                  <input type="submit" class="layui-btn" value="添加">
+                </div>
+              </div>
+            </form>
+          </div>
+        </fieldset>
+
+        <fieldset class="layui-elem-field layuimini-search">
           <legend>搜索信息</legend>
           <div style="margin: 10px 10px 10px 10px">
             <form class="layui-form layui-form-pane" action="" method="post">
@@ -22,7 +66,7 @@
                 <div class="layui-inline">
                   <label class="layui-form-label">房间号</label>
                   <div class="layui-input-inline">
-                    <input type="text" name="" autocomplete="off" class="layui-input">
+                    <input type="number" name="" autocomplete="off" class="layui-input">
                   </div>
                 </div>
                 <div class="layui-inline">
@@ -70,8 +114,10 @@
             <td>
               <a class="layui-btn layui-btn-xs data-count-edit"
                  onclick="updateLayer(<s:property value='201'/>);">修改</a>
-              <a class="layui-btn layui-btn-warm layui-btn-xs data-count-edit"
-                 onclick="deleteLayer();">删除</a>
+              <form id="deleteRoom" action="" method="post" class="layui-inline">
+                <a class="layui-btn layui-btn-danger layui-btn-xs data-count-edit"
+                   onclick="deleteLayer();">删除</a>
+              </form>
             </td>
           </tr>
           <%--          </s:iterator>--%>
@@ -107,7 +153,24 @@
       }
 
       function deleteLayer() {
+          layui.use('layer', function () {
+              var layer = layui.layer;
 
+              layer.open({
+                  type: 0,
+                  fixed: false,
+                  maxmin: true,
+                  scrollbar: false,
+                  content: '确认删除该房间信息？',
+                  btn: ['确认', '取消'],
+                  yes: function(index, layero){
+                      var form = document.getElementById('deleteRoom');
+                      form.submit();
+                  },
+                  btn2: function(index, layero){
+                  }
+              });
+          })
       }
 
       layui.use(['form', 'table', 'element', 'layer', 'layuimini','element'], function () {

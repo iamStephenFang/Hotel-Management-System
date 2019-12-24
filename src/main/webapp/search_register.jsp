@@ -89,8 +89,10 @@
             <td>
               <a class="layui-btn layui-btn-xs data-count-edit"
                  onclick="updateLayer(<s:property value='17857699125'/>);">修改</a>
-              <a class="layui-btn layui-btn-warm layui-btn-xs data-count-edit"
-                 onclick="deleteLayer();">删除</a>
+              <form id="deleteUser" action="" method="post" class="layui-inline">
+                <a class="layui-btn layui-btn-danger layui-btn-xs data-count-edit"
+                   onclick="deleteLayer();">删除</a>
+              </form>
             </td>
           </tr>
 <%--          </s:iterator>--%>
@@ -126,7 +128,24 @@
       }
 
       function deleteLayer() {
+          layui.use('layer', function () {
+              var layer = layui.layer;
 
+              layer.open({
+                  type: 0,
+                  fixed: false,
+                  maxmin: true,
+                  scrollbar: false,
+                  content: '确认删除该用户信息？',
+                  btn: ['确认', '取消'],
+                  yes: function(index, layero){
+                      var form = document.getElementById('deleteUser');
+                      form.submit();
+                  },
+                  btn2: function(index, layero){
+                  }
+              });
+          })
       }
 
       layui.use(['form', 'table', 'element', 'layer', 'layuimini','element'], function () {
