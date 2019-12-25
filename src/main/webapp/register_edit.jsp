@@ -36,8 +36,8 @@
         <label class="layui-form-label">性别:</label>
         <div class="layui-input-block">
           <select name="register.gender" lay-verify="required">
-            <option value="0">先生</option>
-            <option value="1">女士</option>
+            <option value="true">先生</option>
+            <option value="false">女士</option>
           </select>
         </div>
       </div>
@@ -74,7 +74,7 @@
 <script src="js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
     window.onload=function() {
-        var choice = "<s:property value='#request.registers.gender'/>";
+        var choice = <s:property value="#request.registers.gender"/>;
         var optionArray = document.getElementsByTagName("option");
         if (choice === true)
             optionArray[0].selected = true;

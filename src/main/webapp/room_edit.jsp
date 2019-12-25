@@ -33,8 +33,8 @@
         <label class="layui-form-label">房间状态:</label>
         <div class="layui-input-block">
           <select name="room.gender" lay-verify="required">
-            <option value="1" selected>未入住</option>
-            <option value="0">已入住</option>
+            <option value="true">未入住</option>
+            <option value="false">已入住</option>
           </select>
         </div>
       </div>
@@ -50,12 +50,12 @@
 <script src="js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
     window.onload=function() {
-        var choice = "<s:property value="#request.room.roomStatus"/>";
+        var choice = <s:property value="#request.room.roomStatus"/>;
         var optionArray = document.getElementsByTagName("option");
         if (choice === true)
-            optionArray[1].selected = true;
-        else
             optionArray[0].selected = true;
+        else
+            optionArray[1].selected = true;
     };
 
     layui.use(['form', 'laydate'], function () {

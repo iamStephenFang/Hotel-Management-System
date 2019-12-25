@@ -21,8 +21,8 @@
         <label class="layui-form-label">住客性别:</label>
         <div class="layui-input-block">
           <select name="checkCustomer.gender" lay-verify="required">
-            <option value="1" selected>先生</option>
-            <option value="0">女士</option>
+            <option value="true">先生</option>
+            <option value="false">女士</option>
           </select>
         </div>
       </div>
@@ -80,12 +80,12 @@
 <script src="js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
   window.onload=function() {
-    var choice = "<s:property value="#request.checkCustomer.gender"/>";
+    var choice = <s:property value="#request.checkCustomer.gender"/>;
     var optionArray = document.getElementsByTagName("option");
     if (choice === true)
-      optionArray[1].selected = true;
-    else
       optionArray[0].selected = true;
+    else
+      optionArray[1].selected = true;
   };
 
   layui.use(['form', 'laydate'], function () {
