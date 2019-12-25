@@ -16,11 +16,11 @@ public interface RoomTypeMapper {
 
     /**
      * @author 方宣淼
-     * @param roomType
+     * @param type
      * @return RoomType
      * 通过roomType查找房间类型信息
      */
-    RoomType findByRoomType(String roomType);
+    RoomType findByRoomType(String type);
 
     /**
      * @author 方宣淼

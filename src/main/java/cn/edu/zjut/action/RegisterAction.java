@@ -36,7 +36,7 @@ public class RegisterAction {
         if (registerService.findAllRegisters()) {
             return "findAllRegistersSuccess";
         } else {
-            return "findAllRegsterFail";
+            return "findAllRegistersFail";
         }
     }
 
@@ -50,5 +50,17 @@ public class RegisterAction {
             return "updateRegisterSuccess";
         else
             return "updateRegisterFail";
+    }
+
+    /**
+     * @author 方宣淼
+     * @return String
+     * 利用phone检索信息
+     */
+    public String findByPhone(){
+        if(registerService.findByPhone(register.getPhone()))
+            return "findByPhoneSuccess";
+        else
+            return "findByPhoneFail";
     }
 }

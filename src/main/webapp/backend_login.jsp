@@ -107,7 +107,12 @@
     i {
       position: absolute;
     }
-    .captcha-img {position:absolute;margin-left:205px;margin-top:-36px;}
+
+    .captcha-img {
+      position: absolute;
+      margin-left: 205px;
+      margin-top: -36px;
+    }
   </style>
 </head>
 <body>
@@ -124,8 +129,8 @@
       </div>
       <div>
         <i class="layui-icon layui-icon-password admin-icon"></i>
-        <input  id="password" type="password" name="password"  placeholder="请输入密码" autocomplete="off"
-                class="layui-input admin-input">
+        <input id="password" type="password" name="password" placeholder="请输入密码" autocomplete="off"
+               class="layui-input admin-input">
       </div>
       <div>
         <select class="user-type" name="choice">
@@ -169,8 +174,8 @@
                 return false;
             }
             if (data.code == '') {
-              layer.msg('验证码不能为空');
-              return false;
+                layer.msg('验证码不能为空');
+                return false;
             }
             return true;
         });

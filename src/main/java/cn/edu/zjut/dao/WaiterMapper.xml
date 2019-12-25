@@ -3,7 +3,7 @@
 <mapper namespace="cn.edu.zjut.dao.WaiterMapper">
 
     <resultMap type="waiter" id="waiterMapper">
-        <id column="waiterID" property="waiterId"/>
+        <result column="waiterID" property="waiterId"/>
         <result column="account" property="account"/>
         <result column="password" property="password"/>
     </resultMap>
@@ -28,7 +28,12 @@
 
     <insert id="insertWaiter" parameterType="waiter">
         insert
-        into `waiter`(waiterID,account, password)
-            value (#{waiterID},#{account},#{password})
+        into `waiter`(waiterID,account,password)
+            value (#{waiterId},#{account},#{password})
     </insert>
+
+    <delete id="deleteWaiter" parameterType="String">
+        delete from `waiter`
+        where waiterID = #{waiterId}
+    </delete>
 </mapper>

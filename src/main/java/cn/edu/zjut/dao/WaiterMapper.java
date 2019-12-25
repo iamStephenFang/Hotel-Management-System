@@ -37,4 +37,12 @@ public interface WaiterMapper {
      * 插入服务员信息
      */
     int insertWaiter(Waiter waiter);
+
+    /**
+     * @author 方宣淼
+     * @param  waiterId 服务员
+     * @return int
+     * 删除服务员信息
+     */
+    int deleteWaiter(String waiterId);
 }

@@ -91,6 +91,60 @@
             <result name="updateSuccess" type="chain">authGenerate</result>
             <result name="updateFailed">/info_edit.jsp</result>
         </action>
-
+        <!-- 管理员操作 ——查看房型信息-->
+        <action name="findAllRoomTypes" class="roomTypeAction" method="findAllRoomTypes">
+            <result name="findAllRoomTypesSuccess">/search_roomType.jsp</result>
+            <result name="findAllRoomTypesFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——查看服务员信息-->
+        <action name="findAllWaiters" class="waiterAction" method="findAllWaiters">
+            <result name="findAllWaitersSuccess">/search_waiter.jsp</result>
+            <result name="findAllWaitersFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——新建服务员信息-->
+        <action name="insertWaiter" class="waiterAction" method="insertWaiter">
+            <result name="insertWaiterSuccess">/search_waiter.jsp</result>
+            <result name="insertWaiterFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——删除服务员信息-->
+        <action name="deleteWaiter" class="waiterAction" method="deleteWaiter">
+            <result name="deleteWaiterSuccess">/search_waiter.jsp</result>
+            <result name="deleteWaiterFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——查找服务员信息-->
+        <action name="findByWaiterId" class="waiterAction" method="findByWaiterId">
+            <result name="findByWaiterIdSuccess">/search_waiter.jsp</result>
+            <result name="findByWaiterIdFail">/search_waiter.jsp</result>
+        </action>
+        <!-- 管理员操作 ——更新服务员信息-->
+        <action name="UpdateByWaiterId" class="waiterAction" method="findByWaiterId">
+            <result name="findByWaiterIdSuccess">/waiter_edit.jsp</result>
+            <result name="findByWaiterIdFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——更新服务员信息-->
+        <action name="updateWaiter" class="waiterAction" method="updateWaiter">
+            <result name="updateWaiterSuccess">/success_icon.jsp</result>
+            <result name="updateWaiterFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——查看所有注册用户信息-->
+        <action name="findAllRegisters" class="registerAction" method="findAllRegisters">
+            <result name="findAllRegistersSuccess">/search_register.jsp</result>
+            <result name="findAllRegistersFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——更新注册用户信息-->
+        <action name="updateRegister" class="registerAction" method="updateRegister">
+            <result name="updateRegisterSuccess">/success_icon.jsp</result>
+            <result name="updateRegisterFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——更新注册用户信息-->
+        <action name="UpdateByPhone" class="registerAction" method="findByPhone">
+            <result name="findByPhoneSuccess">/register_edit.jsp</result>
+            <result name="findByPhoneFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——更新注册用户信息-->
+        <action name="updateRegister" class="registerAction" method="updateRegister">
+            <result name="updateRegisterSuccess">/success_icon.jsp</result>
+            <result name="updateRegisterFail">/404.jsp</result>
+        </action>
     </package>
 </struts>

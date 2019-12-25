@@ -4,6 +4,7 @@ import cn.edu.zjut.dao.RoomTypeMapper;
 import cn.edu.zjut.po.Room;
 import cn.edu.zjut.po.RoomType;
 import com.opensymphony.xwork2.ActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,6 +15,16 @@ import java.util.Map;
 public class RoomTypeService implements IRoomTypeService{
     private Map request;
     private RoomTypeMapper roomTypeMapper = null;
+
+
+    public RoomTypeMapper getRoomTypeMapper() {
+        return roomTypeMapper;
+    }
+
+    @Autowired
+    public void setRoomTypeMapper(RoomTypeMapper roomTypeMapper) {
+        this.roomTypeMapper = roomTypeMapper;
+    }
 
     /**
      * @author 方宣淼
@@ -33,7 +44,7 @@ public class RoomTypeService implements IRoomTypeService{
                 return false;
             }
             else {
-                request.put("roomType",roomTypes);
+                request.put("roomTypes",roomTypes);
                 for (RoomType roomType: roomTypes){
                     System.out.println("roomType");
                 }

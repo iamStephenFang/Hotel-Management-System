@@ -1,6 +1,7 @@
 package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.WaiterMapper;
+import cn.edu.zjut.po.RoomType;
 import cn.edu.zjut.po.Waiter;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +62,35 @@ public class WaiterService implements IWaiterService {
     /**
      * @author 方宣淼
      * @return boolean
+     * 通过 waiterId 查询
+     */
+    @Override
+    public boolean findByWaiterId(Waiter waiter) {
+        System.out.println("正在执行WaiterService的findByWaiterId方法...");
+        ActionContext context = ActionContext.getContext();
+        request = (Map<String, String>) context.get("request");
+        List<Waiter> waiters = new ArrayList<Waiter>();
+        try {
+            Waiter instance = waiterMapper.findById(waiter.getWaiterId());
+            if (instance == null){
+                System.out.println("查无此人...");
+                return false;
+            }
+            else {
+                request.put("waiters",instance);
+                System.out.println("找到用户...");
+                System.out.println(waiter);
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * @author 方宣淼
+     * @return boolean
      * 查询所有Waiter账户
      */
     @Override
@@ -76,7 +106,7 @@ public class WaiterService implements IWaiterService {
                 return false;
             }
             else {
-                request.put("waiter",waiters);
+                request.put("waiters",waiters);
                 for (Waiter waiter: waiters){
                     System.out.println(waiter);
                 }
@@ -147,4 +177,25 @@ public class WaiterService implements IWaiterService {
             return false;
         }
     }
+
+
+    /**
+     * @author 方宣淼
+     * @return boolean
+     * 删除服务员信息
+     */
+    @Override
+    public boolean deleteWaiterById(String waiterId) {
+        System.out.println("正在执行deleteWaiter方法...");
+        try {
+            System.out.println(waiterId);
+            waiterMapper.deleteWaiter(waiterId);
+                System.out.println("该服务员已删除...");
+                return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }

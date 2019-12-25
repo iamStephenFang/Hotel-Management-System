@@ -17,28 +17,28 @@
         <fieldset class="layui-elem-field layuimini-search">
           <legend>添加信息</legend>
           <div style="margin: 10px 10px 10px 10px">
-            <form class="layui-form layui-form-pane" action="" method="post">
+            <form class="layui-form layui-form-pane" action="insertWaiter.action" method="post">
               <div class="layui-form-item">
                 <div class="layui-inline">
                   <label class="layui-form-label">工号</label>
                   <div class="layui-input-inline">
-                    <input type="text" name="" autocomplete="off" class="layui-input">
+                    <input type="text" name="waiter.waiterId" autocomplete="off" class="layui-input">
                   </div>
                 </div>
                 <div class="layui-inline">
                   <label class="layui-form-label">账号名</label>
                   <div class="layui-input-inline">
-                    <input type="text" name="" autocomplete="off" class="layui-input">
+                    <input type="text" name="waiter.account" autocomplete="off" class="layui-input">
                   </div>
                 </div>
                 <div class="layui-inline">
                   <label class="layui-form-label">密码</label>
                   <div class="layui-input-inline">
-                    <input type="text" name="" autocomplete="off" class="layui-input">
+                    <input type="text" name="waiter.password" autocomplete="off" class="layui-input">
                   </div>
                 </div>
                 <div class="layui-inline">
-                  <input type="submit" class="layui-btn" value="添加">
+                  <input type="submit"  class="layui-btn" value="添加">
                 </div>
               </div>
             </form>
@@ -48,20 +48,20 @@
         <fieldset class="layui-elem-field layuimini-search">
           <legend>搜索信息</legend>
           <div style="margin: 10px 10px 10px 10px">
-            <form class="layui-form layui-form-pane" action="" method="post">
+            <form class="layui-form layui-form-pane" action="findByWaiterId.action" method="post">
               <div class="layui-form-item">
                 <div class="layui-inline">
                   <label class="layui-form-label">工号</label>
                   <div class="layui-input-inline">
-                    <input type="text" name="" autocomplete="off" class="layui-input">
+                    <input type="text" name="waiter.waiterId" autocomplete="off" class="layui-input">
                   </div>
                 </div>
-                <div class="layui-inline">
-                  <label class="layui-form-label">账号名</label>
-                  <div class="layui-input-inline">
-                    <input type="text" name="" autocomplete="off" class="layui-input">
-                  </div>
-                </div>
+<%--                <div class="layui-inline">--%>
+<%--                  <label class="layui-form-label">账号名</label>--%>
+<%--                  <div class="layui-input-inline">--%>
+<%--                    <input type="text" name="" autocomplete="off" class="layui-input">--%>
+<%--                  </div>--%>
+<%--                </div>--%>
                 <div class="layui-inline">
                   <input type="submit" class="layui-btn" value="搜索">
                 </div>
@@ -82,21 +82,22 @@
           </tr>
           </thead>
           <tbody>
-<%--          <s:iterator value="#request.waiters">--%>
+          <s:iterator value="#request.waiters" var="id">
             <tr>
-              <td><s:property value="'20180606'"/></td>
-              <td><s:property value="'老白'"/></td>
-              <td><s:property value="'123456'"/></td>
+              <td><s:property value="waiterId"/></td>
+              <td><s:property value="account"/></td>
+              <td><s:property value="password"/></td>
               <td>
                 <a class="layui-btn layui-btn-xs data-count-edit"
                    onclick="updateLayer(<s:property value='waiterId'/>);">修改</a>
-                <form id="deleteWaiter" action="" method="post" class="layui-inline">
+                <form id="<s:property value='waiterId'/>" action="deleteWaiter.action" method="post" class="layui-inline">
+                  <s:hidden name="waiter.waiterId" value="%{#id.waiterId}"/>
                   <a class="layui-btn layui-btn-danger layui-btn-xs data-count-edit"
-                     onclick="deleteLayer();">删除</a>
+                     onclick="deleteLayer(<s:property value='waiterId'/>);">删除</a>
                 </form>
               </td>
             </tr>
-<%--          </s:iterator>--%>
+          </s:iterator>
           </tbody>
         </table>
       </div>
@@ -113,14 +114,14 @@
 
               layer.open({
                   type: 2,
-                  area: ['500px', '300px'],
+                  area: ['500px', '350px'],
                   fixed: false,
                   maxmin: true,
                   scrollbar: false,
-                  content: 'waiter_edit.jsp',
+                  content: 'UpdateByWaiterId.action?waiter.waiterId=' + waiterId.toString(),
                   cancel: function (index, layero) {
                       if (confirm("是否刷新数据？")) {
-                          window.location.href = "";
+                          window.location.href = "http://localhost:8080/hotel_management_war_exploded/findAllWaiters.action";
                       }
                       return true;
                   }
@@ -128,7 +129,7 @@
           })
       }
 
-      function deleteLayer() {
+      function deleteLayer(waiterId) {
           layui.use('layer', function () {
               var layer = layui.layer;
 
@@ -140,7 +141,7 @@
                   content: '确认删除该服务员信息？',
                   btn: ['确认', '取消'],
                   yes: function(index, layero){
-                      var form = document.getElementById('deleteWaiter');
+                      var form = document.getElementById(waiterId);
                       form.submit();
                   },
                   btn2: function(index, layero){

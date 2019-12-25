@@ -63,4 +63,28 @@ public class WaiterAction {
         else
             return "insertWaiterFail";
     }
+
+    /**
+     * @author 方宣淼
+     * @return String
+     * 删除Waiter信息
+     */
+    public String deleteWaiter() {
+        if (waiterService.deleteWaiterById(waiter.getWaiterId()))
+            return "deleteWaiterSuccess";
+        else
+            return "deleteWaiterFail";
+    }
+
+    /**
+     * @author 方宣淼
+     * @return String
+     * 检索Waiter信息
+     */
+    public String findByWaiterId() {
+        if (waiterService.findByWaiterId(waiter))
+            return "findByWaiterIdSuccess";
+        else
+            return "findByWaiterIdFail";
+    }
 }

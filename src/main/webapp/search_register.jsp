@@ -61,18 +61,18 @@
           </tr>
           </thead>
           <tbody>
-<%--          <s:iterator value="#request.registers">--%>
+          <s:iterator value="#request.registers">
           <tr>
-            <td><s:property value="'17857699125'"/></td>
-            <td><s:property value="'王凌云'"/></td>
-            <td><s:property value="'123456'"/></td>
+            <td><s:property value="phone"/></td>
+            <td><s:property value="account"/></td>
+            <td><s:property value="password"/></td>
             <s:if test="%{gender==true}">
               <td>男</td>
             </s:if>
             <s:else>
               <td>女</td>
             </s:else>
-            <td><s:property value="'1664269235@qq.com'"/></td>
+            <td><s:property value="email"/></td>
             <s:if test="%{#level==1}">
               <td>普通会员</td>
             </s:if>
@@ -85,17 +85,17 @@
             <s:else>
               <td>铂金会员</td>
             </s:else>
-            <td><s:property value="'200'"/></td>
+            <td><s:property value="score"/></td>
             <td>
               <a class="layui-btn layui-btn-xs data-count-edit"
-                 onclick="updateLayer(<s:property value='17857699125'/>);">修改</a>
+                 onclick="updateLayer(<s:property value='phone'/>);">修改</a>
               <form id="deleteUser" action="" method="post" class="layui-inline">
                 <a class="layui-btn layui-btn-danger layui-btn-xs data-count-edit"
-                   onclick="deleteLayer();">删除</a>
+                   onclick="deleteLayer(<s:property value='phone'/>);">删除</a>
               </form>
             </td>
           </tr>
-<%--          </s:iterator>--%>
+          </s:iterator>
           </tbody>
         </table>
       </div>
@@ -116,10 +116,10 @@
                   fixed: false,
                   maxmin: true,
                   scrollbar: false,
-                  content: 'register_edit.jsp',
+                  content: 'UpdateByPhone.action?register.phone=' + phone.toString(),
                   cancel: function (index, layero) {
                       if (confirm("是否刷新数据？")) {
-                          window.location.href = "";
+                          window.location.href = "http://localhost:8080/hotel_management_war_exploded/findAllRegisters.action";
                       }
                       return true;
                   }

@@ -1,3 +1,4 @@
+<%@ page import="cn.edu.zjut.po.Waiter" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
@@ -8,26 +9,25 @@
 <body>
 <div class="layuimini-container">
   <div class="layuimini-main">
-    <form class="layui-form layuimini-form" action="" method="post" style="margin-left:-30px;padding-right:50px">
-      <%--      <s:hidden name="waiter.phone" value="%{#request.waiter.phone}"/>--%>
+    <form class="layui-form layuimini-form" action="updateWaiter.action" method="post" style="margin-left:-30px;padding-right:50px">
       <div class="layui-form-item">
         <label class="layui-form-label">工号:</label>
         <div class="layui-input-block">
-          <input type="text" name="waiter.waiterId" value="20180606"
+          <input type="text" name="waiter.waiterId" value="<s:property value='#request.waiters.waiterId'/>"
                  lay-verify="required|number" autocomplete="off" class="layui-input">
         </div>
       </div>
       <div class="layui-form-item">
         <label class="layui-form-label">账号名:</label>
         <div class="layui-input-block">
-          <input type="text" name="waiter.account" value="老铁"
+          <input type="text" name="waiter.account" value="<s:property value='#request.waiters.account'/>"
                  lay-verify="required" autocomplete="off" class="layui-input">
         </div>
       </div>
       <div class="layui-form-item">
         <label class="layui-form-label">密码:</label>
         <div class="layui-input-block">
-          <input type="text" name="waiter.password" value="123456"
+          <input type="text" name="waiter.password" value="<s:property value='#request.waiters.password'/>"
                  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
         </div>
       </div>

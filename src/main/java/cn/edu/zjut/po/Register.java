@@ -12,6 +12,7 @@ public class Register {
     private Boolean gender; // 性别
     private String email; //邮箱
     private Integer score; // 会员积分
+    private int level;//会员等级
     private List<Order> orders; // 一个注册用户对应多个订单
     private Member member; // 一个注册注册对应一种会员
 
@@ -78,4 +79,8 @@ public class Register {
     public void setMember(Member member) {
         this.member = member;
     }
+
+    public int getLevel() { return level; }
+
+    public void setLevel(int level) { this.level = level; }
 }
