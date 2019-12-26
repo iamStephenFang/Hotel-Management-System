@@ -5,6 +5,8 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+    <constant name="struts.multipart.saveDir" value="/tmp"/>
+    <constant name="struts.multipart.maxSize" value="5000000"/>
     <package name="hotel" extends="struts-default" namespace="/">
 <!--        生成验证码-->
         <action name="authGenerate" class="authCodeAction" method="authGenerate">
@@ -56,6 +58,11 @@
         <action name="updateCustomer" class="checkCustomerAction" method="updateCheckCustomer">
             <result name="updateCheckCustomerSuccess">/success_icon.jsp</result>
             <result name="updateCheckCustomerFail">/404.jsp</result>
+        </action>
+<!--        服务员办理入住 —— 人证核验-->
+        <action name="faceCheck" class="faceCheckAction" method="check">
+            <result name="checkSuccess">/success_icon.jsp</result>
+            <result name="checkFail">/404.jsp</result>
         </action>
 <!--        服务员办理入住 —— 查询订单-->
         <action name="searchOrder" class="checkInAction" method="findOrderById">

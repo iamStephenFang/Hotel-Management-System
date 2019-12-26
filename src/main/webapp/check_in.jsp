@@ -193,7 +193,7 @@
                       <label class="layui-form-label">证件信息:</label>
                       <div class="layui-input-block" style="width: 300px">
                         <input name="checkCustomer.customerId" placeholder="请填写贵宾身份证号" autocomplete="false"
-                               class="layui-input" lay-verify="identity" required>
+                               class="layui-input" lay-verify="identity">
                       </div>
                     </div>
                     <div class="layui-form-item">
@@ -227,11 +227,14 @@
                       <label class="layui-form-label">联系方式:</label>
                       <div class="layui-input-block" style="width: 300px">
                         <input name="checkCustomer.phone" type="number" placeholder="请填写贵宾电话号码"
-                               class="layui-input" lay-verify="number" required>
+                               class="layui-input" lay-verify="number">
                       </div>
                     </div>
                     <div class="layui-form-item">
-                      <div class="layui-input-block">
+                      <div class="layui-input-block" style="width:400px;margin-left:25px">
+                        <a class="layui-btn layui-btn-primary pre" onclick="faceCheck();">
+                          &emsp;人证核验&emsp;
+                        </a>
                         <button class="layui-btn layui-btn-primary pre" onclick="continueAdd();">
                           &emsp;继续添加&emsp;
                         </button>
@@ -306,6 +309,21 @@
 <script src="js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
     document.getElementById("operateCheckIn").className += "layui-this";
+
+    function faceCheck() {
+        layui.use('layer', function () {
+            var layer = layui.layer;
+
+            layer.open({
+                type: 2,
+                area: ['500px', '450px'],
+                fixed: false,
+                maxmin: true,
+                scrollbar: false,
+                content: 'face_check.jsp'
+            });
+        })
+    }
 
     function completeCheckIn() {
       var targetForm = document.getElementById("diffActionForm");
