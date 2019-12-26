@@ -64,11 +64,11 @@
               <td><s:property value="roomPrice"/></td>
               <td>
                 <a class="layui-btn layui-btn-xs data-count-edit"
-                   onclick="updateLayer(<s:property value='type'/>);">修改</a>
+                   onclick="updateLayer('<s:property value='type'/>');">修改</a>
                 <form id="<s:property value='type'/>" action="deleteRoomType.action" method="post" class="layui-inline">
                   <s:hidden name="roomType.type" value="%{#id.type}"/>
                   <a class="layui-btn layui-btn-danger layui-btn-xs data-count-edit"
-                     onclick="deleteLayer(<s:property value='type'/>);">删除</a>
+                     onclick="deleteLayer('<s:property value='type'/>');">删除</a>
                 </form>
               </td>
             </tr>
@@ -93,7 +93,7 @@
                   fixed: false,
                   maxmin: true,
                   scrollbar: false,
-                  content: 'UpdateByType.action?roomType.type='+ type.toString(),
+                  content: 'findByType.action?roomType.type='+ type.toString(),
                   cancel: function (index, layero) {
                       if (confirm("是否刷新数据？")) {
                           window.location.href = "http://localhost:8080/hotel_management_war_exploded/findAllRoomTypes.action";

@@ -14,7 +14,7 @@
 <!--        服务员和管理员登录-->
         <action name="login" class="loginAction" method="login">
             <result name="waiterLoginSuccess">/check_in.jsp</result>
-            <result name="adminLoginSuccess">/search_waiter.jsp</result>
+            <result name="adminLoginSuccess" type="chain">findAllWaiters</result>
             <result name="LoginFail" type="chain">authGenerate</result>
         </action>
 <!--        订单操作 —— 查询所有订单-->
@@ -144,11 +144,6 @@
             <result name="findByPhoneSuccess">/register_edit.jsp</result>
             <result name="findByPhoneFail">/404.jsp</result>
         </action>
-        <!-- 管理员操作 ——更新注册用户信息-->
-        <action name="updateRegister" class="registerAction" method="updateRegister">
-            <result name="updateRegisterSuccess">/success_icon.jsp</result>
-            <result name="updateRegisterFail">/404.jsp</result>
-        </action>
         <!-- 管理员操作 ——多条件查找注册用户信息-->
         <action name="findRegisters" class="registerAction" method="findByMultiConditions">
             <result name="findByMultiConditionsSuccess">/search_register.jsp</result>
@@ -177,8 +172,8 @@
             </result>
             <result name="deleteRoomTypeFail">/404.jsp</result>
         </action>
-        <!-- 管理员操作 ——更新房型信息-->
-        <action name="UpdateByType" class="roomTypeAction" method="findByRoomType">
+        <!-- 管理员操作 ——查找房型信息-->
+        <action name="findByType" class="roomTypeAction" method="findByRoomType">
             <result name="findByRoomTypeSuccess">/roomType_edit.jsp</result>
             <result name="findByRoomTypeFail">/404.jsp</result>
         </action>
