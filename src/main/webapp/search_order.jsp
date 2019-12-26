@@ -28,13 +28,13 @@
                 <div class="layui-inline">
                   <label class="layui-form-label">用户手机号</label>
                   <div class="layui-input-inline">
-                    <input type="text" name="order.phone" autocomplete="off" class="layui-input">
+                    <input type="text" name="order.register.phone" autocomplete="off" class="layui-input">
                   </div>
                 </div>
                 <div class="layui-inline">
                   <label class="layui-form-label">订单ID</label>
                   <div class="layui-input-inline">
-                    <input type="text" name="order.register.orderId" autocomplete="off" class="layui-input">
+                    <input type="text" name="order.orderId" autocomplete="off" class="layui-input">
                   </div>
                 </div>
                 <div class="layui-inline">
