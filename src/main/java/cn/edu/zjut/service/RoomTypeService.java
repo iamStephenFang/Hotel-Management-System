@@ -46,7 +46,7 @@ public class RoomTypeService implements IRoomTypeService{
             else {
                 request.put("roomTypes",roomTypes);
                 for (RoomType roomType: roomTypes){
-                    System.out.println("roomType");
+                    System.out.println(roomType);
                 }
                 System.out.println("查询成功...");
                 return true;
@@ -66,6 +66,7 @@ public class RoomTypeService implements IRoomTypeService{
     public boolean findByRoomType(String roomType) {
         System.out.println("正在执行findByRoomType方法...");
         ActionContext context = ActionContext.getContext();
+        List<RoomType> roomTypes = new ArrayList<RoomType>();
         request = (Map<String, String>) context.get("request");
         try {
             RoomType instance = roomTypeMapper.findByRoomType(roomType);
@@ -74,9 +75,9 @@ public class RoomTypeService implements IRoomTypeService{
                 return false;
             }
             else {
-                System.out.println(instance);
+                System.out.println(roomType);
                 System.out.println("找到该房型...");
-                request.put("roomType",instance);
+                request.put("roomTypes",instance);
                 return true;
             }
         }catch (Exception e){
@@ -155,17 +156,10 @@ public class RoomTypeService implements IRoomTypeService{
         System.out.println("正在执行deleteRoomType方法...");
         System.out.println(roomType);
         try {
-            RoomType instance = roomTypeMapper.findByRoomType(roomType.getType());
-            if (instance == null){
-                System.out.println("未找到该房型...");
-                return false;
-            }
-            else {
-                System.out.println(instance);
-                roomTypeMapper.deleteRoomType(instance);
+                System.out.println(roomType);
+                roomTypeMapper.deleteRoomType(roomType);
                 System.out.println("该房型已删除...");
                 return true;
-            }
         }catch (Exception e){
             e.printStackTrace();
             return false;

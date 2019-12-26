@@ -61,4 +61,16 @@ public class MemberAction {
         else
             return "insertMemberFail";
     }
+
+    /**
+     * @author 方宣淼
+     * @return String
+     * 检索Member信息
+     */
+    public String findByLevel() {
+        if (memberService.findByLevel(member.getLevel()))
+            return "findByLevelSuccess";
+        else
+            return "findByLevelFail";
+    }
 }

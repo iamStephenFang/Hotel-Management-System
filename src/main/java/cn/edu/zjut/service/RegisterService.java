@@ -2,6 +2,7 @@ package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.RegisterMapper;
 import cn.edu.zjut.po.Register;
+import cn.edu.zjut.po.Room;
 import cn.edu.zjut.po.Waiter;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,6 +103,37 @@ public class RegisterService implements IRegisterService{
             }
             else {
                 System.out.println("更新成功...");
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * @author 方宣淼
+     * @return boolean
+     * 根据账户名或手机号查询所有用户
+     */
+    @Override
+    public boolean findByMultiConditions(String account,String phone) {
+        System.out.println("正在执行findByMultiConditions方法...");
+        ActionContext context = ActionContext.getContext();
+        request = (Map<String, List>)context.get("request");
+        List<Register> registers = new ArrayList<Register>();
+        try {
+            registers = registerMapper.findByMultiConditions(account,phone);
+            if(registers == null){
+                System.out.println("查询失败...");
+                return false;
+            }
+            else {
+                request.put("registers",registers);
+                for (Register register: registers){
+                    System.out.println(register);
+                }
+                System.out.println("查询成功...");
                 return true;
             }
         }catch (Exception e){

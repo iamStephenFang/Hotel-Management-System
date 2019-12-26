@@ -63,4 +63,16 @@ public class RegisterAction {
         else
             return "findByPhoneFail";
     }
+
+    /**
+     * @author 方宣淼
+     * @return String
+     * 多条件检索Register信息
+     */
+    public String findByMultiConditions() {
+        if (registerService.findByMultiConditions(register.getAccount(),register.getPhone()))
+            return "findByMultiConditionsSuccess";
+        else
+            return "findByMultiConditionsFail";
+    }
 }

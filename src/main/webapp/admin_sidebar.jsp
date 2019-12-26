@@ -45,7 +45,7 @@
         </a>
         <dl class="layui-nav-child">
           <dd id="findRoom">
-            <a href="search_room.jsp" class="layui-menu-tips">
+            <a href="findAllRooms.action" class="layui-menu-tips">
               <i class="fa fa-search-minus"></i>
               <span class="layui-left-nav"> 维护房间信息</span>
             </a>
@@ -60,6 +60,12 @@
             <a href="listAllOrders.action" class="layui-menu-tips">
               <i class="fa fa-search-plus"></i>
               <span class="layui-left-nav"> 维护订单信息</span>
+            </a>
+          </dd>
+          <dd id="findMember">
+            <a href="findAllMembers.action" class="layui-menu-tips">
+              <i class="fa fa-search-plus"></i>
+              <span class="layui-left-nav"> 维护会员信息</span>
             </a>
           </dd>
         </dl>

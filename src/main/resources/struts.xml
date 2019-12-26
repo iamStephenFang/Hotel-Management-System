@@ -91,11 +91,6 @@
             <result name="updateSuccess" type="chain">authGenerate</result>
             <result name="updateFailed">/info_edit.jsp</result>
         </action>
-        <!-- 管理员操作 ——查看房型信息-->
-        <action name="findAllRoomTypes" class="roomTypeAction" method="findAllRoomTypes">
-            <result name="findAllRoomTypesSuccess">/search_roomType.jsp</result>
-            <result name="findAllRoomTypesFail">/404.jsp</result>
-        </action>
         <!-- 管理员操作 ——查看服务员信息-->
         <action name="findAllWaiters" class="waiterAction" method="findAllWaiters">
             <result name="findAllWaitersSuccess">/search_waiter.jsp</result>
@@ -103,12 +98,20 @@
         </action>
         <!-- 管理员操作 ——新建服务员信息-->
         <action name="insertWaiter" class="waiterAction" method="insertWaiter">
-            <result name="insertWaiterSuccess">/search_waiter.jsp</result>
+            <result name="insertWaiterSuccess" type="redirectAction">
+                <param name="namespace">/</param>
+                <param name="actionName">findAllWaiters</param>
+                <param name="method">findAllWaiters</param>
+            </result>
             <result name="insertWaiterFail">/404.jsp</result>
         </action>
         <!-- 管理员操作 ——删除服务员信息-->
         <action name="deleteWaiter" class="waiterAction" method="deleteWaiter">
-            <result name="deleteWaiterSuccess">/search_waiter.jsp</result>
+            <result name="deleteWaiterSuccess" type="redirectAction">
+                <param name="namespace">/</param>
+                <param name="actionName">findAllWaiters</param>
+                <param name="method">findAllWaiters</param>
+            </result>
             <result name="deleteWaiterFail">/404.jsp</result>
         </action>
         <!-- 管理员操作 ——查找服务员信息-->
@@ -145,6 +148,107 @@
         <action name="updateRegister" class="registerAction" method="updateRegister">
             <result name="updateRegisterSuccess">/success_icon.jsp</result>
             <result name="updateRegisterFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——多条件查找注册用户信息-->
+        <action name="findRegisters" class="registerAction" method="findByMultiConditions">
+            <result name="findByMultiConditionsSuccess">/search_register.jsp</result>
+            <result name="findByMultiConditionsFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——查看房型信息-->
+        <action name="findAllRoomTypes" class="roomTypeAction" method="findAllRoomTypes">
+            <result name="findAllRoomTypesSuccess">/search_roomType.jsp</result>
+            <result name="findAllRoomTypesFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——新建房型信息-->
+        <action name="insertRoomType" class="roomTypeAction" method="insertRoomType">
+            <result name="insertRoomTypeSuccess" type="redirectAction">
+                <param name="namespace">/</param>
+                <param name="actionName">findAllRoomTypes</param>
+                <param name="method">findAllRoomTypes</param>
+            </result>
+            <result name="insertRoomTypeFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——删除房型信息-->
+        <action name="deleteRoomType" class="roomTypeAction" method="deleteRoomType">
+            <result name="deleteRoomTypeSuccess" type="redirectAction">
+                <param name="namespace">/</param>
+                <param name="actionName">findAllRoomTypes</param>
+                <param name="method">findAllRoomTypes</param>
+            </result>
+            <result name="deleteRoomTypeFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——更新房型信息-->
+        <action name="UpdateByType" class="roomTypeAction" method="findByRoomType">
+            <result name="findByRoomTypeSuccess">/roomType_edit.jsp</result>
+            <result name="findByRoomTypeFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——更新房型信息-->
+        <action name="updateRoomType" class="roomTypeAction" method="updateRoomType">
+            <result name="updateRoomTypeSuccess">/success_icon.jsp</result>
+            <result name="updateRoomTypeFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——查看房间信息-->
+        <action name="findAllRooms" class="roomAction" method="findAllRooms">
+            <result name="findAllRoomsSuccess">/search_room.jsp</result>
+            <result name="findAllRoomsFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——新增房间信息-->
+        <action name="insertRoom" class="roomAction" method="insertRoom">
+            <result name="insertRoomSuccess" type="redirectAction">
+                <param name="namespace">/</param>
+                <param name="actionName">findAllRooms</param>
+                <param name="method">findAllRooms</param>
+            </result>
+            <result name="insertRoomFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——删除房间信息-->
+        <action name="deleteRoom" class="roomAction" method="deleteRoom">
+            <result name="deleteRoomSuccess" type="redirectAction">
+                <param name="namespace">/</param>
+                <param name="actionName">findAllRooms</param>
+                <param name="method">findAllRooms</param>
+            </result>
+            <result name="deleteRoomFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——多条件查找房间信息-->
+        <action name="findRooms" class="roomAction" method="findByMultiConditions">
+            <result name="findByMultiConditionsSuccess">/search_room.jsp</result>
+            <result name="findByMultiConditionsFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——更新房间信息-->
+        <action name="UpdateByRoomId" class="roomAction" method="findByRoomId">
+            <result name="findByRoomIdSuccess">/room_edit.jsp</result>
+            <result name="findByRoomIdFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——更新房间信息-->
+        <action name="updateRoom" class="roomAction" method="updateRoom">
+            <result name="updateRoomSuccess">/success_icon.jsp</result>
+            <result name="updateRoomFail">/404.jsp</result>
+        </action>
+
+        <!-- 管理员操作 ——查看会员信息-->
+        <action name="findAllMembers" class="memberAction" method="findAllMembers">
+            <result name="findAllMembersSuccess">/search_member.jsp</result>
+            <result name="findAllMembersFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——新增会员信息-->
+        <action name="insertMember" class="memberAction" method="insertMember">
+            <result name="insertMemberSuccess" type="redirectAction">
+                <param name="namespace">/</param>
+                <param name="actionName">findAllMembers</param>
+                <param name="method">findAllMembers</param>
+            </result>
+            <result name="insertMemberFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——更新会员信息-->
+        <action name="UpdateByLevel" class="memberAction" method="findByLevel">
+            <result name="findByLevelSuccess">/member_edit.jsp</result>
+            <result name="findByLevelFail">/404.jsp</result>
+        </action>
+        <!-- 管理员操作 ——更新会员信息-->
+        <action name="updateMember" class="memberAction" method="updateMember">
+            <result name="updateMemberSuccess">/success_icon.jsp</result>
+            <result name="updateMemberFail">/404.jsp</result>
         </action>
     </package>
 </struts>

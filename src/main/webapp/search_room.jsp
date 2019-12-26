@@ -17,18 +17,18 @@
         <fieldset class="layui-elem-field layuimini-search">
           <legend>添加信息</legend>
           <div style="margin: 10px 10px 10px 10px">
-            <form class="layui-form layui-form-pane" action="" method="post">
+            <form class="layui-form layui-form-pane" action="insertRoom.action" method="post">
               <div class="layui-form-item">
                 <div class="layui-inline">
                   <label class="layui-form-label">房间号</label>
                   <div class="layui-input-inline" style="width: 150px">
-                    <input type="number" name="" autocomplete="off" class="layui-input" lay-verify="required">
+                    <input type="number" name="room.roomId" autocomplete="off" class="layui-input" lay-verify="required">
                   </div>
                 </div>
                 <div class="layui-inline">
                   <label class="layui-form-label">房间类型</label>
                   <div class="layui-input-inline" style="width: 150px">
-                    <select name="" lay-filter="room_type" lay-verify="required">
+                    <select name="room.roomType.type" lay-filter="room_type" lay-verify="required">
                       <option value="" selected></option>
                       <option value="双床房">双床房</option>
                       <option value="大床房">大床房</option>
@@ -40,13 +40,13 @@
                 <div class="layui-inline">
                   <label class="layui-form-label">房间详情</label>
                   <div class="layui-input-inline" style="width: 150px">
-                    <input type="text" name="" autocomplete="off" class="layui-input" lay-verify="required">
+                    <input type="text" name="room.roomDetail" autocomplete="off" class="layui-input" lay-verify="required">
                   </div>
                 </div>
                 <div class="layui-inline">
                   <label class="layui-form-label">房间状态</label>
                   <div class="layui-input-inline" style="width: 150px">
-                    <s:hidden name="" value="1"/>
+                    <s:hidden name="room.roomStatus" value="0"/>
                     <input type="text" value="房间空余" class="layui-input" style="color: #9dadce" readonly>
                   </div>
                 </div>
@@ -61,18 +61,18 @@
         <fieldset class="layui-elem-field layuimini-search">
           <legend>搜索信息</legend>
           <div style="margin: 10px 10px 10px 10px">
-            <form class="layui-form layui-form-pane" action="" method="post">
+            <form class="layui-form layui-form-pane" action="findRooms.action" method="post">
               <div class="layui-form-item">
                 <div class="layui-inline">
                   <label class="layui-form-label">房间号</label>
                   <div class="layui-input-inline">
-                    <input type="number" name="" autocomplete="off" class="layui-input">
+                    <input type="text" name="room.roomId" autocomplete="off" class="layui-input">
                   </div>
                 </div>
                 <div class="layui-inline">
                   <label class="layui-form-label">房间类型</label>
                   <div class="layui-input-inline">
-                    <input type="text" name="" autocomplete="off" class="layui-input">
+                    <input type="text" name="room.roomType.type" autocomplete="off" class="layui-input">
                   </div>
                 </div>
                 <div class="layui-inline">
@@ -96,31 +96,32 @@
           </tr>
           </thead>
           <tbody>
-          <%--          <s:iterator value="#request.rooms">--%>
-          <tr>
-            <td><s:property value="'201'"/></td>
-            <td><s:property value="'双床房'"/></td>
-            <td><s:property value="'楼下施工'"/></td>
-            <s:if test="%{roomStatus==true}">
+          <s:iterator value="#request.rooms" var="rm">
+            <tr>
+              <td><s:property value="roomId"/></td>
+              <td><s:property value="roomType.type"/></td>
+              <td><s:property value="roomDetail"/></td>
+              <s:if test="%{roomStatus==false}">
+                <td>
+                  <span class="layui-badge layui-bg-blue" style="margin-top: 5px">已入住</span>
+                </td>
+              </s:if>
+              <s:else>
+                <td>
+                  <span class="layui-badge layui-bg-orange" style="margin-top: 5px">未入住</span>
+                </td>
+              </s:else>
               <td>
-                <span class="layui-badge layui-bg-blue" style="margin-top: 5px">已入住</span>
+                <a class="layui-btn layui-btn-xs data-count-edit"
+                   onclick="updateLayer(<s:property value='roomId'/>);">修改</a>
+                <form id="<s:property value='roomId'/>" action="deleteRoom.action" method="post" class="layui-inline">
+                  <s:hidden name="room.roomId" value="%{#rm.roomId}"/>
+                  <a class="layui-btn layui-btn-danger layui-btn-xs data-count-edit"
+                     onclick="deleteLayer(<s:property value='roomId'/>);">删除</a>
+                </form>
               </td>
-            </s:if>
-            <s:else>
-              <td>
-                <span class="layui-badge layui-bg-orange" style="margin-top: 5px">未入住</span>
-              </td>
-            </s:else>
-            <td>
-              <a class="layui-btn layui-btn-xs data-count-edit"
-                 onclick="updateLayer(<s:property value='201'/>);">修改</a>
-              <form id="deleteRoom" action="" method="post" class="layui-inline">
-                <a class="layui-btn layui-btn-danger layui-btn-xs data-count-edit"
-                   onclick="deleteLayer();">删除</a>
-              </form>
-            </td>
-          </tr>
-          <%--          </s:iterator>--%>
+            </tr>
+          </s:iterator>
           </tbody>
         </table>
       </div>
@@ -141,10 +142,10 @@
                   fixed: false,
                   maxmin: true,
                   scrollbar: false,
-                  content: 'room_edit.jsp',
+                  content: 'UpdateByRoomId.action?room.roomId=' + roomId.toString(),
                   cancel: function (index, layero) {
                       if (confirm("是否刷新数据？")) {
-                          window.location.href = "";
+                          window.location.href = "http://localhost:8080/hotel_management_war_exploded/findAllRooms.action";
                       }
                       return true;
                   }
@@ -152,7 +153,7 @@
           })
       }
 
-      function deleteLayer() {
+      function deleteLayer(roomId) {
           layui.use('layer', function () {
               var layer = layui.layer;
 
@@ -163,17 +164,17 @@
                   scrollbar: false,
                   content: '确认删除该房间信息？',
                   btn: ['确认', '取消'],
-                  yes: function(index, layero){
-                      var form = document.getElementById('deleteRoom');
+                  yes: function (index, layero) {
+                      var form = document.getElementById(roomId);
                       form.submit();
                   },
-                  btn2: function(index, layero){
+                  btn2: function (index, layero) {
                   }
               });
           })
       }
 
-      layui.use(['form', 'table', 'element', 'layer', 'layuimini','element'], function () {
+      layui.use(['form', 'table', 'element', 'layer', 'layuimini', 'element'], function () {
           var $ = layui.jquery,
               form = layui.form,
               table = layui.table,

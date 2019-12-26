@@ -43,7 +43,7 @@ public class MemberService implements IMemberService {
                 return false;
             }
             else {
-                request.put("waiter",members);
+                request.put("members",members);
                 for (Member member: members){
                     System.out.println(member);
                 }
@@ -66,6 +66,7 @@ public class MemberService implements IMemberService {
         System.out.println("正在执行findByLevel方法...");
         ActionContext context = ActionContext.getContext();
         request = (Map<String, String>) context.get("request");
+        List<Member> members = new ArrayList<Member>();
         try {
             Member member = memberMapper.findByLevel(level);
             if (member == null){
@@ -75,7 +76,7 @@ public class MemberService implements IMemberService {
             else {
                 System.out.println(member);
                 System.out.println("找到注册用户...");
-                request.put("member",member);
+                request.put("members",member);
                 return true;
             }
         }catch (Exception e){

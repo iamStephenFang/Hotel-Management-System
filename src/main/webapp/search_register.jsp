@@ -17,24 +17,18 @@
         <fieldset class="layui-elem-field layuimini-search">
           <legend>搜索信息</legend>
           <div style="margin: 10px 10px 10px 10px">
-            <form class="layui-form layui-form-pane" action="" method="post">
+            <form class="layui-form layui-form-pane" action="findRegisters.action" method="post">
               <div class="layui-form-item">
                 <div class="layui-inline">
                   <label class="layui-form-label">手机号</label>
                   <div class="layui-input-inline">
-                    <input type="text" name="" autocomplete="off" class="layui-input">
+                    <input type="text" name="register.phone" autocomplete="off" class="layui-input">
                   </div>
                 </div>
                 <div class="layui-inline">
                   <label class="layui-form-label">账号名</label>
                   <div class="layui-input-inline">
-                    <input type="text" name="" autocomplete="off" class="layui-input">
-                  </div>
-                </div>
-                <div class="layui-inline">
-                  <label class="layui-form-label">会员等级</label>
-                  <div class="layui-input-inline">
-                    <input type="text" name="" autocomplete="off" class="layui-input">
+                    <input type="text" name="register.account" autocomplete="off" class="layui-input">
                   </div>
                 </div>
                 <div class="layui-inline">
@@ -61,7 +55,7 @@
           </tr>
           </thead>
           <tbody>
-          <s:iterator value="#request.registers">
+          <s:iterator value="#request.registers" var="rg">
           <tr>
             <td><s:property value="phone"/></td>
             <td><s:property value="account"/></td>
@@ -73,23 +67,27 @@
               <td>女</td>
             </s:else>
             <td><s:property value="email"/></td>
-            <s:if test="%{#level==1}">
+            <s:if test="%{level==1}">
               <td>普通会员</td>
             </s:if>
-            <s:elseif test="%{#level==2}">
+            <s:elseif test="%{level==2}">
               <td>银卡会员</td>
             </s:elseif>
-            <s:elseif test="%{#level==3}">
+            <s:elseif test="%{level==3}">
               <td>金卡会员</td>
             </s:elseif>
+            <s:elseif test="%{level==4}">
+            <td>铂金会员</td>
+          </s:elseif>
             <s:else>
-              <td>铂金会员</td>
+              <td>未知会员</td>
             </s:else>
             <td><s:property value="score"/></td>
             <td>
               <a class="layui-btn layui-btn-xs data-count-edit"
                  onclick="updateLayer(<s:property value='phone'/>);">修改</a>
-              <form id="deleteUser" action="" method="post" class="layui-inline">
+              <form id="<s:property value='phone'/>" action="deleteRegister.action" method="post" class="layui-inline">
+                <s:hidden name="register.phone" value="%{#rg.phone}"/>
                 <a class="layui-btn layui-btn-danger layui-btn-xs data-count-edit"
                    onclick="deleteLayer(<s:property value='phone'/>);">删除</a>
               </form>
@@ -127,7 +125,7 @@
           })
       }
 
-      function deleteLayer() {
+      function deleteLayer(phone) {
           layui.use('layer', function () {
               var layer = layui.layer;
 

@@ -3,6 +3,7 @@ package cn.edu.zjut.service;
 import cn.edu.zjut.dao.RoomMapper;
 import cn.edu.zjut.po.Room;
 import com.opensymphony.xwork2.ActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,6 +14,14 @@ import java.util.Map;
 public class RoomService implements IRoomService{
     private Map request;
     private RoomMapper roomMapper = null;
+
+    public RoomMapper getRoomMapper() {
+        return roomMapper;
+    }
+    @Autowired
+    public void setRoomMapper(RoomMapper roomMapper) {
+        this.roomMapper = roomMapper;
+    }
 
     /**
      * @author 方宣淼
@@ -32,9 +41,40 @@ public class RoomService implements IRoomService{
                 return false;
             }
             else {
-                request.put("room",rooms);
+                request.put("rooms",rooms);
                 for (Room room: rooms){
-                    System.out.println("room");
+                    System.out.println(room);
+                }
+                System.out.println("查询成功...");
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * @author 方宣淼
+     * @return boolean
+     * 根据房间号或房间类型查询所有房间
+     */
+    @Override
+    public boolean findByMultiConditions(String roomId,String type) {
+        System.out.println("正在执行findByMultiConditions方法...");
+        ActionContext context = ActionContext.getContext();
+        request = (Map<String, List>)context.get("request");
+        List<Room> rooms = new ArrayList<Room>();
+        try {
+            rooms = roomMapper.findByMultiConditions(roomId, type);
+            if(rooms == null){
+                System.out.println("查询失败...");
+                return false;
+            }
+            else {
+                request.put("rooms",rooms);
+                for (Room room: rooms){
+                    System.out.println(room);
                 }
                 System.out.println("查询成功...");
                 return true;
@@ -51,10 +91,11 @@ public class RoomService implements IRoomService{
      * 通过roomID查询房间信息
      */
     @Override
-    public boolean findByRoomID(String roomID) {
+    public boolean findByRoomId(String roomID) {
         System.out.println("正在执行findByRoomID方法...");
         ActionContext context = ActionContext.getContext();
         request = (Map<String, String>) context.get("request");
+        List<Room> rooms = new ArrayList<Room>();
         try {
             Room instance = roomMapper.findByRoomId(roomID);
             if (instance == null){
@@ -64,7 +105,7 @@ public class RoomService implements IRoomService{
             else {
                 System.out.println(instance);
                 System.out.println("找到该房间...");
-                request.put("room",instance);
+                request.put("rooms",instance);
                 return true;
             }
         }catch (Exception e){
@@ -121,7 +162,7 @@ public class RoomService implements IRoomService{
             }
             else if (instance.getRoomType().equals(room.getRoomType())) {
                 System.out.println("已存在房间信息...");
-                return true;
+                return false;
             }
             else {
                 System.out.println("添加房间信息失败...");
@@ -143,17 +184,10 @@ public class RoomService implements IRoomService{
         System.out.println("正在执行deleteRoom方法...");
         System.out.println(room);
         try {
-            Room instance = roomMapper.findByRoomId(room.getRoomId());
-            if (instance == null){
-                System.out.println("未找到该房间...");
-                return false;
-            }
-            else {
-                System.out.println(instance);
-                roomMapper.deleteRoom(instance);
+                System.out.println(room);
+                roomMapper.deleteRoom(room);
                 System.out.println("该房间已删除...");
                 return true;
-            }
         }catch (Exception e){
             e.printStackTrace();
             return false;

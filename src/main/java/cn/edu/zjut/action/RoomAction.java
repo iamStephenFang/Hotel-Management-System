@@ -81,10 +81,22 @@ public class RoomAction {
      * @return String
      * 检索Room信息
      */
-    public String findByRoomID() {
-        if (roomService.findByRoomID(room.getRoomId()))
-            return "findByRoomIDSuccess";
+    public String findByRoomId() {
+        if (roomService.findByRoomId(room.getRoomId()))
+            return "findByRoomIdSuccess";
         else
-            return "findByRoomIDFail";
+            return "findByRoomIdFail";
+    }
+
+    /**
+     * @author 方宣淼
+     * @return String
+     * 多条件检索Room信息
+     */
+    public String findByMultiConditions() {
+        if (roomService.findByMultiConditions(room.getRoomId(),room.getRoomType().getType()))
+            return "findByMultiConditionsSuccess";
+        else
+            return "findByMultiConditionsFail";
     }
 }

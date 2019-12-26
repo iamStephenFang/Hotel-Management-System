@@ -38,4 +38,18 @@
       where phone = #{phone}
     </update>
 
+    <!--    按手机号/账号名  查询用户-->
+    <select id="findByMultiConditions" resultMap="registerMapper" >
+        select phone, account, password, gender, email, level, score
+        from `register`
+        <where>
+            <if test="account != null and account != ''">
+                and account= #{account}
+            </if>
+            <if test="phone != null and phone != ''">
+                and phone= #{phone}
+            </if>
+        </where>
+    </select>
+
 </mapper>

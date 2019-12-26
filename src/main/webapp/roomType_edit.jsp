@@ -1,3 +1,4 @@
+<%@ page import="cn.edu.zjut.po.RoomType" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
@@ -8,25 +9,25 @@
 <body>
 <div class="layuimini-container">
   <div class="layuimini-main">
-    <form class="layui-form layuimini-form" action="" method="post" style="margin-left:-30px;padding-right:50px">
+    <form class="layui-form layuimini-form" action="updateRoomType.action" method="post" style="margin-left:-30px;padding-right:50px">
       <div class="layui-form-item">
         <label class="layui-form-label">房间类型:</label>
         <div class="layui-input-block">
-          <input type="text" name="roomType.roomType" value="双床房"
+          <input type="text" name="roomType.type" value="<s:property value='#request.roomTypes.type'/>"
                  lay-verify="required" placeholder="请输入房间类型" autocomplete="off" class="layui-input">
         </div>
       </div>
       <div class="layui-form-item">
         <label class="layui-form-label">入住上限:</label>
         <div class="layui-input-block">
-          <input type="text" name="roomType.checkInNum" value="4"
+          <input type="text" name="roomType.checkInNum" value="<s:property value='#request.roomTypes.checkInNum'/>"
                  lay-verify="required|number" placeholder="请输入入住上限" autocomplete="off" class="layui-input">
         </div>
       </div>
       <div class="layui-form-item">
         <label class="layui-form-label">房间价格:</label>
         <div class="layui-input-block">
-          <input type="text" name="roomType.roomPrice" value="999"
+          <input type="text" name="roomType.roomPrice" value="<s:property value='#request.roomTypes.roomPrice'/>"
                  lay-verify="required|number" placeholder="请输入房间价格" autocomplete="off" class="layui-input">
         </div>
       </div>

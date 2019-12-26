@@ -2,15 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.zjut.dao.RoomMapper">
 
-    <select id="findByRoomID" resultType="room" parameterType="string">
-        select *
-        from `room`
-        where roomID=#{roomID}
+    <resultMap id="roomMapper" type="room">
+        <result property="roomId" column="roomID"/>
+        <result property="roomStatus" column="roomStatus"/>
+        <result property="roomDetail" column="roomDetail"/>
+        <association property="roomType" javaType="roomType">
+            <id property="type" column="type"/>
+        </association>
+    </resultMap>
+
+    <select id="findByRoomId" resultMap="roomMapper" parameterType="string">
+        select roomID, t.type, roomDetail, roomStatus
+        from `room` o, `room_type` t
+        where roomID=#{roomId} and o.roomType = t.type
     </select>
 
-    <select id="findAllRooms" resultType="room">
-        select *
-        from `room`
+    <select id="findAllRooms" resultMap="roomMapper">
+        select roomID, t.type, roomDetail, roomStatus
+        from `room` o, `room_type` t
+        where o.roomType = t.type
     </select>
 
     <update id="updateRoom" parameterType="room">
@@ -18,17 +28,32 @@
         set roomType = #{roomType.type},
             roomDetail = #{roomDetail},
             roomStatus = #{roomStatus}
-        where roomID= #{roomID}
+        where roomID= #{roomId}
     </update>
 
     <insert id="insertRoom" parameterType="room">
         insert
         into `room`(roomID, roomType, roomDetail, roomStatus)
-            value (#{roomID}, #{roomType.type},#{roomDetail},#{roomStatus})
+            value (#{roomId}, #{roomType.type},#{roomDetail},#{roomStatus})
     </insert>
 
     <delete id="deleteRoom" parameterType="room">
         delete from `room`
-        where roomID = #{roomID}
+        where roomID = #{roomId}
     </delete>
+
+    <!--    按房间号 / 房间类型 查询房间-->
+    <select id="findByMultiConditions" resultMap="roomMapper" >
+        select roomID, t.type, roomDetail, roomStatus
+        from `room` o, `room_type` t
+        <where>
+            <if test="roomId != null and roomId != ''">
+                and roomId = #{roomId}
+            </if>
+            <if test="type != null and type != ''">
+                and o.roomType = #{type}
+            </if>
+                and  o.roomType = t.type
+        </where>
+    </select>
 </mapper>

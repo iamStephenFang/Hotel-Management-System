@@ -1,6 +1,7 @@
 package cn.edu.zjut.dao;
 
 import cn.edu.zjut.po.Room;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,11 +17,11 @@ public interface RoomMapper {
 
     /**
      * @author 方宣淼
-     * @param roomID
+     * @param roomId
      * @return Room
      * 通过roomID查找房间信息
      */
-    Room findByRoomId(String roomID);
+    Room findByRoomId(String roomId);
 
     /**
      * @author 方宣淼
@@ -45,4 +46,14 @@ public interface RoomMapper {
      * 撤销房间信息
      */
     int deleteRoom(Room room);
+
+
+    /**
+     * @author 方宣淼
+     * @param roomId 房间号
+     * @param type 房间类型
+     * @return List
+     * 通过房间号或房间类型查询房间
+     */
+    List<Room> findByMultiConditions(@Param("roomId") String roomId, @Param("type") String type);
 }

@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-  <title>后台管理系统-房间查询</title>
+  <title>后台管理系统-维护会员</title>
   <%@include file="head.jsp" %>
 </head>
 <body class="layui-layout-body layuimini-all">
@@ -15,26 +15,26 @@
     <div class="layuimini-container">
       <div class="layuimini-main">
         <fieldset class="layui-elem-field layuimini-search">
-          <legend>添加房型</legend>
+          <legend>添加会员</legend>
           <div style="margin: 10px 10px 10px 10px">
-            <form class="layui-form layui-form-pane" action="insertRoomType.action" method="post">
+            <form class="layui-form layui-form-pane" action="insertMember.action" method="post">
               <div class="layui-form-item">
                 <div class="layui-inline">
-                  <label class="layui-form-label">房间类型</label>
+                  <label class="layui-form-label">会员等级</label>
                   <div class="layui-input-inline">
-                    <input type="text" name="roomType.type" autocomplete="off" class="layui-input">
+                    <input type="number" name="member.level" autocomplete="off" class="layui-input">
                   </div>
                 </div>
                 <div class="layui-inline">
-                  <label class="layui-form-label">入住上限</label>
+                  <label class="layui-form-label">会员折扣</label>
                   <div class="layui-input-inline">
-                    <input type="number" name="roomType.checkInNum" autocomplete="off" class="layui-input">
+                    <input type="text" name="member.discount" autocomplete="off" class="layui-input">
                   </div>
                 </div>
                 <div class="layui-inline">
-                  <label class="layui-form-label">房间价格</label>
+                  <label class="layui-form-label">会员名称</label>
                   <div class="layui-input-inline">
-                    <input type="number" name="roomType.roomPrice" autocomplete="off" class="layui-input">
+                    <input type="text" name="member.memberDetail" autocomplete="off" class="layui-input">
                   </div>
                 </div>
                 <div class="layui-inline">
@@ -50,26 +50,26 @@
         <table class="layui-table" lay-data="{page:true,limit:10}" lay-filter="currentTableFilter">
           <thead>
           <tr>
-            <th lay-data="{field:'roomType',width:150,sort:true}">房间类型</th>
-            <th lay-data="{field:'roomDetail',width:120,sort:true}">入住上限</th>
-            <th lay-data="{field:'roomStatus',width:120,sort:true}">房间价格</th>
+            <th lay-data="{field:'roomType',width:150,sort:true}">会员等级</th>
+            <th lay-data="{field:'roomDetail',width:120,sort:true}">会员折扣</th>
+            <th lay-data="{field:'roomStatus',width:120,sort:true}">会员名称</th>
             <th lay-data="{field:'operate'}">操作</th>
           </tr>
           </thead>
           <tbody>
-          <s:iterator value="#request.roomTypes" var="id">
+          <s:iterator value="#request.members" var="me">
             <tr>
-              <td><s:property value="type"/></td>
-              <td><s:property value="checkInNum"/></td>
-              <td><s:property value="roomPrice"/></td>
+              <td><s:property value="level"/></td>
+              <td><s:property value="discount"/></td>
+              <td><s:property value="memberDetail"/></td>
               <td>
                 <a class="layui-btn layui-btn-xs data-count-edit"
-                   onclick="updateLayer(<s:property value='type'/>);">修改</a>
-                <form id="<s:property value='type'/>" action="deleteRoomType.action" method="post" class="layui-inline">
-                  <s:hidden name="roomType.type" value="%{#id.type}"/>
-                  <a class="layui-btn layui-btn-danger layui-btn-xs data-count-edit"
-                     onclick="deleteLayer(<s:property value='type'/>);">删除</a>
-                </form>
+                   onclick="updateLayer(<s:property value='level'/>);">修改</a>
+<%--                <form id="<s:property value='level'/>" action="deleteMember.action" method="post" class="layui-inline">--%>
+<%--                  <s:hidden name="member.level" value="%{#me.level}"/>--%>
+<%--                  <a class="layui-btn layui-btn-danger layui-btn-xs data-count-edit"--%>
+<%--                     onclick="deleteLayer();">删除</a>--%>
+<%--                </form>--%>
               </td>
             </tr>
           </s:iterator>
@@ -81,9 +81,9 @@
   <script src="lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
   <script src="js/lay-config.js?v=1.0.4" charset="utf-8"></script>
   <script>
-      document.getElementById("findRoomType").className += "layui-this";
+      document.getElementById("findMember").className += "layui-this";
 
-      function updateLayer(type) {
+      function updateLayer(level) {
           layui.use('layer', function () {
               var layer = layui.layer;
 
@@ -93,10 +93,10 @@
                   fixed: false,
                   maxmin: true,
                   scrollbar: false,
-                  content: 'UpdateByType.action?roomType.type='+ type.toString(),
+                  content: 'UpdateByLevel.action?member.level=' +level.toString(),
                   cancel: function (index, layero) {
                       if (confirm("是否刷新数据？")) {
-                          window.location.href = "http://localhost:8080/hotel_management_war_exploded/findAllRoomTypes.action";
+                          window.location.href = "http://localhost:8080/hotel_management_war_exploded/findAllMembers.action";
                       }
                       return true;
                   }
@@ -104,26 +104,26 @@
           })
       }
 
-      function deleteLayer(type) {
-          layui.use('layer', function () {
-              var layer = layui.layer;
-
-              layer.open({
-                  type: 0,
-                  fixed: false,
-                  maxmin: true,
-                  scrollbar: false,
-                  content: '已存在记录的房型无法删除！确认删除该房型信息？',
-                  btn: ['确认', '取消'],
-                  yes: function (index, layero) {
-                      var form = document.getElementById(type);
-                      form.submit();
-                  },
-                  btn2: function (index, layero) {
-                  }
-              });
-          })
-      }
+      // function deleteLayer(level) {
+      //     layui.use('layer', function () {
+      //         var layer = layui.layer;
+      //
+      //         layer.open({
+      //             type: 0,
+      //             fixed: false,
+      //             maxmin: true,
+      //             scrollbar: false,
+      //             content: '已存在记录的会员无法删除！确认删除该会员信息？',
+      //             btn: ['确认', '取消'],
+      //             yes: function (index, layero) {
+      //                 var form = document.getElementById(level);
+      //                 form.submit();
+      //             },
+      //             btn2: function (index, layero) {
+      //             }
+      //         });
+      //     })
+      // }
 
       layui.use(['form', 'table', 'element', 'layer', 'layuimini', 'element'], function () {
           var $ = layui.jquery,

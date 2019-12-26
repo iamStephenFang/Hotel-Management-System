@@ -56,12 +56,6 @@
                     <input type="text" name="waiter.waiterId" autocomplete="off" class="layui-input">
                   </div>
                 </div>
-<%--                <div class="layui-inline">--%>
-<%--                  <label class="layui-form-label">账号名</label>--%>
-<%--                  <div class="layui-input-inline">--%>
-<%--                    <input type="text" name="" autocomplete="off" class="layui-input">--%>
-<%--                  </div>--%>
-<%--                </div>--%>
                 <div class="layui-inline">
                   <input type="submit" class="layui-btn" value="搜索">
                 </div>

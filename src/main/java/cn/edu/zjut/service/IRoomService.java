@@ -6,8 +6,9 @@ import org.springframework.stereotype.Service;
 @Service
 public interface IRoomService {
     boolean findAllRooms();
-    boolean findByRoomID(String roomID);
+    boolean findByRoomId(String roomID);
     boolean updateRoom(Room room);
     boolean insertRoom(Room room);
     boolean deleteRoom(Room room);
+    boolean findByMultiConditions(String roomId, String type);
 }
