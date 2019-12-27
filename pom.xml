@@ -196,14 +196,14 @@
         </dependency>
         <dependency>
             <groupId>javax.servlet.jsp.jstl</groupId>
-            <artifactId>jstl</artifactId>
+            <artifactId>jstl-api</artifactId>
             <version>1.2</version>
         </dependency>
         <!--        人证核验-->
         <dependency>
             <groupId>com.tencentcloudapi</groupId>
             <artifactId>tencentcloud-sdk-java</artifactId>
-            <version>3.0.116</version>
+            <version>3.0.118</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
