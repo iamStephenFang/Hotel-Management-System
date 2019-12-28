@@ -39,6 +39,7 @@ public class MemberService implements IMemberService {
         try {
             members = memberMapper.findAllMembers();
             if (members == null){
+                request.put("error","会员信息查询失败");
                 System.out.println("查询失败...");
                 return false;
             }
@@ -70,7 +71,8 @@ public class MemberService implements IMemberService {
         try {
             Member member = memberMapper.findByLevel(level);
             if (member == null){
-                System.out.println("未找到成员信息...");
+                request.put("error","会员信息查询失败");
+                System.out.println("未找到会员信息...");
                 return false;
             }
             else {
@@ -96,6 +98,7 @@ public class MemberService implements IMemberService {
         try {
             int updatedColumns = memberMapper.updateMember(member);
             if (updatedColumns == 0){
+                request.put("error","会员信息更新失败");
                 System.out.println("更新失败...");
                 return false;
             }
@@ -123,6 +126,7 @@ public class MemberService implements IMemberService {
             if (instance == null){
                 int colNum = memberMapper.insertMember(member);
                 if (colNum == 0){
+                    request.put("error","新增会员信息失败");
                     System.out.println("插入失败...");
                     return false;
                 }
@@ -132,6 +136,7 @@ public class MemberService implements IMemberService {
                 }
             }
             else {
+                request.put("error","新增会员信息失败");
                 System.out.println("添加成员信息失败...");
                 return false;
             }

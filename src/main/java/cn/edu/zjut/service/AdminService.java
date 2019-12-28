@@ -73,6 +73,7 @@ public class AdminService implements IAdminService {
         try {
             admins = adminMapper.findAllAdmins();
             if (admins == null){
+                request.put("error","查询管理员信息失败");
                 System.out.println("查询失败...");
                 return false;
             }
@@ -90,12 +91,18 @@ public class AdminService implements IAdminService {
         }
     }
 
+    /**
+     * @author 方宣淼
+     * @return boolean
+     * 更新Admin账户信息
+     */
     @Override
     public boolean updateAdmin(Admin admin){
         System.out.println("正在执行updateAdmin方法...");
         try {
             int updatedColumns = adminMapper.updateAdmin(admin);
             if (updatedColumns == 0){
+                request.put("error","更新管理员信息失败");
                 System.out.println("更新失败...");
                 return false;
             }

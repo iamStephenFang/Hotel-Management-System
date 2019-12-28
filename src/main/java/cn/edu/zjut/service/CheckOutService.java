@@ -40,6 +40,7 @@ public class CheckOutService implements ICheckOutService {
             int orderId = checkOutMapper.findOrderIdByRoomIdAndLeavingTime(roomId);
             Order order = checkOutMapper.findOrderById(orderId);
             if (order == null){
+                request.put("error","订单信息查找失败");
                 System.out.println("查找失败...");
                 return false;
             }
@@ -78,6 +79,7 @@ public class CheckOutService implements ICheckOutService {
             // 更新房间状态
             int colNum = checkOutMapper.updateRoomStatus(roomId);
             if (colNum == 0){
+                request.put("error","房间状态信息更新失败");
                 System.out.println("房间状态更新失败...");
                 return false;
             }
@@ -89,6 +91,7 @@ public class CheckOutService implements ICheckOutService {
             if (count == 0){
                 colNum = checkOutMapper.updateOrderStatus(orderId);
                 if (colNum == 0){
+                    request.put("error","订单状态更新失败");
                     System.out.println("订单状态更新失败...");
                     return false;
                 }
@@ -100,6 +103,7 @@ public class CheckOutService implements ICheckOutService {
             // 更新离开时间和居住状态
             colNum = checkOutMapper.updateLeaveTimeAndLivingStatus(leaveTime,roomId);
             if (colNum == 0){
+                request.put("error","更新离开时间与居住状态失败");
                 System.out.println("更新离开时间和居住状态失败...");
                 return false;
             }

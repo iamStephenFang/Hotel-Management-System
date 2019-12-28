@@ -39,6 +39,7 @@ public class CheckInService implements ICheckInService {
         try {
             Order order = checkInMapper.findOrderById(orderId);
             if (order == null){
+                request.put("error","订单查询失败");
                 System.out.println("查询失败...");
                 return false;
             }
@@ -70,6 +71,7 @@ public class CheckInService implements ICheckInService {
             if (flag == 0){
                 int colNum = checkInMapper.insertCheckCustomer(checkCustomer);
                 if (colNum == 0){
+                    request.put("error","新增入住房客失败");
                     System.out.println("插入失败...");
                     return false;
                 }
@@ -79,10 +81,12 @@ public class CheckInService implements ICheckInService {
                 }
             }
             else if (flag == 1){
+                request.put("error","已存在该住客信息");
                 System.out.println("已存在该房客信息...");
                 return true;
             }
             else {
+                request.put("error","查询住客信息失败");
                 System.out.println("查询房客信息失败...");
                 return false;
             }
@@ -105,6 +109,7 @@ public class CheckInService implements ICheckInService {
         try {
             int colNum = checkInMapper.insertMiddleRecord(checkCustomer);
             if (colNum == 0) {
+                request.put("error","处理入住信息失败");
                 System.out.println("插入失败...");
                 return false;
             }

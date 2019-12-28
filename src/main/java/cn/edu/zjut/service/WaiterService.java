@@ -73,6 +73,7 @@ public class WaiterService implements IWaiterService {
         try {
             Waiter instance = waiterMapper.findById(waiter.getWaiterId());
             if (instance == null){
+                request.put("error","服务员查询失败");
                 System.out.println("查无此人...");
                 return false;
             }
@@ -102,6 +103,7 @@ public class WaiterService implements IWaiterService {
         try {
             waiters = waiterMapper.findAllWaiters();
             if (waiters == null){
+                request.put("error","服务员查询失败");
                 System.out.println("查询失败...");
                 return false;
             }
@@ -129,6 +131,7 @@ public class WaiterService implements IWaiterService {
         try {
             int updatedColumns = waiterMapper.updateWaiter(waiter);
             if (updatedColumns == 0){
+                request.put("error","服务员更新失败");
                 System.out.println("更新失败...");
                 return false;
             }
@@ -156,6 +159,7 @@ public class WaiterService implements IWaiterService {
             if (instance == null){
                 int colNum = waiterMapper.insertWaiter(waiter);
                 if (colNum == 0){
+                    request.put("error","新增服务员失败");
                     System.out.println("插入失败...");
                     return false;
                 }
@@ -165,10 +169,12 @@ public class WaiterService implements IWaiterService {
                 }
             }
             else if (instance.getPassword().equals(waiter.getPassword())) {
+                request.put("error","已存在服务员信息");
                 System.out.println("已存在该服务员信息...");
                 return true;
             }
             else {
+                request.put("error","新增服务员失败");
                 System.out.println("添加服务员信息失败...");
                 return false;
             }

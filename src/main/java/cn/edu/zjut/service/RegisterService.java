@@ -41,6 +41,7 @@ public class RegisterService implements IRegisterService{
         try {
             registers = registerMapper.findAllRegisters();
             if (registers == null){
+                request.put("error","注册用户查询失败");
                 System.out.println("查询失败...");
                 return false;
             }
@@ -72,6 +73,7 @@ public class RegisterService implements IRegisterService{
         try {
             Register register = registerMapper.findByPhone(phone);
             if (register == null){
+                request.put("error","未找到注册用户");
                 System.out.println("未找到注册用户...");
                 return false;
             }
@@ -98,6 +100,7 @@ public class RegisterService implements IRegisterService{
         try {
             int updatedColumns = registerMapper.updateRegister(register);
             if (updatedColumns == 0){
+                request.put("error","更新注册用户信息失败");
                 System.out.println("更新失败...");
                 return false;
             }
@@ -125,6 +128,7 @@ public class RegisterService implements IRegisterService{
         try {
             registers = registerMapper.findByMultiConditions(account,phone);
             if(registers == null){
+                request.put("error","注册用户查询失败");
                 System.out.println("查询失败...");
                 return false;
             }

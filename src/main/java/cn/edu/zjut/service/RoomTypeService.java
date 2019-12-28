@@ -40,6 +40,7 @@ public class RoomTypeService implements IRoomTypeService{
         try {
             roomTypes = roomTypeMapper.findAllRoomTypes();
             if(roomTypes == null){
+                request.put("error","房型查询失败");
                 System.out.println("查询失败...");
                 return false;
             }
@@ -71,6 +72,7 @@ public class RoomTypeService implements IRoomTypeService{
         try {
             RoomType instance = roomTypeMapper.findByRoomType(roomType);
             if (instance == null){
+                request.put("error","未找到该房型");
                 System.out.println("未找到该房型...");
                 return false;
             }
@@ -97,6 +99,7 @@ public class RoomTypeService implements IRoomTypeService{
         try {
             int updatedColumns = roomTypeMapper.updateRoomType(roomType);
             if (updatedColumns == 0){
+                request.put("error","房型更新失败");
                 System.out.println("更新失败...");
                 return false;
             }
@@ -124,6 +127,7 @@ public class RoomTypeService implements IRoomTypeService{
             if (instance == null){
                 int colNum = roomTypeMapper.insertRoomType(roomType);
                 if (colNum == 0){
+                    request.put("error","房型新增失败");
                     System.out.println("插入失败...");
                     return false;
                 }
@@ -133,10 +137,12 @@ public class RoomTypeService implements IRoomTypeService{
                 }
             }
             else if (instance.getCheckInNum().equals(roomType.getCheckInNum())) {
+                request.put("error","已存在该房型");
                 System.out.println("已存在房型信息...");
                 return true;
             }
             else {
+                request.put("error","房型添加失败");
                 System.out.println("添加房型信息失败...");
                 return false;
             }

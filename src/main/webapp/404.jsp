@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
   <title>404</title>
@@ -220,6 +221,7 @@
           </div>
         </div>
         <h2 class="h1">很抱歉，你访问的页面找不到了</h2>
+        <input type="hidden" value="<s:property value='#request.error'/>" id="error"/>
       </div>
     </div>
   </div>
@@ -230,7 +232,6 @@
     function randomNum() {
         return Math.floor(Math.random() * 9) + 1;
     }
-
     var loop1, loop2, loop3, time = 30, i = 0, number;
     loop3 = setInterval(function () {
         if (i > 40) {
@@ -259,6 +260,11 @@
             i++;
         }
     }, time);
+    layui.use(['layer'], function () {
+        layer.alert(document.getElementById('error').value, {
+            icon: 5,
+            title: "出错了"
+        });
+    });
 </script>
-</body>
 </html>

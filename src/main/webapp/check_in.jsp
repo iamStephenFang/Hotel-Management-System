@@ -14,7 +14,6 @@
       <div class="layui-fluid">
         <div class="layui-card">
           <div class="layui-card-body" style="padding-top: 40px;">
-<%--            <div class="layui-carousel" id="stepForm" lay-filter="stepForm" style="margin: 0 auto;">--%>
             <div carousel-item>
               <s:if test="#request.step==null || #request.step==''">
                 <div>
@@ -340,74 +339,12 @@
     layui.use(['form', 'step','tableSelect', 'laydate', 'layer', 'layuimini'], function () {
         var $ = layui.$,
             form = layui.form,
-            // step = layui.step,
-            // tableSelect = layui.tableSelect,
             laydate = layui.laydate;
 
         laydate.render({
             elem: '#date'
         });
 
-        // step.render({
-        //     elem: '#stepForm',
-        //     filter: 'stepForm',
-        //     width: '100%', //设置容器宽度
-        //     stepWidth: '750px',
-        //     height: '500px',
-        //     stepItems: [{
-        //         title: '检索订单信息'
-        //     }, {
-        //         title: '确认订单信息'
-        //     }, {
-        //         title: '添加住客信息'
-        //     }, {
-        //         title: '入住办理完成'
-        //     }]
-        // });
-
-        //
-        // form.on('submit(formStep)', function (data) {
-        //     step.next('#stepForm');
-        //     return false;
-        // });
-        //
-        // form.on('submit(formStep2)', function (data) {
-        //     step.next('#stepForm');
-        //     return false;
-        // });
-        //
-        // form.on('submit(formStep3)', function (data) {
-        //     step.next('#stepForm');
-        //     return false;
-        // });
-        //
-        // $('.pre').click(function () {
-        //     step.pre('#stepForm');
-        // });
-        //
-        // $('.next').click(function () {
-        //     step.next('#stepForm');
-        // });
-
-        // tableSelect.render({
-        //     elem: '#demo',
-        //     checkedKey: 'id',
-        //     table: {
-        //         url: '../api/tableSelect.json',
-        //         cols: [[
-        //             {type: 'radio'},
-        //             {field: 'id', title: '房间号'},
-        //             {field: 'type', title: '类型'},
-        //         ]]
-        //     },
-        //     done: function (elem, data) {
-        //         var NEWJSON = []
-        //         layui.each(data.data, function (index, item) {
-        //             NEWJSON.push(item.id)
-        //         })
-        //         elem.val(NEWJSON.join(","))
-        //     }
-        // })
     })
 </script>
 </body>

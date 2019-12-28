@@ -38,6 +38,7 @@ public class OrderService implements IOrderService {
         try {
             orders = orderMapper.findAllOrders();
             if (orders == null){
+                request.put("error","订单查询失败");
                 System.out.println("查询失败...");
                 return false;
             }
@@ -69,6 +70,7 @@ public class OrderService implements IOrderService {
         try {
             Order order = orderMapper.findOrderById(orderId);
             if (order == null){
+                request.put("error","订单查询失败");
                 System.out.println("未找到订单...");
                 return false;
             }
@@ -98,6 +100,7 @@ public class OrderService implements IOrderService {
         try {
             orders = orderMapper.findByMultiConditions(id,phone);
             if (orders == null){
+                request.put("error","订单查询失败");
                 System.out.println("未查找到订单...");
             }
             else {
@@ -126,6 +129,7 @@ public class OrderService implements IOrderService {
         int colNum = orderMapper.updateOrder(order);
         try {
             if (colNum == 0){
+                request.put("error","订单更新失败");
                 System.out.println("更新订单信息失败...");
                 return false;
             }

@@ -40,6 +40,7 @@ public class CheckCustomerService implements ICheckCustomerService{
             System.out.println("orderId: " + orderId + ", customerId: " + customerId);
             CheckCustomerExtendsOrder customer = checkCustomerMapper.findCustomerByIds(orderId, customerId);
             if (customer == null){
+                request.put("error","查找房客信息失败");
                 System.out.println("查询失败...");
                 return false;
             }
@@ -69,6 +70,7 @@ public class CheckCustomerService implements ICheckCustomerService{
         try {
             customers = checkCustomerMapper.findAllCheckCustomers();
             if (customers == null){
+                request.put("error","查询房客信息失败");
                 System.out.println("查询失败...");
                 return false;
             }
@@ -100,6 +102,7 @@ public class CheckCustomerService implements ICheckCustomerService{
         try {
             checkCustomers = checkCustomerMapper.findAllCheckCustomersWithout();
             if (checkCustomers == null){
+                request.put("error","查询入住房客信息失败");
                 System.out.println("查询失败...");
                 return false;
             }
@@ -132,6 +135,7 @@ public class CheckCustomerService implements ICheckCustomerService{
         try {
             customers = checkCustomerMapper.findByMultiConditions(checkCustomer);
             if (customers == null){
+                request.put("error","未找到该房客");
                 System.out.println("未查找到房客...");
             }
             else {
@@ -159,6 +163,7 @@ public class CheckCustomerService implements ICheckCustomerService{
         try {
             int updatedColumns = checkCustomerMapper.updateCheckCustomer(checkCustomer);
             if (updatedColumns == 0){
+                request.put("error","房客信息更新失败");
                 System.out.println("更新失败...");
                 return false;
             }

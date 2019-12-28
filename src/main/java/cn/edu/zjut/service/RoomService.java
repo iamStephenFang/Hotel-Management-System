@@ -37,6 +37,7 @@ public class RoomService implements IRoomService{
         try {
             rooms = roomMapper.findAllRooms();
             if(rooms == null){
+                request.put("error","房间查询失败");
                 System.out.println("查询失败...");
                 return false;
             }
@@ -68,6 +69,7 @@ public class RoomService implements IRoomService{
         try {
             rooms = roomMapper.findByMultiConditions(roomId, type);
             if(rooms == null){
+                request.put("error","房间查询失败");
                 System.out.println("查询失败...");
                 return false;
             }
@@ -125,6 +127,7 @@ public class RoomService implements IRoomService{
         try {
             int updatedColumns = roomMapper.updateRoom(room);
             if (updatedColumns == 0){
+                request.put("error","房间更新失败");
                 System.out.println("更新失败...");
                 return false;
             }
@@ -162,10 +165,12 @@ public class RoomService implements IRoomService{
             }
             else if (instance.getRoomType().equals(room.getRoomType())) {
                 System.out.println("已存在房间信息...");
+                request.put("error","已存在房间信息");
                 return false;
             }
             else {
                 System.out.println("添加房间信息失败...");
+                request.put("error","添加房间信息失败");
                 return false;
             }
         }catch (Exception e) {
