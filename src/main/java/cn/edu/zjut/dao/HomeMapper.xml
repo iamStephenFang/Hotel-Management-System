@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.zjut.dao.HomeMapper">
+
+    <select id="getRegisterNum" resultType="int">
+        select count(*)
+        from `register`
+    </select>
+
+    <select id="getOrderNum" resultType="int">
+        select count(*)
+        from `order`
+    </select>
+
+    <select id="getCheckCustomerNum" resultType="int">
+        select count(*)
+        from `check_customer`
+    </select>
+
+    <select id="getRoomNum" resultType="int">
+        select count(*)
+        from `room`
+    </select>
+</mapper>

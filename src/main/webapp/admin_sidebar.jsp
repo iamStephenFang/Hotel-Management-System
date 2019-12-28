@@ -5,7 +5,7 @@
     <ul class="layui-nav layui-nav-tree layui-left-nav-tree">
 
       <li class="layui-nav-item">
-        <a href="javascript:;" class="layui-menu-tips">
+        <a href="enterIndex.action" class="layui-menu-tips">
           <i class="fa fa-home"></i>
           <span class="layui-left-nav"> 后台首页</span>
         </a>
