@@ -8,6 +8,11 @@
     <constant name="struts.multipart.saveDir" value="/tmp"/>
     <constant name="struts.multipart.maxSize" value="5000000"/>
     <package name="hotel" extends="struts-default" namespace="/">
+        <global-results>
+            <result name="authCheckFail" type="redirect">
+                <param name="location">/enterIndex.action?authCheck=false</param>
+            </result>
+        </global-results>
 <!--        生成验证码-->
         <action name="authGenerate" class="authCodeAction" method="authGenerate">
             <result name="GeneratedSuccess">/backend_login.jsp</result>
@@ -15,7 +20,7 @@
         </action>
 <!--        服务员和管理员登录-->
         <action name="login" class="loginAction" method="login">
-            <result name="waiterLoginSuccess">/check_in.jsp</result>
+            <result name="waiterLoginSuccess" type="chain">enterIndex</result>
             <result name="adminLoginSuccess" type="chain">enterIndex</result>
             <result name="LoginFail" type="chain">authGenerate</result>
         </action>
@@ -37,7 +42,7 @@
 <!--        订单操作 —— 修改订单信息-->
         <action name="updateOrder" class="orderAction" method="updateOrder">
             <result name="updateOrderSuccess">/success_icon.jsp</result>
-            <result name="updateOrderFail">/404.jsp</result>
+            <result name="updateOrderFail">/fail_icon.jsp</result>
         </action>
 <!--        房客操作 —— 通过订单号和身份证号单条房客信息-->
         <action name="findCustomerByIds" class="checkCustomerAction" method="findCustomerByIds">
@@ -57,12 +62,18 @@
 <!--        房客操作 —— 修改房客信息-->
         <action name="updateCustomer" class="checkCustomerAction" method="updateCheckCustomer">
             <result name="updateCheckCustomerSuccess">/success_icon.jsp</result>
-            <result name="updateCheckCustomerFail">/404.jsp</result>
+            <result name="updateCheckCustomerFail">/fail_icon.jsp</result>
         </action>
 <!--        服务员办理入住 —— 人证核验-->
         <action name="faceCheck" class="faceCheckAction" method="check">
             <result name="checkSuccess">/success_icon.jsp</result>
-            <result name="checkFail">/404.jsp</result>
+            <result name="checkFail">/fail_icon.jsp</result>
+            <result name="input">/fail_icon.jsp</result>
+            <interceptor-ref name="fileUpload">
+                <param name="allowedTypes">image/jpg,image/png,image/jpeg</param>
+                <param name="maximumSize">7000000</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"/>
         </action>
 <!--        服务员办理入住 —— 查询订单-->
         <action name="searchOrder" class="checkInAction" method="findOrderById">
@@ -134,7 +145,7 @@
         <!-- 管理员操作 ——更新服务员信息-->
         <action name="updateWaiter" class="waiterAction" method="updateWaiter">
             <result name="updateWaiterSuccess">/success_icon.jsp</result>
-            <result name="updateWaiterFail">/404.jsp</result>
+            <result name="updateWaiterFail">/fail_icon.jsp</result>
         </action>
         <!-- 管理员操作 ——查看所有注册用户信息-->
         <action name="findAllRegisters" class="registerAction" method="findAllRegisters">
@@ -144,7 +155,7 @@
         <!-- 管理员操作 ——更新注册用户信息-->
         <action name="updateRegister" class="registerAction" method="updateRegister">
             <result name="updateRegisterSuccess">/success_icon.jsp</result>
-            <result name="updateRegisterFail">/404.jsp</result>
+            <result name="updateRegisterFail">/fail_icon.jsp</result>
         </action>
         <!-- 管理员操作 ——更新注册用户信息-->
         <action name="UpdateByPhone" class="registerAction" method="findByPhone">
@@ -187,7 +198,7 @@
         <!-- 管理员操作 ——更新房型信息-->
         <action name="updateRoomType" class="roomTypeAction" method="updateRoomType">
             <result name="updateRoomTypeSuccess">/success_icon.jsp</result>
-            <result name="updateRoomTypeFail">/404.jsp</result>
+            <result name="updateRoomTypeFail">/fail_icon.jsp</result>
         </action>
         <!-- 管理员操作 ——查看房间信息-->
         <action name="findAllRooms" class="roomAction" method="findAllRooms">
@@ -225,7 +236,7 @@
         <!-- 管理员操作 ——更新房间信息-->
         <action name="updateRoom" class="roomAction" method="updateRoom">
             <result name="updateRoomSuccess">/success_icon.jsp</result>
-            <result name="updateRoomFail">/404.jsp</result>
+            <result name="updateRoomFail">/fail_icon.jsp</result>
         </action>
 
         <!-- 管理员操作 ——查看会员信息-->
@@ -250,12 +261,37 @@
         <!-- 管理员操作 ——更新会员信息-->
         <action name="updateMember" class="memberAction" method="updateMember">
             <result name="updateMemberSuccess">/success_icon.jsp</result>
-            <result name="updateMemberFail">/404.jsp</result>
+            <result name="updateMemberFail">/fail_icon.jsp</result>
         </action>
         <!-- 管理员后台首页 -->
         <action name="enterIndex" class="homeAction" method="enterIndex">
             <result name="enterIndexSuccess">/index.jsp</result>
             <result name="enterIndexFail">/404.jsp</result>
+        </action>
+        <!-- 管理员和服务员查看所有消息-->
+        <action name="findAllMessage" class="messageAction" method="findAllMessage">
+            <result name="findAllMessageSuccess">/search_message.jsp</result>
+            <result name="findAllMessageFail">/404.jsp</result>
+        </action>
+        <!-- 管理员和服务员按多条件查询消息-->
+        <action name="findMessages" class="messageAction" method="findMessageByDate">
+            <result name="findByMultiConditionsSuccess">/search_message.jsp</result>
+            <result name="findByMultiConditionsFail">/404.jsp</result>
+        </action>
+        <!-- 管理员和服务员查看消息详情-->
+        <action name="findMessageById" class="messageAction" method="findMessageById">
+            <result name="findMessageByIdSuccess">/message_detail.jsp</result>
+            <result name="findMessageByIdFail">/404.jsp</result>
+        </action>
+        <!-- 管理员发布消息-->
+        <action name="addMessage" class="messageAction" method="addMessage">
+            <result name="addMessageSuccess" type="chain">findAllMessage</result>
+            <result name="addMessageFail">/404.jsp</result>
+        </action>
+        <!-- 管理员删除消息-->
+        <action name="deleteMessage" class="messageAction" method="deleteMessageById">
+            <result name="deleteMessageByIdSuccess" type="chain">findAllMessage</result>
+            <result name="deleteMessageByIdFail">/404.jsp</result>
         </action>
     </package>
 </struts>

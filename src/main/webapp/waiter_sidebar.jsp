@@ -5,7 +5,7 @@
     <ul class="layui-nav layui-nav-tree layui-left-nav-tree">
 
       <li class="layui-nav-item">
-        <a href="javascript:;" class="layui-menu-tips">
+        <a href="enterIndex.action" class="layui-menu-tips">
           <i class="fa fa-home"></i>
           <span class="layui-left-nav"> 后台首页</span>
         </a>
@@ -49,6 +49,21 @@
             <a href="listAllCustomers.action" class="layui-menu-tips">
               <i class="fa fa-search-plus"></i>
               <span class="layui-left-nav"> 查询入住</span>
+            </a>
+          </dd>
+        </dl>
+      </li>
+
+      <li class="layui-nav-item layui-nav-itemed">
+        <a href="javascript:;" class="layui-menu-tips">
+          <i class="fa fa-gears"></i>
+          <span class="layui-left-nav"> 公告操作</span>
+        </a>
+        <dl class="layui-nav-child">
+          <dd id="findMessage">
+            <a href="findAllMessage.action" class="layui-menu-tips">
+              <i class="fa fa-search-minus"></i>
+              <span class="layui-left-nav"> 公告查询</span>
             </a>
           </dd>
         </dl>

@@ -2,8 +2,6 @@ package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.RegisterMapper;
 import cn.edu.zjut.po.Register;
-import cn.edu.zjut.po.Room;
-import cn.edu.zjut.po.Waiter;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

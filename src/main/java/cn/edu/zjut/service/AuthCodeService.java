@@ -11,6 +11,7 @@ import java.util.Map;
 @Service
 public class AuthCodeService implements IAuthCodeService {
     private Map request;
+    private Map session;
     private IAuthCode authCode;
 
     @Autowired
@@ -30,6 +31,9 @@ public class AuthCodeService implements IAuthCodeService {
     public boolean authGenerate() {
         ActionContext context = ActionContext.getContext();
         request = (Map) context.get("request");
+        session = context.getSession();
+        if (session.get("user") != null)
+            session.remove("user");
         try {
             String imageBits = authCode.getImage();
             String code = authCode.getCode();

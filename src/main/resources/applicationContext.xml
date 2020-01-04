@@ -43,8 +43,10 @@
         <!-- 指定要自动扫描接口的基础包 -->
         <property name="basePackage" value="cn.edu.zjut.dao"/>
     </bean>
-    <!-- 容器自动扫描IOC组件-->
-    <context:component-scan base-package="cn.edu.zjut.**.*"/>
+    <!-- 容器自动扫描IOC组件和切面类-->
+    <context:component-scan base-package="cn.edu.zjut.**.*">
+        <context:include-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/>
+    </context:component-scan>
     <!-- aspectj支持自动代理实现AOP功能 -->
     <aop:aspectj-autoproxy/>
 </beans>

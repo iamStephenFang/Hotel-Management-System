@@ -68,6 +68,12 @@
               <span class="layui-left-nav"> 维护会员信息</span>
             </a>
           </dd>
+          <dd id="findMessage">
+            <a href="findAllMessage.action" class="layui-menu-tips">
+              <i class="fa fa-search-minus"></i>
+              <span class="layui-left-nav"> 维护公告信息</span>
+            </a>
+          </dd>
         </dl>
       </li>
 
@@ -85,7 +91,6 @@
           </dd>
         </dl>
       </li>
-
     </ul>
   </div>
 </div>

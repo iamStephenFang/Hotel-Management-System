@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.zjut.dao.MessageMapper">
+<!--    查询所有消息-->
+    <select id="findAllMessage" resultType="message">
+        select *
+        from `message`
+        order by sendTime desc
+    </select>
+<!--    添加消息-->
+    <insert id="addMessage" useGeneratedKeys="true" keyProperty="no" keyColumn="no" parameterType="message">
+        insert
+        into `message`(title, content, sendTime)
+        values (#{title}, #{content}, #{sendTime})
+    </insert>
+<!--    根据日期段查询消息-->
+    <select id="findMessageByDate" resultType="message">
+        select *
+        from `message`
+        where #{endTime} > sendTime and sendTime > #{beginTime}
+    </select>
+<!--    按序号查询消息-->
+    <select id="findMessageById" resultType="message" parameterType="int">
+        select *
+        from `message`
+        where no = #{no}
+    </select>
+<!--    删除消息-->
+    <delete id="deleteMessageById" parameterType="int">
+        delete
+        from `message`
+        where no = #{no}
+    </delete>
+</mapper>

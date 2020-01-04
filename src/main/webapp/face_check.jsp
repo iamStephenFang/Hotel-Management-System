@@ -13,20 +13,20 @@
       <div class="layui-form-item">
         <label class="layui-form-label">证件照:</label>
         <div class="layui-input-block">
-          <input type="file" name="idFile">
+          <input type="file" name="idFile" style="margin-top: 7px;">
         </div>
       </div>
       <br>
       <div class="layui-form-item">
         <label class="layui-form-label">正面照:</label>
         <div class="layui-input-block">
-          <input type="file" name="faceFile">
+          <input type="file" name="faceFile" style="margin-top: 7px;">
         </div>
       </div>
       <br>
       <div class="layui-form-item">
         <div class="layui-input-block">
-          <button class="layui-btn" lay-submit>核验</button>
+          <button class="layui-btn" lay-submit onclick="wait()">核验</button>
         </div>
       </div>
     </form>
@@ -35,6 +35,15 @@
 <script src="lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
 <script src="js/lay-config.js?v=1.0.4" charset="utf-8"></script>
 <script>
+    function wait() {
+        layui.use(['layer'], function () {
+            var layer = layui.layer;
+            layer.open({
+                type: 3
+            });
+        });
+    }
+
     layui.use(['form'], function () {
         var form = layui.form;
     });

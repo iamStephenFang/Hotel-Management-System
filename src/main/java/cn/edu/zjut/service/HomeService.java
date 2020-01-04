@@ -1,10 +1,13 @@
 package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.HomeMapper;
+import cn.edu.zjut.dao.MessageMapper;
+import cn.edu.zjut.po.Message;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 import cn.edu.zjut.po.Home;
 
@@ -12,6 +15,7 @@ import cn.edu.zjut.po.Home;
 public class HomeService implements IHomeService {
     private Map request;
     private HomeMapper homeMapper = null;
+    private MessageMapper messageMapper = null;
 
     @Autowired
     public void setHomeMapper(HomeMapper homeMapper) {
@@ -19,6 +23,14 @@ public class HomeService implements IHomeService {
     }
     public HomeMapper getHomeMapper() {
         return homeMapper;
+    }
+
+    @Autowired
+    public void setMessageMapper(MessageMapper messageMapper) {
+        this.messageMapper = messageMapper;
+    }
+    public MessageMapper getMessageMapper() {
+        return messageMapper;
     }
 
     /**
@@ -37,6 +49,11 @@ public class HomeService implements IHomeService {
             home.setOrderNum(homeMapper.getOrderNum());
             home.setCheckCustomerNum(homeMapper.getCheckCustomerNum());
             home.setRoomNum(homeMapper.getRoomNum());
+            List<Message> messages = messageMapper.findAllMessage();
+            for (int i = 4; i < messages.size(); i++){
+                messages.remove(i);
+            }
+            request.put("messages",messages);
             request.put("home",home);
             System.out.println("获取首页信息成功...");
             return true;

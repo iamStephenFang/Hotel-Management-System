@@ -34,7 +34,7 @@
     <insert id="insertRoom" parameterType="room">
         insert
         into `room`(roomID, roomType, roomDetail, roomStatus)
-            value (#{roomId}, #{roomType.type},#{roomDetail},#{roomStatus})
+        value (#{roomId}, #{roomType.type},#{roomDetail},#{roomStatus})
     </insert>
 
     <delete id="deleteRoom" parameterType="room">

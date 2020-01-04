@@ -40,7 +40,7 @@
         </fieldset>
       </div>
 
-      <div style="padding:10px 180px 10px 10px">
+      <div style="padding:10px 200px 10px 10px">
         <table class="layui-table" lay-data="{page:true,limit:10}" lay-filter="currentTableFilter">
           <thead>
           <tr>
@@ -55,7 +55,7 @@
           </tr>
           </thead>
           <tbody>
-          <s:iterator value="#request.registers" var="rg">
+          <s:iterator value="#request.registers">
           <tr>
             <td><s:property value="phone"/></td>
             <td><s:property value="account"/></td>
@@ -86,11 +86,6 @@
             <td>
               <a class="layui-btn layui-btn-xs data-count-edit"
                  onclick="updateLayer(<s:property value='phone'/>);">修改</a>
-              <form id="<s:property value='phone'/>" action="deleteRegister.action" method="post" class="layui-inline">
-                <s:hidden name="register.phone" value="%{#rg.phone}"/>
-                <a class="layui-btn layui-btn-danger layui-btn-xs data-count-edit"
-                   onclick="deleteLayer(<s:property value='phone'/>);">删除</a>
-              </form>
             </td>
           </tr>
           </s:iterator>
@@ -120,27 +115,6 @@
                           window.location.href = "http://localhost:8080/hotel_management_war_exploded/findAllRegisters.action";
                       }
                       return true;
-                  }
-              });
-          })
-      }
-
-      function deleteLayer(phone) {
-          layui.use('layer', function () {
-              var layer = layui.layer;
-
-              layer.open({
-                  type: 0,
-                  fixed: false,
-                  maxmin: true,
-                  scrollbar: false,
-                  content: '确认删除该用户信息？',
-                  btn: ['确认', '取消'],
-                  yes: function(index, layero){
-                      var form = document.getElementById('deleteUser');
-                      form.submit();
-                  },
-                  btn2: function(index, layero){
                   }
               });
           })

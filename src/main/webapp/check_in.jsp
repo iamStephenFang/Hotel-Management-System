@@ -315,7 +315,7 @@
 
             layer.open({
                 type: 2,
-                area: ['500px', '450px'],
+                area: ['500px', '300px'],
                 fixed: false,
                 maxmin: true,
                 scrollbar: false,

@@ -9,15 +9,7 @@ import org.springframework.stereotype.Controller;
 @Controller
 @Scope("prototype")
 public class HomeAction {
-    private Home home;
     private IHomeService homeService;
-
-    public void setHome(Home home) {
-        this.home = home;
-    }
-    public Home getHome() {
-        return home;
-    }
 
     @Autowired
     public void setHomeService(IHomeService homeService) {
