@@ -1,7 +1,10 @@
 package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.CheckOutMapper;
+import cn.edu.zjut.dao.OrderMapper;
+import cn.edu.zjut.dao.RegisterMapper;
 import cn.edu.zjut.po.Order;
+import cn.edu.zjut.po.Register;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +17,8 @@ public class CheckOutService implements ICheckOutService {
     private Map request;
     private Map session;
     private CheckOutMapper checkOutMapper = null;
+    private RegisterMapper registerMapper = null;
+    private OrderMapper orderMapper = null;
 
     @Autowired
     public void setCheckOutMapper(CheckOutMapper checkOutMapper) {
@@ -21,6 +26,22 @@ public class CheckOutService implements ICheckOutService {
     }
     public CheckOutMapper getCheckOutMapper() {
         return checkOutMapper;
+    }
+
+    @Autowired
+    public void setRegisterMapper(RegisterMapper registerMapper) {
+        this.registerMapper = registerMapper;
+    }
+    public RegisterMapper getRegisterMapper() {
+        return registerMapper;
+    }
+
+    @Autowired
+    public void setOrderMapper(OrderMapper orderMapper) {
+        this.orderMapper = orderMapper;
+    }
+    public OrderMapper getOrderMapper() {
+        return orderMapper;
     }
 
     /**
@@ -96,6 +117,16 @@ public class CheckOutService implements ICheckOutService {
                     return false;
                 }
                 System.out.println("订单状态更新成功...");
+
+                Order order = orderMapper.findOrderById(orderId);
+                Register register = registerMapper.findByPhone(order.getRegister().getPhone());
+                register.setScore(register.getScore() + order.getPayment().intValue());
+                colNum = registerMapper.updateRegister(register);
+
+                if (colNum == 0) {
+                    System.out.println("更新注册用户积分失败...");
+                }
+                System.out.println("更新注册用户积分成功...");
             }
             else
                 System.out.println("订单：" + orderId + " 未完成，无需更新订单状态...");

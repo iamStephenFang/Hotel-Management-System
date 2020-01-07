@@ -39,7 +39,7 @@
     </select>
 
 <!--    通过订单号单条件搜索订单-->
-    <select id="findOrderById" parameterType="int" resultType="order">
+    <select id="findOrderById" parameterType="int" resultMap="orderMapper">
         select *
         from `order`
         where orderID = #{orderId}
