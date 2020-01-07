@@ -6,7 +6,7 @@
 
 <struts>
     <constant name="struts.multipart.saveDir" value="/tmp"/>
-    <constant name="struts.multipart.maxSize" value="5000000"/>
+    <constant name="struts.multipart.maxSize" value="7000000"/>
     <package name="hotel" extends="struts-default" namespace="/">
         <global-results>
             <result name="authCheckFail" type="redirect">

@@ -75,6 +75,8 @@ public class CheckCustomerAction {
      * 按姓名 / 手机号 / 订单 / 房间号查询房客
      */
     public String findByMultiConditions(){
+        if (orderId != null && !orderId.equals(""))
+            checkCustomer.setOrderId(Integer.parseInt(orderId));
         if (checkCustomerService.findByMultiConditions(checkCustomer)){
             return "findByMultiConditionsSuccess";
         }

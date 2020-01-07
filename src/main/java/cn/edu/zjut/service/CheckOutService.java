@@ -71,7 +71,7 @@ public class CheckOutService implements ICheckOutService {
         session = context.getSession();
         String roomId = (String) session.get("roomId");
         Date leaveTime = (Date) session.get("leaveTime");
-        if (roomId == null || leaveTime ==null) {
+        if (roomId == null || leaveTime == null) {
             System.out.println("会话作用域存值roomId和leaveTime失败...");
             return false;
         }

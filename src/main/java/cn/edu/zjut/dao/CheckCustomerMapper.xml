@@ -82,7 +82,7 @@
         <where>
             o.orderID = co.orderID and co.customerID = c.customerID
             <if test="roomId != null and roomId != ''">
-                and co.roomID = #{room.roomId}
+                and co.roomID = #{roomId}
             </if>
             <if test="name != null and name != ''">
                 and c.name = #{name}

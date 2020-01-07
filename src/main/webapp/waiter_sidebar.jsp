@@ -63,7 +63,7 @@
           <dd id="findMessage">
             <a href="findAllMessage.action" class="layui-menu-tips">
               <i class="fa fa-search-minus"></i>
-              <span class="layui-left-nav"> 公告查询</span>
+              <span class="layui-left-nav"> 查询公告</span>
             </a>
           </dd>
         </dl>

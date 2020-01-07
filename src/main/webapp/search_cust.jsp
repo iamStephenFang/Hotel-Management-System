@@ -40,7 +40,7 @@
                 <div class="layui-inline">
                   <label class="layui-form-label">订单ID</label>
                   <div class="layui-input-inline" style="width: 150px">
-                    <input type="text" name="checkCustomer.orderId" autocomplete="off" class="layui-input">
+                    <input type="number" name="orderId" autocomplete="off" class="layui-input">
                   </div>
                 </div>
                 <div class="layui-inline">
