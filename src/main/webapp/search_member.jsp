@@ -65,11 +65,6 @@
               <td>
                 <a class="layui-btn layui-btn-xs data-count-edit"
                    onclick="updateLayer(<s:property value='level'/>);">修改</a>
-<%--                <form id="<s:property value='level'/>" action="deleteMember.action" method="post" class="layui-inline">--%>
-<%--                  <s:hidden name="member.level" value="%{#me.level}"/>--%>
-<%--                  <a class="layui-btn layui-btn-danger layui-btn-xs data-count-edit"--%>
-<%--                     onclick="deleteLayer();">删除</a>--%>
-<%--                </form>--%>
               </td>
             </tr>
           </s:iterator>
@@ -103,27 +98,6 @@
               });
           })
       }
-
-      // function deleteLayer(level) {
-      //     layui.use('layer', function () {
-      //         var layer = layui.layer;
-      //
-      //         layer.open({
-      //             type: 0,
-      //             fixed: false,
-      //             maxmin: true,
-      //             scrollbar: false,
-      //             content: '已存在记录的会员无法删除！确认删除该会员信息？',
-      //             btn: ['确认', '取消'],
-      //             yes: function (index, layero) {
-      //                 var form = document.getElementById(level);
-      //                 form.submit();
-      //             },
-      //             btn2: function (index, layero) {
-      //             }
-      //         });
-      //     })
-      // }
 
       layui.use(['form', 'table', 'element', 'layer', 'layuimini', 'element'], function () {
           var $ = layui.jquery,
