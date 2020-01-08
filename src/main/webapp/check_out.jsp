@@ -155,13 +155,13 @@
                     </div>
                   </div>
                   <div style="text-align: center;margin-top: 90px;">
-                    <i class="layui-icon layui-circle"
-                       style="color: white;font-size:30px;font-weight:bold;background: #52C41A;padding: 20px;line-height: 80px;">&#xe605;</i>
-                    <div style="font-size: 24px;color: #333;font-weight: 500;margin-top: 30px;">
-                      退房成功
-                    </div>
-                    <div style="font-size: 14px;color: #666;margin-top: 20px;">提醒顾客携带好个人证件离店</div>
+                  <i class="layui-icon layui-circle"
+                     style="color: white;font-size:30px;font-weight:bold;background: #52C41A;padding: 20px;line-height: 80px;">&#xe605;</i>
+                  <div style="font-size: 24px;color: #333;font-weight: 500;margin-top: 30px;">
+                    退房成功
                   </div>
+                  <div style="font-size: 14px;color: #666;margin-top: 20px;">提醒顾客携带好个人证件离店</div>
+                </div>
                   <div style="text-align: center;margin-top: 50px;">
                     <a href="check_out.jsp" class="layui-btn next">再次办理</a>
                     <a href="listAllCustomers.action" class="layui-btn layui-btn-primary">查看信息</a>
@@ -197,38 +197,6 @@
           elem: '#date'
         });
 
-        // step.render({
-        //     elem: '#stepForm',
-        //     filter: 'stepForm',
-        //     width: '100%', //设置容器宽度
-        //     stepWidth: '750px',
-        //     height: '500px',
-        //     stepItems: [{
-        //         title: '填写退房信息'
-        //     }, {
-        //         title: '确认退房信息'
-        //     }, {
-        //         title: '完成退房'
-        //     }]
-        // });
-
-        // form.on('submit(formStep)', function (data) {
-        //     step.next('#stepForm');
-        //     return false;
-        // });
-        //
-        // form.on('submit(formStep2)', function (data) {
-        //     step.next('#stepForm');
-        //     return false;
-        // });
-        //
-        // $('.pre').click(function () {
-        //     step.pre('#stepForm');
-        // });
-        //
-        // $('.next').click(function () {
-        //     step.next('#stepForm');
-        // });
     })
 </script>
 </body>
