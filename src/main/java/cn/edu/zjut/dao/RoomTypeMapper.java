@@ -23,6 +23,14 @@ public interface RoomTypeMapper {
     RoomType findByRoomType(String type);
 
     /**
+     * @author 王凌云
+     * @param type 房间类型
+     * @return int
+     * 按房间类型查找最大入住人数
+     */
+    int findMaxCheckInNumByType(String type);
+
+    /**
      * @author 方宣淼
      * @param roomType 入住房客
      * @return int

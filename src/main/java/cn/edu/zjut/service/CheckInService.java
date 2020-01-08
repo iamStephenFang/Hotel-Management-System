@@ -1,8 +1,11 @@
 package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.CheckInMapper;
+import cn.edu.zjut.dao.RoomMapper;
+import cn.edu.zjut.dao.RoomTypeMapper;
 import cn.edu.zjut.po.CheckCustomerExtendsOrder;
 import cn.edu.zjut.po.Order;
+import cn.edu.zjut.po.Room;
 import com.opensymphony.xwork2.ActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +18,8 @@ public class CheckInService implements ICheckInService {
     private Map request;
     private Map session;
     private CheckInMapper checkInMapper = null;
+    private RoomMapper roomMapper = null;
+    private RoomTypeMapper roomTypeMapper = null;
 
     @Autowired
     public void setCheckInMapper(CheckInMapper checkInMapper) {
@@ -22,6 +27,22 @@ public class CheckInService implements ICheckInService {
     }
     public CheckInMapper getCheckInMapper() {
         return checkInMapper;
+    }
+
+    @Autowired
+    public void setRoomMapper(RoomMapper roomMapper) {
+        this.roomMapper = roomMapper;
+    }
+    public RoomMapper getRoomMapper() {
+        return roomMapper;
+    }
+
+    @Autowired
+    public void setRoomTypeMapper(RoomTypeMapper roomTypeMapper) {
+        this.roomTypeMapper = roomTypeMapper;
+    }
+    public RoomTypeMapper getRoomTypeMapper() {
+        return roomTypeMapper;
     }
 
     /**
@@ -48,6 +69,7 @@ public class CheckInService implements ICheckInService {
                 System.out.println("查询成功...");
                 request.put("order",order);
                 session.put("orderId",orderId);
+                session.put("roomType",order.getRoomType());
                 return true;
             }
         }catch (Exception e) {
@@ -83,13 +105,8 @@ public class CheckInService implements ICheckInService {
             else if (flag == 1){
                 request.put("error","已存在该住客信息");
                 System.out.println("已存在该房客信息...");
-                return true;
             }
-            else {
-                request.put("error","查询住客信息失败");
-                System.out.println("查询房客信息失败...");
-                return false;
-            }
+            return true;
         }catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -106,6 +123,8 @@ public class CheckInService implements ICheckInService {
     public boolean insertMiddleRecord(CheckCustomerExtendsOrder checkCustomer) {
         System.out.println("正在执行insertMiddleRecord方法...");
         System.out.println(checkCustomer);
+        ActionContext context = ActionContext.getContext();
+        session = context.getSession();
         try {
             int colNum = checkInMapper.insertMiddleRecord(checkCustomer);
             if (colNum == 0) {
@@ -115,6 +134,24 @@ public class CheckInService implements ICheckInService {
             }
             else {
                 System.out.println("插入成功...");
+            }
+
+            int checkInNum = checkInMapper.findCheckInNumByRoomId(checkCustomer.getRoomId());
+            int maxCheckInNum = roomTypeMapper.findMaxCheckInNumByType(String.valueOf(session.get("roomType")));
+            session.remove("roomType");
+            if (checkInNum == maxCheckInNum){
+                Room room = roomMapper.findByRoomId(checkCustomer.getRoomId());
+                room.setRoomStatus(false);
+                colNum = roomMapper.updateRoom(room);
+                if (colNum == 0){
+                    System.out.println("更新房间状态失败...");
+                    return false;
+                }
+                System.out.println("更新房间状态成功...");
+                return true;
+            }
+            else {
+                System.out.println("该房间已入住" + checkInNum + "人，" + "一共可入住" + maxCheckInNum + "人，无需更改房间状态");
                 return true;
             }
         }catch (Exception e){

@@ -23,6 +23,13 @@
         where customerID = #{customerId}
     </select>
 
+    <!--    按房间号查询该房间入住人数-->
+    <select id="findCheckInNumByRoomId" parameterType="string" resultType="int">
+        select count(*)
+        from `customer_order`
+        where roomID = #{roomId} and living = 1
+    </select>
+
     <!--    插入入住房客信息-->
     <insert id="insertCheckCustomer" parameterType="checkCusExtOrder">
         insert

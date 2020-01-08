@@ -8,6 +8,7 @@
         <result property="orderTime" column="orderTime"/>
         <result property="checkInTime" column="checkInTime"/>
         <result property="leaveTime" column="leaveTime"/>
+        <result property="payment" column="payment"/>
         <result property="orderDetail" column="orderDetail"/>
         <result property="orderStatus" column="orderStatus"/>
         <association property="register" javaType="register">

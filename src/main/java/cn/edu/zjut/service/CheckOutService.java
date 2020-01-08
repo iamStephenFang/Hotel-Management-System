@@ -106,8 +106,17 @@ public class CheckOutService implements ICheckOutService {
             }
             System.out.println("房间状态更新成功...");
 
-            // 更新订单状态
+            // 更新离开时间和居住状态
             int orderId = checkOutMapper.findOrderIdByRoomIdAndLeavingTime(roomId);
+            colNum = checkOutMapper.updateLeaveTimeAndLivingStatus(leaveTime,roomId);
+            if (colNum == 0){
+                request.put("error","更新离开时间与居住状态失败");
+                System.out.println("更新离开时间和居住状态失败...");
+                return false;
+            }
+            System.out.println("更新离开时间和居住状态成功...");
+
+            // 更新订单状态
             int count = checkOutMapper.findLivingConditions(orderId);
             if (count == 0){
                 colNum = checkOutMapper.updateOrderStatus(orderId);
@@ -130,15 +139,6 @@ public class CheckOutService implements ICheckOutService {
             }
             else
                 System.out.println("订单：" + orderId + " 未完成，无需更新订单状态...");
-
-            // 更新离开时间和居住状态
-            colNum = checkOutMapper.updateLeaveTimeAndLivingStatus(leaveTime,roomId);
-            if (colNum == 0){
-                request.put("error","更新离开时间与居住状态失败");
-                System.out.println("更新离开时间和居住状态失败...");
-                return false;
-            }
-            System.out.println("更新离开时间和居住状态成功...");
 
             session.remove("roomId");
             session.remove("leaveTime");

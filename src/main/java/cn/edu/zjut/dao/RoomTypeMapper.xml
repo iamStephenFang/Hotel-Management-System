@@ -14,6 +14,12 @@
         where type=#{type}
     </select>
 
+    <select id="findMaxCheckInNumByType" resultType="int" parameterType="string">
+        select checkInNum
+        from `room_type`
+        where type = #{type}
+    </select>
+
     <select id="findAllRoomTypes" resultMap="roomTypeMapper">
         select *
         from `room_type`

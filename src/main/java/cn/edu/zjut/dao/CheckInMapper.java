@@ -19,6 +19,14 @@ public interface CheckInMapper {
 
     /**
      * @author 王凌云
+     * @param roomId 房间号
+     * @return int
+     * 按房间号查询该房间入住人数
+     */
+    int findCheckInNumByRoomId(String roomId);
+
+    /**
+     * @author 王凌云
      * @param checkCustomer 入住顾客
      * @return int
      * 插入入住顾客信息
