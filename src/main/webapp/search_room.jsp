@@ -46,7 +46,7 @@
                 <div class="layui-inline">
                   <label class="layui-form-label">房间状态</label>
                   <div class="layui-input-inline" style="width: 150px">
-                    <s:hidden name="room.roomStatus" value="1"/>
+                    <s:hidden name="room.roomStatus" value="true"/>
                     <input type="text" value="房间空余" class="layui-input" style="color: #9dadce" readonly>
                   </div>
                 </div>
