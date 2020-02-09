@@ -1,4 +1,4 @@
-# 连锁酒店管理系统 ( JavaEE 课程设计项目 )
+# 独立酒店管理系统 ( JavaEE 课程设计项目 )
 ## 项目介绍
 使用 JavaEE 编写的界面简洁、功能丰富的酒店管理系统。
 
@@ -14,8 +14,7 @@
 
 在开发之初由于小组作业的原因，后台系统与前台系统的项目分开撰写，两者共享一部分代码。您可以通过下面的链接查看面向用户的项目。
 
-面向用户项目的地址（即将开源）：[https://github.com/iamStephenFang/Hotel-Client]
-(https://github.com/iamStephenFang/Hotel-Client)
+面向用户项目的地址（已开源）：[独立酒店预订系统](https://github.com/iamStephenFang/Hotel-Client)
 
 ## 技术栈
 
@@ -27,14 +26,14 @@
 
 ## 项目特性
 1. ~~满足课程设计要求~~
-2. 满足小型个体酒店后台数据管理需求
+2. 满足小型独立酒店后台数据管理需求
 3. 代码基本参照[阿里巴巴编码规范](https://edu.aliyun.com/certification/cldt02)进行编写，提供Spring IoC 全注解配置
 4. 体现了 Spring IoC 与 Spring AOP 的设计思路
 5. 实现了模态框和分布式表单的设计
 6. 应用了MyBatis的动态SQL特性
 7. 整合了人证核验功能
-8. 整合了手机验证码核验功能
-9. 整合了邮件注册功能
+8. 整合了手机验证码核验功能（在[独立酒店预订系统](https://github.com/iamStephenFang/Hotel-Client)）
+9. 整合了邮件注册功能（在[独立酒店预订系统](https://github.com/iamStephenFang/Hotel-Client)）
 10. 提供了权限验证和登录验证功能
 
 ## 安装
