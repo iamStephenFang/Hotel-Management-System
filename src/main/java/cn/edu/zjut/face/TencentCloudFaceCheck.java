@@ -20,8 +20,8 @@ import java.io.File;
 public class TencentCloudFaceCheck implements ITencentCloudFaceCheck {
 
     // 腾讯云个人密钥
-    public static final String secretId = "AKIDOjx6nOn3HQWdcMM1zgC1ygAOL0PXJO9d";
-    public static final String secretKey = "OVN0MRfgRw9JFuIRLyKPzNTIqBG3aDpN";
+    public static final String secretId = "PERSONAL SECRET ID";
+    public static final String secretKey = "PERSONAL SECRET KEY";
 
     // 获得 json 对象
     public static final Gson gson = new GsonBuilder().create();
@@ -101,7 +101,8 @@ public class TencentCloudFaceCheck implements ITencentCloudFaceCheck {
     }
 
 
-    public boolean check(File idImg,File faceImg) {
+    @Override
+    public boolean check(File idImg, File faceImg) {
         // 密钥认证
         Credential cred = new Credential(secretId, secretKey);
 
