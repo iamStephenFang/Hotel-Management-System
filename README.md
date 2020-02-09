@@ -6,13 +6,15 @@
 
 - 面向酒店工作者的后台系统。酒店工作者分为两类，分别是服务员与管理员。服务员进入系统后可快速为顾客提供选定房间与退房业务，并可查询近期订单进行对照，管理员负责酒店的运营事务，对酒店配置进行管理，调整房间信息、会员等级信息，还可负责一部分服务员的事务，可以对一些信息进行修正。
 
-- 面向会员的前台系统。会员进入系统后，可简单查看酒店信息，任意根据条件查询客房相关信息，快速便捷下达订单，节约了顾客查找客房信息的时间，优化顾客使用系统的体验。
+- 面向用户的前台系统。用户进入系统后，可查看酒店信息，任意根据条件查询客房相关信息，快速便捷下达订单，节约了顾客查找客房信息的时间，优化顾客使用系统的体验。
 
 本系统易维护、扩展性强、能兼容、界面美观且操作，通过使用本系统可以让繁琐的客房服务事务条理化,节约了顾客与工作人员的时间与精力,使酒店业务工作变得更加方便快捷。（同时超纲完成了课程设计的要求）
 
-在开发之初由于小组作业的原因，后台系统与前台系统的项目分开撰写，两者共享一部分代码。该项目会不定时进行更新修复bug，如果这个项目能够帮助到您，希望您star和watch，如果您在项目配置中遇到了bug请务必指正。
+该项目会不定时进行更新修复bug，如果这个项目能够帮助到您，希望您star和watch，如果您在项目配置中遇到了bug请务必指正。
 
-面向会员项目的地址（即将开源）：[https://github.com/iamStephenFang/Hotel-Client]
+在开发之初由于小组作业的原因，后台系统与前台系统的项目分开撰写，两者共享一部分代码。您可以通过下面的链接查看面向用户的项目。
+
+面向用户项目的地址（即将开源）：[https://github.com/iamStephenFang/Hotel-Client]
 (https://github.com/iamStephenFang/Hotel-Client)
 
 ## 技术栈
@@ -47,9 +49,15 @@ git clone https://github.com/iamStephenFang/Hotel-Management-System.git
 
 ![管理系统后台首页](https://s2.ax1x.com/2020/02/10/14itiV.png)
 
+<center>管理系统后台首页</center>
+
 ![办理入住界面](https://s2.ax1x.com/2020/02/10/14FEy4.md.png)
 
+<center>办理入住界面</center>
+
 ![管理房间界面](https://s2.ax1x.com/2020/02/10/14Fpoq.png)
+
+<center>管理房间界面</center>
 
 ## 部署方法
 
@@ -72,17 +80,27 @@ git clone https://github.com/iamStephenFang/Hotel-Management-System.git
 
 ![数据库ER图](https://s2.ax1x.com/2020/02/10/14kPHA.png)
 
+<center>数据库ER图</center>
+
 ![在IDEA中加载struts的配置文件](https://s2.ax1x.com/2020/02/09/1hlotg.jpg)
 
-![在IDEA中加载spring的配置文件](https://s2.ax1x.com/2020/02/09/1hlHpj.jpg)
+<center>在IDEA中加载Struts的配置文件</center>
+
+![在IDEA中加载Spring的配置文件](https://s2.ax1x.com/2020/02/09/1hlHpj.jpg)
+
+<center>在IDEA中加载Spring的配置文件</center>
 
 ![配置Tomcat服务器](https://s2.ax1x.com/2020/02/09/1hlv7T.jpg)
+
+<center>配置Tomcat服务器</center>
 
 ### 人证核验功能
 
 采用[腾讯云身份证识别和人脸比对API](https://cloud.tencent.com/document/product/1007/35921)，使用请注册并获取API密钥。
 
 ![](https://s2.ax1x.com/2020/02/09/1h8LjA.jpg)
+
+<center>腾讯云相关后台页面</center>
 
 获取密钥后向 `cn.edu.zjut.face` 包中的 `TencentCloudFaceCheck.java `文件内填入 **secretId** 和 **secretKey** 两个常量的值即可，更多配置信息详见代码和注释
 
@@ -96,6 +114,8 @@ git clone https://github.com/iamStephenFang/Hotel-Management-System.git
 
 ![](https://s2.ax1x.com/2020/02/09/1hJLwt.jpg)
 
+<center>网易云信后台页面</center>
+
 获取密钥后在控制台新建验证码短信模板，并向 `cn.edu.zjut.authcode` 包中的 `AuthCodeService.java` 文件内填入 **APP_SECRET** , **APP_KEY** 和 **TEMPLATEID** 三个常量的值即可，更多配置信息详见代码和注释.
 
 
@@ -104,6 +124,8 @@ git clone https://github.com/iamStephenFang/Hotel-Management-System.git
 采用[网易163邮箱](https://mail.163.com/)，使用前请先设置客户端授权码。
 
 ![](https://s2.ax1x.com/2020/02/09/1hNkGT.png)
+
+<center>网易163邮箱后台页面</center>
 
 设置授权码后向 `cn.edu.zjut.email` 包中的 `EmailService.java` 文件内填入 **FROM** , **USER** 和 **PASSWORD** 三个常量的值即可，更多配置信息详见代码和注释
 
